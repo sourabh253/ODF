@@ -38,6 +38,14 @@ const logout = () => {
   localStorage.removeItem('user');
 };
 
+const loginAdmin = async (userData) => {
+  const response = await axios.post(API_URL + 'admin/login', userData);
+  if (response.data) {
+    localStorage.setItem('user', JSON.stringify(response.data));
+  }
+  return response.data;
+};
+
 const getMe = async (token) => {
   const config = {
     headers: {
@@ -48,13 +56,25 @@ const getMe = async (token) => {
   return response.data;
 };
 
+const changePassword = async (currentPassword, newPassword, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await axios.patch(API_URL + 'change-password', { currentPassword, newPassword }, config);
+  return response.data;
+};
+
 const authService = {
   registerCustomer,
   loginCustomer,
   registerWorker,
   loginWorker,
+  loginAdmin,
   logout,
   getMe,
+  changePassword,
 };
 
 export default authService;

@@ -10,8 +10,16 @@ import workerRoutes from './routes/workerRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import customerRoutes from './routes/customerRoutes.js';
 import bookingRoutes from './routes/bookingRoutes.js';
+import catalogRoutes from './routes/catalogRoutes.js';
+import walletRoutes from './routes/walletRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
+import reviewRoutes from './routes/reviewRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+import notificationRoutes from './routes/notificationRoutes.js';
 import jwt from 'jsonwebtoken';
 import User from './models/User.js';
+import rateLimit from 'express-rate-limit';
+import mongoSanitize from 'express-mongo-sanitize';
 
 dotenv.config();
 
@@ -31,21 +39,35 @@ app.use(
   })
 );
 
+// Security: sanitize NoSQL injection attempts
+app.use(mongoSanitize());
+
+// Security: rate limit auth routes to prevent brute-force
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 20,
+  message: { message: 'Too many attempts, please try again after 15 minutes' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Health check route
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'ODForce API is running' });
 });
 
 // API routes
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/worker', workerRoutes);
 app.use('/api/upload', uploadRoutes);
-// Future phases
 app.use('/api/customers', customerRoutes);
 app.use('/api/bookings', bookingRoutes);
-app.use('/api/payments', (req, res) => res.status(404).json({ message: 'Not implemented yet' }));
-app.use('/api/wallet', (req, res) => res.status(404).json({ message: 'Not implemented yet' }));
-app.use('/api/reviews', (req, res) => res.status(404).json({ message: 'Not implemented yet' }));
+app.use('/api/catalog', catalogRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/wallet', walletRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 app.use(errorHandler);
 

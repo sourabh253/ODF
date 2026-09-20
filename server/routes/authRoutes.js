@@ -6,6 +6,7 @@ import {
   loginWorker,
   loginAdmin,
   getMe,
+  changePassword,
 } from '../controllers/authController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
@@ -17,5 +18,6 @@ router.post('/worker/register', registerWorker);
 router.post('/worker/login', loginWorker);
 router.post('/admin/login', loginAdmin);
 router.get('/me', protect, getMe);
+router.patch('/change-password', protect, changePassword);
 
 export default router;

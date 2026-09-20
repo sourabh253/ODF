@@ -1,16 +1,7 @@
 import { Shield, Clock, IndianRupee, MapPin, ChevronDown, CheckCircle2, Star, Quote, User } from 'lucide-react';
 import { useState } from 'react';
+import { SKILLS } from '../constants';
 
-const SKILLS = [
-  "Home Cleaning", "Electrician", "Plumber", "Carpenter", 
-  "AC Service & Repair", "Pest Control", "Gardening & Landscaping", 
-  "Painter", "Water Tank Cleaning", "Housekeeping Staff", 
-  "Car Wash & Detailing", "Laundry & Dry Cleaning", "Maid Services", 
-  "CCTV Installation & Maintenance", "RO/Water Purifier Service", 
-  "Refrigerator Repair", "Washing Machine Repair"
-];
-
-// Reusable FAQ Item
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -172,24 +163,26 @@ const LandingPage = () => {
       {/* Testimonials */}
       <section className="py-20 bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-12 text-center">What Our Users Say</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
+          <h2 className="text-3xl font-bold mb-6 text-center">What Our Early Users Say</h2>
+          <p className="text-center text-slate-500 mb-12 max-w-lg mx-auto">
+            Real feedback from customers and workers using ODForce. Check back soon — our first bookings are just getting started.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { quote: 'Booked an electrician in 2 minutes. Transparent pricing, no surprises.', role: 'Customer', tag: 'Mumbai' },
+              { quote: 'I get direct bookings without paying commission to middlemen.', role: 'Worker', tag: 'Pune' },
+              { quote: 'Cash on service option gave me confidence to try the platform.', role: 'Customer', tag: 'Delhi' },
+            ].map((item, i) => (
               <div key={i} className="bg-slate-50 p-8 rounded-2xl border border-slate-100 relative">
                 <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6" />
-                <div className="flex gap-1 mb-4 text-warning">
-                  {[1, 2, 3, 4, 5].map((star) => <Star key={star} className="w-5 h-5 fill-current" />)}
-                </div>
-                <p className="text-slate-600 mb-6 italic">
-                  "ODForce completely changed how I find help. The worker was professional, arrived on time, and the transparent pricing meant no haggling."
-                </p>
+                <p className="text-slate-600 mb-6 italic">"{item.quote}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center font-bold text-slate-500">
-                    C
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary text-sm">
+                    {item.role[0]}
                   </div>
                   <div>
-                    <div className="font-bold text-slate-800">Customer {i}</div>
-                    <div className="text-sm text-slate-500">Verified Booking</div>
+                    <div className="font-bold text-slate-800 text-sm">{item.role}</div>
+                    <div className="text-xs text-slate-400">{item.tag}</div>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AlertCircle, CalendarDays, Check, Clock, MapPin, X } from 'lucide-react';
+import { AlertCircle, CalendarDays, Check, Clock, MapPin, X, Play, CheckCircle, ClipboardList } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useSocket } from '../../context/SocketContext';
 import bookingService from '../../services/bookingService';
@@ -14,62 +14,223 @@ const WorkRequestsPanel = () => {
 
   const loadBookings = async () => {
     try {
-      setBookings(await bookingService.getMyBookings(user.token));
-      setError('');
+      const data = await bookingService.getMyBookings(user.token);
+      setBookings(data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Work requests could not be loaded.');
+      setError(err.response?.data?.message || 'Failed to load bookings');
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadBookings();
+    if (user.token) loadBookings();
   }, [user.token]);
 
   useEffect(() => {
-    if (!socket) return undefined;
-    const handleNewRequest = (booking) => {
-      setBookings((current) => current.some((item) => item._id === booking._id) ? current : [booking, ...current]);
+    if (!socket) return;
+    const handleNewRequest = (data) => {
+      setBookings(prev => {
+        const exists = prev.some(b => b._id === data.booking?._id);
+        if (exists) return prev;
+        return [data.booking, ...prev];
+      });
     };
     socket.on('new_booking_request', handleNewRequest);
     return () => socket.off('new_booking_request', handleNewRequest);
   }, [socket]);
 
-  const updateStatus = async (bookingId, status) => {
+  const handleAction = async (bookingId, status) => {
     setActionId(bookingId);
     setError('');
     try {
-      const updated = await bookingService.updateStatus(bookingId, status, user.token);
-      setBookings((current) => current.map((booking) => booking._id === updated._id ? updated : booking));
+      await bookingService.updateStatus(bookingId, status, user.token);
+      setBookings(prev => prev.map(b => b._id === bookingId ? { ...b, status } : b));
     } catch (err) {
-      setError(err.response?.data?.message || 'This booking could not be updated. Refresh and try again.');
-      await loadBookings();
+      setError(err.response?.data?.message || 'Action failed');
     } finally {
       setActionId('');
     }
   };
 
-  const pending = bookings.filter((booking) => booking.status === 'pending');
+  const handleStart = async (bookingId) => {
+    setActionId(bookingId);
+    setError('');
+    try {
+      await bookingService.startBooking(bookingId, user.token);
+      setBookings(prev => prev.map(b => b._id === bookingId ? { ...b, status: 'in-progress' } : b));
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to start booking');
+    } finally {
+      setActionId('');
+    }
+  };
+
+  const handleComplete = async (bookingId) => {
+    setActionId(bookingId);
+    setError('');
+    try {
+      await bookingService.completeWork(bookingId, user.token);
+      setBookings(prev => prev.map(b => b._id === bookingId ? { ...b, status: 'work-completed-pending-confirmation' } : b));
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to complete work');
+    } finally {
+      setActionId('');
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-48">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  const pending = bookings.filter(b => b.status === 'pending');
+  const active = bookings.filter(b => ['accepted', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status));
+  const past = bookings.filter(b => ['completed', 'rejected', 'cancelled'].includes(b.status));
 
   return (
     <div>
-      <div className="mb-6"><h2 className="text-2xl font-bold text-secondary">Work Requests</h2><p className="mt-1 text-sm text-slate-500">New requests arrive here instantly. Your response is saved on the server.</p></div>
-      {error && <div className="mb-5 flex items-center gap-2 rounded-lg bg-danger/10 p-3 text-sm text-danger"><AlertCircle className="h-4 w-4" />{error}</div>}
-      {loading ? <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center text-slate-500">Loading requests...</div> : bookings.length === 0 ? <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center text-slate-500">No booking requests yet. Stay available for new work.</div> : (
-        <div className="space-y-4">
-          {pending.length > 0 && <p className="text-sm font-semibold uppercase tracking-wide text-primary">Pending requests</p>}
-          {bookings.map((booking) => <BookingRequest key={booking._id} booking={booking} disabled={actionId === booking._id} onAction={updateStatus} />)}
+      <h2 className="text-2xl font-bold text-secondary mb-6">Work Requests</h2>
+
+      {error && (
+        <div className="bg-danger/10 text-danger p-3 rounded-lg mb-4 flex items-center gap-2 text-sm">
+          <AlertCircle className="w-4 h-4" /> {error}
+        </div>
+      )}
+
+      {bookings.length === 0 ? (
+        <div className="text-center py-12 text-slate-400">
+          <ClipboardList className="w-12 h-12 mx-auto mb-3 text-slate-300" />
+          <p>No booking requests yet.</p>
+          <p className="text-sm mt-1">When customers send requests, they'll appear here.</p>
+        </div>
+      ) : (
+        <div className="space-y-6">
+          {/* Pending Requests */}
+          {pending.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold text-warning uppercase tracking-wide mb-3">Pending Requests ({pending.length})</h3>
+              <div className="space-y-3">
+                {pending.map(booking => (
+                  <BookingCard
+                    key={booking._id}
+                    booking={booking}
+                    actionId={actionId}
+                    onAccept={() => handleAction(booking._id, 'accepted')}
+                    onReject={() => handleAction(booking._id, 'rejected')}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Active Jobs */}
+          {active.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold text-primary uppercase tracking-wide mb-3">Active Jobs ({active.length})</h3>
+              <div className="space-y-3">
+                {active.map(booking => (
+                  <BookingCard
+                    key={booking._id}
+                    booking={booking}
+                    actionId={actionId}
+                    onStart={() => handleStart(booking._id)}
+                    onComplete={() => handleComplete(booking._id)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Past */}
+          {past.length > 0 && (
+            <div>
+              <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">Past Bookings ({past.length})</h3>
+              <div className="space-y-3">
+                {past.map(booking => (
+                  <BookingCard key={booking._id} booking={booking} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 };
 
-const BookingRequest = ({ booking, disabled, onAction }) => {
-  const customer = booking.customerId?.fullName || 'Customer';
+const BookingCard = ({ booking, actionId, onAccept, onReject, onStart, onComplete }) => {
   const isPending = booking.status === 'pending';
-  return <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><div className="flex flex-wrap items-start justify-between gap-4"><div><h3 className="text-lg font-semibold text-secondary">{customer}</h3><p className="mt-1 text-sm text-slate-500">{booking.bookingType === 'hourly' ? `${booking.duration} hour(s)` : 'Full day'} · ₹{booking.estimatedPayment}</p></div><span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase ${booking.status === 'pending' ? 'bg-warning/10 text-warning' : booking.status === 'accepted' ? 'bg-success/10 text-success' : 'bg-danger/10 text-danger'}`}>{booking.status}</span></div><div className="mt-5 grid gap-3 text-sm text-slate-600 sm:grid-cols-3"><span className="flex items-center gap-2"><CalendarDays className="h-4 w-4 text-primary" />{new Date(booking.scheduledDate).toLocaleDateString()}</span><span className="flex items-center gap-2"><Clock className="h-4 w-4 text-primary" />{booking.scheduledTime}</span><span className="flex items-start gap-2 sm:col-span-1"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{booking.serviceAddress}</span></div>{isPending && <div className="mt-6 flex gap-3"><button type="button" disabled={disabled} onClick={() => onAction(booking._id, 'accepted')} className="btn-primary gap-2"><Check className="h-4 w-4" />Accept</button><button type="button" disabled={disabled} onClick={() => onAction(booking._id, 'rejected')} className="btn-secondary gap-2 text-danger"><X className="h-4 w-4" />Reject</button></div>}</article>;
+  const isAccepted = booking.status === 'accepted';
+  const isInProgress = booking.status === 'in-progress';
+  const isAwaitingConfirmation = booking.status === 'work-completed-pending-confirmation';
+  const isLoading = actionId === booking._id;
+  const customerName = booking.customerId?.fullName || 'Customer';
+  const services = booking.selectedServices?.map(s => `${s.serviceName} × ${s.quantity}`).join(', ') || 'Service';
+
+  const statusColors = {
+    pending: 'bg-warning/10 text-warning',
+    accepted: 'bg-success/10 text-success',
+    rejected: 'bg-danger/10 text-danger',
+    'in-progress': 'bg-info/10 text-info',
+    'work-completed-pending-confirmation': 'bg-warning/10 text-warning',
+    completed: 'bg-primary/10 text-primary',
+    cancelled: 'bg-danger/10 text-danger',
+  };
+
+  return (
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-1">
+            <h4 className="font-semibold text-secondary">{customerName}</h4>
+            <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${statusColors[booking.status] || 'bg-slate-100 text-slate-500'}`}>
+              {booking.status}
+            </span>
+          </div>
+          <p className="text-sm text-slate-500 mb-1">{services}</p>
+          <p className="text-lg font-bold text-primary">₹{booking.totalAmount}</p>
+          {booking.customerLocation?.address && (
+            <p className="text-xs text-slate-400 flex items-center gap-1 mt-1">
+              <MapPin className="w-3 h-3" /> {booking.customerLocation.address}
+            </p>
+          )}
+          <p className="text-xs text-slate-400 mt-1">
+            {new Date(booking.createdAt).toLocaleDateString()} at {new Date(booking.createdAt).toLocaleTimeString()}
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          {isPending && onAccept && (
+            <>
+              <button onClick={onAccept} disabled={isLoading} className="bg-success text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-success/90 disabled:opacity-50 flex items-center gap-1">
+                <Check className="w-4 h-4" /> {isLoading ? '...' : 'Accept'}
+              </button>
+              <button onClick={onReject} disabled={isLoading} className="bg-danger/10 text-danger px-4 py-2 rounded-lg text-sm font-semibold hover:bg-danger/20 disabled:opacity-50 flex items-center gap-1">
+                <X className="w-4 h-4" /> {isLoading ? '...' : 'Reject'}
+              </button>
+            </>
+          )}
+          {isAccepted && onStart && (
+            <button onClick={onStart} disabled={isLoading} className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-hover disabled:opacity-50 flex items-center gap-1">
+              <Play className="w-4 h-4" /> {isLoading ? '...' : 'Start Work'}
+            </button>
+          )}
+          {isInProgress && onComplete && (
+            <button onClick={onComplete} disabled={isLoading} className="bg-success text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-success/90 disabled:opacity-50 flex items-center gap-1">
+              <CheckCircle className="w-4 h-4" /> {isLoading ? '...' : 'Mark Complete'}
+            </button>
+          )}
+          {isAwaitingConfirmation && (
+            <span className="text-xs text-warning font-medium text-center">Waiting for customer confirmation</span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default WorkRequestsPanel;

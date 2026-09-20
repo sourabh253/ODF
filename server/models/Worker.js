@@ -26,12 +26,6 @@ const workerSchema = new mongoose.Schema(
       validate: [v => v.length > 0, 'At least one skill is required']
     },
     experienceYears: { type: Number, required: true },
-    hourlyCharge: { 
-      type: Number, 
-      required: true,
-      min: [300, 'Minimum hourly charge is ₹300 per platform rules']
-    },
-    fullDayCharge: { type: Number, required: true },
     workingHours: { type: String, required: true },
     languagesKnown: { type: [String], required: true },
     
@@ -55,6 +49,7 @@ const workerSchema = new mongoose.Schema(
     
     // Platform State
     isAvailable: { type: Boolean, default: false },
+    verificationStatus: { type: String, enum: ['pending', 'verified', 'rejected'], default: 'pending' },
     rating: { type: Number, default: 0 },
     totalReviews: { type: Number, default: 0 },
     totalJobsCompleted: { type: Number, default: 0 },

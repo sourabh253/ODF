@@ -1,4 +1,6 @@
-# ODForce — Architecture Document
+# ODForce — Architecture Document (v2 — post-pricing-pivot)
+
+This supersedes the original architecture.md. The core change: worker-set Hourly/Full-Day pricing is retired in favor of a centralized, fixed-price Service Catalog with cart-style selection. Everything else built in Phases 1, 2, 3, and 5 is unchanged and stays as-is.
 
 ## 1. Tech Stack
 
@@ -8,52 +10,67 @@
 | Icons | lucide-react | Consistent icon set |
 | Backend | Node.js + Express.js | Same language as frontend, huge ecosystem, easy free deployment |
 | Database | MongoDB Atlas (Mongoose ODM) | Flexible schema fits fast-evolving worker/booking data; free tier |
-| Auth | JWT + bcrypt | Stateless sessions, no OTP per spec |
-| Real-time | Socket.io | Live booking request / accept / reject updates |
+| Auth | JWT + bcrypt | Stateless sessions, no OTP per spec. Now includes a third role: `admin` |
+| Real-time | Socket.io | Live booking request / accept / reject / completion updates, JWT-authenticated, per-user rooms (`user:<id>`) |
 | Image/File uploads | Cloudinary | Free tier, CDN-hosted, no server disk storage needed |
 | Payments | Razorpay (Test Mode) | UPI-first, Indian market, full sandbox for demo-safe testing |
 | Frontend hosting | Vercel | Free, auto-deploy from GitHub |
 | Backend hosting | Render (or Railway) | Free tier, auto-deploy from GitHub |
 
-## 2. High-Level App Flow
+## 2. High-Level App Flow (updated)
 
 ```
 Visitor → Landing Page ("/")
    ├── "ODF for Job" → Worker Portal → Worker Sign In/Register → Worker Dashboard
    └── Profile icon → Customer Auth Modal → Customer Dashboard ("/dashboard")
 
-Customer Dashboard → Search (location + skill) → Worker Cards → Worker Profile
-   → Send Booking Request (Hourly/Full-Day) → [pending]
+Customer Dashboard → Select a skill category → Browse Service Catalog (nested tree)
+   → Add services with quantity steppers → Cart Summary → "Done"
+   → Choose Your Worker (filtered by category) → Worker profile (ratings/reviews) → Send Request
+   → [pending]  (request carries itemized cart + customer location + server-calculated total)
 
 Worker Dashboard → Work Requests panel (live via Socket.io) → Accept / Reject
    ├── Reject → Customer notified live → booking ends
    └── Accept → Customer notified live → Payment Options unlocked
        ├── Cash on Service → booking confirmed instantly (no coupons)
        └── Pay Before → Coupon/Offers → Razorpay Test Checkout → booking confirmed
+   (Total shown = sum of selected services + flat ₹80 inspection fee, always exactly once per booking)
 
-Booking reaches "completed" (worker marks job done) →
-   Wallet credited (worker) + Customer can leave a Review →
-   Worker's rating/analytics recomputed
+Worker marks job "in-progress" on arrival → "Work Completed" →
+Customer sees verification prompt → Customer "Confirm Completion" →
+   Booking → completed → Settlement fires automatically:
+     Cash booking   → platform fee DEDUCTED from worker's Wallet
+     Pay Before     → (totalAmount − platform fee) CREDITED to worker's Wallet
+   → Customer can leave a Review → Worker's rating/analytics recompute
+
+Worker Wallet → Withdraw → blocked while any booking is in-progress
+   or work-completed-pending-confirmation for that worker
 ```
 
 ## 3. Request Routing (backend)
 
 ```
-Client → API Gateway pattern via Express Router mounts:
-  /api/auth/*      → auth routes (register/login for both roles, /me)
-  /api/customers/* → worker discovery, worker profile views
-  /api/worker/*    → worker profile CRUD, availability, analytics
-  /api/bookings/*  → booking lifecycle (create, accept, reject, complete, cancel, list)
-  /api/payments/*  → coupon validation, Razorpay order creation, payment verification
-  /api/wallet/*    → worker wallet/earnings
-  /api/reviews/*   → review submission
-  /api/upload      → Cloudinary file upload (photos, ID docs)
+/api/auth/*      → auth routes (register/login for customer + worker + admin, /me)
+/api/catalog/*   → NEW: service catalog browsing (nested category trees, prices)
+/api/customers/* → worker discovery, worker profile views (unchanged)
+/api/worker/*    → worker profile CRUD, availability, analytics (pricing fields removed)
+/api/bookings/*  → booking lifecycle: create (cart-based), accept, reject, start, complete,
+                   confirm-completion, cancel, list — status enum expanded (see §6)
+/api/payments/*  → coupon validation, Razorpay order creation, payment verification
+/api/wallet/*    → NEW: worker wallet balance, transaction history, withdrawal
+/api/reviews/*   → review submission
+/api/upload      → Cloudinary file upload (photos, ID docs)
+/api/admin/*     → admin login already implemented (Phase 3 addition); dispute/management
+                   endpoints deferred to a later phase
 
-Socket.io runs on the same HTTP server, alongside Express, using room-per-userId
-for targeted real-time events (new_booking_request, booking_accepted, booking_rejected).
+Socket.io: JWT-authenticated connections, server-derived room per user (user:<id>),
+not a client-declared join. Events: new_booking_request, booking_accepted, booking_rejected,
+and (new, Phase 9) work_completed / booking_confirmed for the completion handshake.
 ```
 
-## 4. Folder Structure
+Note: CORS and Socket.io origin config must allow **both** `http://localhost:5173` and `http://127.0.0.1:5173` — a real mismatch was hit and fixed during Phase 3 (browser used `127.0.0.1`, server only allowed `localhost`). Keep both in the allowed-origins array going forward, not a single string.
+
+## 4. Folder Structure (additions marked NEW)
 
 ```
 odforce/
@@ -63,59 +80,113 @@ odforce/
 │   │   │   ├── common/        # Navbar, Footer, HelpPanel, LanguageSwitcher, ThemeToggle, ProtectedRoute
 │   │   │   ├── landing/       # Hero, About, ServiceCategories, WhyChoose, HowItWorks, Testimonials, FAQ
 │   │   │   ├── auth/          # CustomerAuthModal, WorkerLoginModal, WorkerRegisterFlow
-│   │   │   ├── worker/        # dashboard panels: Profile, Settings, Wallet, Analytics, WorkRequests, Ratings
-│   │   │   └── customer/      # WorkerCard, SearchBar, WorkerProfileView, BookingFlow, PaymentOptions
-│   │   ├── pages/             # one file per route (see routes list below)
-│   │   ├── context/           # AuthContext, SocketContext, ThemeContext, LanguageContext
-│   │   ├── services/          # authService, workerService, customerService, bookingService, paymentService
-│   │   ├── i18n/               # strings.js (per-language key-value pairs)
+│   │   │   ├── worker/        # WorkerProfileSetup, WorkerDashboard, WorkRequestsPanel,
+│   │   │   │                  # WalletPanel (NEW), ActiveJobsPanel (NEW), Settings, Analytics, Ratings
+│   │   │   └── customer/      # CategoryBrowser (NEW), CartSummary (NEW), WorkerSelection (NEW),
+│   │   │                      # WorkerProfileView, PaymentOptions, PayBefore
+│   │   ├── pages/
+│   │   ├── context/           # AuthContext, SocketContext, ThemeContext, LanguageContext, CartContext (NEW)
+│   │   ├── services/          # authService, catalogService (NEW), workerService, customerService,
+│   │   │                      # bookingService, paymentService, walletService (NEW)
+│   │   ├── i18n/
 │   │   └── App.jsx
 │
 ├── server/
 │   ├── config/                # db.js, cloudinary.js, razorpay.js
-│   ├── models/                # User, Worker, Booking, Wallet, Review, Notification, Coupon
-│   ├── controllers/           # authController, workerController, customerController,
-│   │                          # bookingController, paymentController, walletController, reviewController
-│   ├── routes/                 # authRoutes, workerRoutes, customerRoutes, bookingRoutes,
-│   │                          # paymentRoutes, walletRoutes, reviewRoutes, uploadRoutes
-│   ├── middleware/             # authMiddleware (JWT verify + role check), errorHandler
-│   ├── sockets/                # socketHandler.js
-│   ├── utils/                  # generateToken.js, asyncHandler.js
+│   ├── models/                # User (role: customer|worker|admin), Worker (pricing fields REMOVED),
+│   │                          # Booking (restructured, see §6), ServiceCatalog (NEW), Wallet (NEW),
+│   │                          # Review, Notification, Coupon
+│   ├── controllers/           # authController, catalogController (NEW), workerController, customerController,
+│   │                          # bookingController, paymentController, walletController (NEW), reviewController
+│   ├── routes/                # ...existing..., catalogRoutes (NEW), walletRoutes (NEW)
+│   ├── middleware/             # authMiddleware (JWT verify + role check incl. admin), errorHandler
+│   ├── scripts/                # seedAdmin.js (already built), seedCatalog.js (NEW)
+│   ├── sockets/
+│   ├── utils/
 │   └── server.js
 │
-├── .env.example (both client and server each have their own)
+├── .env.example (both client and server)
 └── README.md
 ```
 
-## 5. Frontend Routes
+## 5. Frontend Routes (updated)
 
 ```
-/                                  Landing Page
-/worker-portal                     Worker Portal (marketing + Sign In/Register entry)
-/worker-dashboard                  Worker Dashboard (sidebar panel shell, single page)
-/dashboard                         Customer Dashboard (search + results)
-/dashboard/worker/:workerId        Worker Profile Page (customer-facing, booking flow)
-/customer/booking/:id/payment-options   Payment Options (Cash on Service / Pay Before)
-/customer/booking/:id/pay-before        Pay Before checkout (coupon + Razorpay)
-/booking-dashboard                 Customer's booking history (Current/Previous/Completed/Cancelled)
-/help                              Help / FAQ
+/                                        Landing Page
+/worker-portal                           Worker Portal
+/worker-dashboard                        Worker Dashboard (sidebar panel shell)
+/dashboard                               Customer Dashboard (category entry point)
+/dashboard/category/:categorySlug        NEW: Service Catalog browser + cart for one category
+/dashboard/choose-worker                 NEW: filtered worker selection after cart is built
+/dashboard/worker/:workerId              Worker Profile Page (ratings/reviews, Send Request)
+/customer/booking/:id/payment-options    Payment Options (itemized total, not hourly-derived)
+/customer/booking/:id/pay-before         Pay Before checkout (coupon + Razorpay)
+/booking-dashboard                       Current/Previous/Completed/Cancelled
+/help                                    Help / FAQ
 ```
 
-## 6. Core Data Models (see architecture-level schema; full field lists live in code)
-`User` (auth identity + role) → `Worker` (extended profile, 1:1 with User) / customer data lives directly on `User` + a lightweight profile.
-`Booking` (the central object linking customer, worker, status, payment).
-`Wallet` (1:1 with Worker, transaction log).
-`Review` (1:1 with a completed Booking).
-`Notification` (per-user, real-time-triggered).
-`Coupon` (used only in Pay Before flow).
+## 6. Core Data Models (updated)
 
-## 7. Real-Time Event Contract (Socket.io)
+```javascript
+// User — unchanged, already includes admin role
+role: enum ["customer", "worker", "admin"]
+
+// Worker — PRICING FIELDS REMOVED (hourlyCharge, fullDayCharge no longer exist)
+// Worker retains: skills[], experienceYears, isAvailable, rating, totalReviews,
+// totalJobsCompleted, totalJobsRejected, all profile/identity/bank fields as before.
+
+// ServiceCatalog — NEW, platform-wide, not per-worker
+{
+  category: String,          // "Plumbing", "Electrician", ...
+  subCategory: String,
+  serviceName: String,
+  price: Number,              // null if isQuotationOnly
+  isQuotationOnly: Boolean,
+  unit: String,                // optional, e.g. "per seat"
+  isActive: Boolean
+}
+
+// Booking — RESTRUCTURED
+{
+  customerId, workerId,
+  selectedServices: [{ serviceId, serviceName, unitPrice, quantity }],  // snapshotted at booking time
+  inspectionFee: Number,        // flat platform constant, currently ₹80, charged once per booking
+  servicesTotal: Number,        // server-calculated sum
+  totalAmount: Number,          // servicesTotal + inspectionFee
+  status: enum ["pending", "rejected", "accepted", "confirmed", "in-progress",
+                "work-completed-pending-confirmation", "completed", "cancelled"],
+  paymentMode: enum ["cash-on-service", "pay-before", null],
+  paymentStatus: enum ["not-required", "pending", "paid", "settled"],
+  customerLocation: { address, lat, lng },
+  createdAt, acceptedAt, workCompletedAt, confirmedAt
+}
+
+// Wallet — NEW, 1:1 with Worker
+{
+  workerId,
+  balance: Number,
+  transactions: [{ bookingId, type: enum ["platform-fee-deduction","earning-credit","withdrawal","manual-adjustment"],
+                    amount, balanceAfter, note, createdAt }]
+}
+
+// Platform constants (server config, never client-editable)
+PLATFORM_CONFIG = {
+  INSPECTION_FEE: 80,
+  MIN_WALLET_BALANCE_FOR_CASH_BOOKINGS: 300,
+  PLATFORM_FEE_PERCENT: <TO BE DECIDED — see rules.md note before Phase 8 builds settlement>
+}
+```
+
+## 7. Real-Time Event Contract (updated)
+
 | Event | Direction | Payload |
 |---|---|---|
-| `join` | client → server | `{ userId }` — joins that user's room right after connecting |
-| `new_booking_request` | server → worker | booking summary (customer name, type, date, time, duration, amount) |
+| (connection) | client → server | JWT-authenticated; server derives room `user:<id>` — client does not declare its own room |
+| `new_booking_request` | server → worker | itemized booking summary + customer location |
 | `booking_accepted` | server → customer | updated booking object |
 | `booking_rejected` | server → customer | `{ bookingId }` |
+| `work_completed` *(new, Phase 9)* | server → customer | `{ bookingId }` — triggers the "please verify" prompt |
+| `booking_confirmed` *(new, Phase 9)* | server → worker | `{ bookingId }` — triggers wallet settlement confirmation |
 
 ## 8. Environment Variables
 
@@ -124,12 +195,13 @@ odforce/
 MONGO_URI=
 PORT=5000
 JWT_SECRET=
-CLIENT_ORIGIN=http://localhost:5173
+CLIENT_ORIGIN=http://localhost:5173,http://127.0.0.1:5173
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
 RAZORPAY_KEY_ID=
 RAZORPAY_KEY_SECRET=
+ADMIN_PASSWORD=            # used only by scripts/seedAdmin.js; never stored, never logged
 ```
 
 **client/.env**

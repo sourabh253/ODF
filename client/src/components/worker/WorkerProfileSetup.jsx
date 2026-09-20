@@ -4,18 +4,7 @@ import workerService from '../../services/workerService';
 import {
   CheckCircle2, ChevronRight, ChevronLeft, Upload, AlertCircle
 } from 'lucide-react';
-
-const SKILLS = [
-  'Home Cleaning', 'Electrician', 'Plumber', 'Carpenter',
-  'AC Service & Repair', 'Pest Control', 'Gardening & Landscaping',
-  'Painter', 'Water Tank Cleaning', 'Housekeeping Staff',
-  'Car Wash & Detailing', 'Laundry & Dry Cleaning', 'Maid Services',
-  'CCTV Installation & Maintenance', 'RO/Water Purifier Service',
-  'Refrigerator Repair', 'Washing Machine Repair',
-];
-
-const LANGUAGES = ['Hindi', 'English', 'Marathi', 'Telugu', 'Tamil', 'Malayalam', 'Gujarati'];
-const DOCUMENT_TYPES = ['Aadhar Card', 'PAN Card', 'Voter ID', 'Passport', 'Driving License'];
+import { SKILLS, LANGUAGES, DOCUMENT_TYPES } from '../../constants';
 
 const STEP_LABELS = [
   'Skills', 'Personal Info', 'Location', 'Work Details', 'Identity & Bank', 'Review'
@@ -42,7 +31,7 @@ const WorkerProfileSetup = () => {
   const [personal, setPersonal] = useState({ gender: '', dob: '', fullName: user?.fullName || '' });
   const [location, setLocation] = useState({ address: '', city: '', state: '', pinCode: '' });
   const [work, setWork] = useState({
-    occupation: '', experienceYears: '', hourlyCharge: '', fullDayCharge: '',
+    occupation: '', experienceYears: '',
     workingHours: '', languagesKnown: []
   });
   const [identity, setIdentity] = useState({
@@ -101,8 +90,6 @@ const WorkerProfileSetup = () => {
     if (step === 4) {
       if (!work.occupation) errors.occupation = 'Occupation is required';
       if (!work.experienceYears) errors.experienceYears = 'Experience is required';
-      if (!work.hourlyCharge || Number(work.hourlyCharge) < 300) errors.hourlyCharge = 'Minimum hourly charge is ₹300';
-      if (!work.fullDayCharge) errors.fullDayCharge = 'Full day charge is required';
       if (!work.workingHours) errors.workingHours = 'Working hours is required';
       if (work.languagesKnown.length === 0) errors.languagesKnown = 'Select at least one language';
     }
@@ -153,8 +140,6 @@ const WorkerProfileSetup = () => {
         occupation: work.occupation,
         skills,
         experienceYears: Number(work.experienceYears),
-        hourlyCharge: Number(work.hourlyCharge),
-        fullDayCharge: Number(work.fullDayCharge),
         workingHours: work.workingHours,
         languagesKnown: work.languagesKnown,
         identityInfo: {
@@ -352,21 +337,6 @@ const WorkerProfileSetup = () => {
                   <input type="number" min={0} className={inputClass} value={work.experienceYears} onChange={e => setWork({ ...work, experienceYears: e.target.value })} />
                   {fieldErrors.experienceYears && <p className={errorClass}><AlertCircle className="w-4 h-4" />{fieldErrors.experienceYears}</p>}
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className={labelClass}>Hourly Charge (₹) *</label>
-                    <input type="number" min={300} className={inputClass} value={work.hourlyCharge} onChange={e => setWork({ ...work, hourlyCharge: e.target.value })} />
-                    {fieldErrors.hourlyCharge
-                      ? <p className={errorClass}><AlertCircle className="w-4 h-4" />{fieldErrors.hourlyCharge}</p>
-                      : <p className="text-xs text-slate-400 mt-1">Minimum ₹300 per platform policy</p>
-                    }
-                  </div>
-                  <div>
-                    <label className={labelClass}>Full Day Charge (₹) *</label>
-                    <input type="number" min={0} className={inputClass} value={work.fullDayCharge} onChange={e => setWork({ ...work, fullDayCharge: e.target.value })} />
-                    {fieldErrors.fullDayCharge && <p className={errorClass}><AlertCircle className="w-4 h-4" />{fieldErrors.fullDayCharge}</p>}
-                  </div>
-                </div>
                 <div>
                   <label className={labelClass}>Working Hours *</label>
                   <input className={inputClass} value={work.workingHours} onChange={e => setWork({ ...work, workingHours: e.target.value })} placeholder="e.g. 9 AM – 6 PM" />
@@ -493,8 +463,6 @@ const WorkerProfileSetup = () => {
                 <ReviewRow label="Address" value={`${location.address}, ${location.city}, ${location.state} - ${location.pinCode}`} />
                 <ReviewRow label="Occupation" value={work.occupation} />
                 <ReviewRow label="Experience" value={`${work.experienceYears} years`} />
-                <ReviewRow label="Hourly Charge" value={`₹${work.hourlyCharge}`} />
-                <ReviewRow label="Full Day Charge" value={`₹${work.fullDayCharge}`} />
                 <ReviewRow label="Working Hours" value={work.workingHours} />
                 <ReviewRow label="Languages" value={work.languagesKnown.join(', ')} />
                 <ReviewRow label="Document Type" value={identity.documentType} />

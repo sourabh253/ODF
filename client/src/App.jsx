@@ -1,12 +1,23 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
+import { CartProvider } from './context/CartContext';
+import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 import LandingPage from './pages/LandingPage';
 import WorkerPortal from './pages/WorkerPortal';
-import WorkerDashboardPage from './pages/WorkerDashboardPlaceholder';
+import WorkerDashboardPage from './pages/WorkerDashboardEntry';
 import CustomerDashboard from './pages/CustomerDashboard';
+import MainCategoryPage from './pages/MainCategoryPage';
 import WorkerProfilePage from './pages/WorkerProfilePage';
-import HelpPlaceholder from './pages/HelpPlaceholder';
+import ServiceCatalogPage from './pages/ServiceCatalogPage';
+import WorkerSelectionPage from './pages/WorkerSelectionPage';
+import PaymentOptionsPage from './pages/PaymentOptionsPage';
+import PayBeforePage from './pages/PayBeforePage';
+import BookingDashboardPage from './pages/BookingDashboardPage';
+import HelpPage from './pages/HelpPage';
+import AdminLoginPage from './pages/AdminLoginPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import ProtectedRoute from './components/common/ProtectedRoute';
@@ -16,15 +27,22 @@ import ProtectedRoute from './components/common/ProtectedRoute';
 const AppLayout = () => {
   const location = useLocation();
   const isWorkerDashboard = location.pathname === '/worker-dashboard';
+  const isAdminDashboard = location.pathname === '/admin-dashboard';
 
   return (
     <div className="flex flex-col min-h-screen">
-      {!isWorkerDashboard && <Navbar />}
-      <main className={isWorkerDashboard ? 'flex-grow' : 'flex-grow'}>
+      {!isWorkerDashboard && !isAdminDashboard && <Navbar />}
+      <main className={isWorkerDashboard || isAdminDashboard ? 'flex-grow' : 'flex-grow'}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/worker-portal" element={<WorkerPortal />} />
-          <Route path="/help" element={<HelpPlaceholder />} />
+          <Route path="/help" element={<HelpPage />} />
+          <Route path="/admin-login" element={<AdminLoginPage />} />
+          <Route path="/admin-dashboard" element={
+            <ProtectedRoute allowedRoles={['admin']}>
+              <AdminDashboardPage />
+            </ProtectedRoute>
+          } />
 
           <Route
             path="/worker-dashboard"
@@ -44,6 +62,30 @@ const AppLayout = () => {
             }
           />
           <Route
+            path="/dashboard/main/:mainCategorySlug"
+            element={
+              <ProtectedRoute allowedRoles={['customer']}>
+                <MainCategoryPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/category/:categorySlug"
+            element={
+              <ProtectedRoute allowedRoles={['customer']}>
+                <ServiceCatalogPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/choose-worker"
+            element={
+              <ProtectedRoute allowedRoles={['customer']}>
+                <WorkerSelectionPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/dashboard/worker/:workerId"
             element={
               <ProtectedRoute allowedRoles={['customer']}>
@@ -51,9 +93,33 @@ const AppLayout = () => {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/booking/:bookingId/payment-options"
+            element={
+              <ProtectedRoute allowedRoles={['customer']}>
+                <PaymentOptionsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/booking/:bookingId/pay-before"
+            element={
+              <ProtectedRoute allowedRoles={['customer']}>
+                <PayBeforePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/booking-dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['customer']}>
+                <BookingDashboardPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </main>
-      {!isWorkerDashboard && <Footer />}
+      {!isWorkerDashboard && !isAdminDashboard && <Footer />}
     </div>
   );
 };
@@ -63,7 +129,13 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <SocketProvider>
-          <AppLayout />
+          <LanguageProvider>
+            <ThemeProvider>
+              <CartProvider>
+                <AppLayout />
+              </CartProvider>
+            </ThemeProvider>
+          </LanguageProvider>
         </SocketProvider>
       </BrowserRouter>
     </AuthProvider>

@@ -1,7 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Globe, User, Menu, X, LogOut, LayoutDashboard } from 'lucide-react';
+import { Globe, User, Menu, X, LogOut, LayoutDashboard, ClipboardList } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 import CustomerAuthModal from '../auth/CustomerAuthModal';
 
 const Navbar = () => {
@@ -11,6 +12,7 @@ const Navbar = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
   const { user, logout } = useAuth();
+  const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
 
   const languages = ['English', 'Hindi', 'Marathi', 'Telugu', 'Tamil', 'Malayalam', 'Gujarati'];
@@ -58,14 +60,16 @@ const Navbar = () => {
                 <Globe className="w-5 h-5" />
               </button>
               
-              {/* Language Dropdown - UI only for Phase 1 */}
+              {/* Language Dropdown */}
               {isLangOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-100 py-1">
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-100 py-1 z-50">
                   {languages.map((lang) => (
                     <button
                       key={lang}
-                      className="block w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-primary"
-                      onClick={() => setIsLangOpen(false)}
+                      className={`block w-full text-left px-4 py-2 text-sm hover:bg-slate-50 hover:text-primary transition-colors ${
+                        language === lang ? 'text-primary font-semibold bg-primary/5' : 'text-slate-700'
+                      }`}
+                      onClick={() => { setLanguage(lang); setIsLangOpen(false); }}
                     >
                       {lang}
                     </button>
@@ -97,6 +101,15 @@ const Navbar = () => {
                       >
                         <LayoutDashboard className="w-4 h-4" /> Dashboard
                       </Link>
+                      {user.role === 'customer' && (
+                        <Link 
+                          to="/booking-dashboard"
+                          className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-primary"
+                          onClick={() => setIsProfileDropdownOpen(false)}
+                        >
+                          <ClipboardList className="w-4 h-4" /> My Bookings
+                        </Link>
+                      )}
                       <button
                         onClick={handleLogout}
                         className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-danger hover:bg-danger/10 mt-1 border-t border-slate-100"
@@ -140,6 +153,9 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link to={user.role === 'worker' ? '/worker-dashboard' : '/dashboard'} onClick={() => setIsMenuOpen(false)} className="block text-slate-800 font-medium py-2">Dashboard</Link>
+                {user.role === 'customer' && (
+                  <Link to="/booking-dashboard" onClick={() => setIsMenuOpen(false)} className="block text-slate-800 font-medium py-2">My Bookings</Link>
+                )}
                 <button onClick={() => { handleLogout(); setIsMenuOpen(false); }} className="block text-danger font-medium py-2 w-full text-left">Sign Out</button>
               </>
             ) : (

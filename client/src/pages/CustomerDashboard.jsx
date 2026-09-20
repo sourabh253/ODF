@@ -1,129 +1,168 @@
 import { useEffect, useState } from 'react';
-import { AlertCircle, MapPin, Search, Star, UserRound } from 'lucide-react';
+import { AlertCircle, ArrowRight, LayoutGrid, Scissors, SprayCan, Sparkles, Wind, Zap, LayoutList } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import customerService from '../services/customerService';
-import bookingService from '../services/bookingService';
 import { useSocket } from '../context/SocketContext';
+import bookingService from '../services/bookingService';
+import catalogService from '../services/catalogService';
 
-const SKILLS = [
-  'Home Cleaning', 'Electrician', 'Plumber', 'Carpenter', 'AC Service & Repair',
-  'Pest Control', 'Gardening & Landscaping', 'Painter', 'Water Tank Cleaning',
-  'Housekeeping Staff', 'Car Wash & Detailing', 'Laundry & Dry Cleaning',
-  'Maid Services', 'CCTV Installation & Maintenance', 'RO/Water Purifier Service',
-  'Refrigerator Repair', 'Washing Machine Repair',
-];
+const MAIN_CATEGORY_ICONS = {
+  "Women's Salon & Spa": Scissors,
+  "Men's Salon & Massage": Scissors,
+  'Cleaning': SprayCan,
+  'AC & Appliance Repair': Wind,
+  'Electrician, Plumber & Carpenter': Zap,
+};
+
+const ALL_SERVICES_ENTRY = { _id: '__all__', name: 'All Services', icon: LayoutList };
 
 const CustomerDashboard = () => {
   const { user } = useAuth();
   const socket = useSocket();
-  const [skill, setSkill] = useState('');
-  const [city, setCity] = useState('');
-  const [workers, setWorkers] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [searched, setSearched] = useState(false);
-  const [error, setError] = useState('');
   const [bookings, setBookings] = useState([]);
-
-  const search = async (event) => {
-    event?.preventDefault();
-    setLoading(true);
-    setError('');
-    try {
-      setWorkers(await customerService.searchWorkers({ skill, city }, user.token));
-      setSearched(true);
-    } catch (err) {
-      setError(err.response?.data?.message || 'Worker search failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    search();
-  }, []);
+  const [mainCategories, setMainCategories] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const loadBookings = async () => {
       try {
         setBookings(await bookingService.getMyBookings(user.token));
       } catch (err) {
-        setError(err.response?.data?.message || 'Booking status could not be loaded.');
+        // Silent fail for initial load
       }
     };
     loadBookings();
   }, [user.token]);
 
   useEffect(() => {
-    if (!socket) return undefined;
-    const updateBooking = (updatedBooking) => {
-      setBookings((current) => current.some((booking) => booking._id === updatedBooking._id)
-        ? current.map((booking) => booking._id === updatedBooking._id ? updatedBooking : booking)
-        : [updatedBooking, ...current]);
+    const loadMainCategories = async () => {
+      try {
+        const cats = await catalogService.getMainCategories(user.token);
+        setMainCategories(cats);
+      } catch (err) {
+        setError('Failed to load service categories');
+      }
     };
-    socket.on('booking_accepted', updateBooking);
-    socket.on('booking_rejected', updateBooking);
+    loadMainCategories();
+  }, [user.token]);
+
+  useEffect(() => {
+    if (!socket) return;
+    const handleBookingUpdate = (data) => {
+      setBookings(prev => prev.map(b => b._id === data._id ? data : b));
+    };
+    const handleNewStatus = (data) => {
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: data.status } : b));
+    };
+    socket.on('booking_accepted', handleBookingUpdate);
+    socket.on('booking_rejected', handleBookingUpdate);
+    socket.on('work_completed', (data) => {
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'work-completed-pending-confirmation' } : b));
+    });
+    socket.on('booking_confirmed', handleNewStatus);
     return () => {
-      socket.off('booking_accepted', updateBooking);
-      socket.off('booking_rejected', updateBooking);
+      socket.off('booking_accepted', handleBookingUpdate);
+      socket.off('booking_rejected', handleBookingUpdate);
+      socket.off('work_completed');
+      socket.off('booking_confirmed', handleNewStatus);
     };
   }, [socket]);
 
+  const activeBookings = bookings.filter(b => ['pending', 'accepted', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status));
+
+  const displayCategories = [
+    ...mainCategories.map(name => ({ _id: name, name, icon: MAIN_CATEGORY_ICONS[name] || Sparkles })),
+    ALL_SERVICES_ENTRY,
+  ];
+
   return (
-    <div className="min-h-screen bg-surface py-12">
+    <div className="min-h-screen bg-slate-50 py-12">
       <div className="container-custom">
+        {/* Hero */}
         <div className="mb-8 max-w-2xl">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">Find your next helping hand</p>
-          <h1 className="text-4xl font-bold text-secondary">Hire trusted workers nearby</h1>
-          <p className="mt-3 text-slate-600">Search available professionals by service and location. Requests remain pending until the worker responds.</p>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">Welcome, {user.fullName}</p>
+          <h1 className="text-4xl font-bold text-secondary">What do you need done?</h1>
+          <p className="mt-3 text-slate-600">Browse our service categories and book trusted workers in your area.</p>
         </div>
 
-        <form onSubmit={search} className="mb-10 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:grid-cols-[1fr_1fr_auto]">
-          <label className="flex items-center gap-3 rounded-lg border border-slate-300 px-4 py-2.5 focus-within:border-primary">
-            <MapPin className="h-5 w-5 text-primary" />
-            <span className="sr-only">Current location or city</span>
-            <input value={city} onChange={(event) => setCity(event.target.value)} className="w-full outline-none" placeholder="Current location or city" />
-          </label>
-          <label className="flex items-center gap-3 rounded-lg border border-slate-300 px-4 py-2.5 focus-within:border-primary">
-            <UserRound className="h-5 w-5 text-primary" />
-            <span className="sr-only">Choose a skill</span>
-            <select value={skill} onChange={(event) => setSkill(event.target.value)} className="w-full bg-transparent outline-none">
-              <option value="">All skills</option>
-              {SKILLS.map((item) => <option key={item} value={item}>{item}</option>)}
-            </select>
-          </label>
-          <button type="submit" disabled={loading} className="btn-primary gap-2 px-6">
-            <Search className="h-4 w-4" /> {loading ? 'Searching...' : 'Search workers'}
-          </button>
-        </form>
+        {error && (
+          <div className="mb-6 flex items-center gap-2 rounded-xl bg-danger/10 p-4 text-sm text-danger">
+            <AlertCircle className="h-5 w-5" /> {error}
+          </div>
+        )}
 
-        {error && <div className="mb-6 flex items-center gap-2 rounded-lg bg-danger/10 p-4 text-sm text-danger"><AlertCircle className="h-5 w-5" />{error}</div>}
-        <div className="mb-4 flex items-center justify-between"><h2 className="text-2xl font-bold text-secondary">Available workers</h2><span className="text-sm text-slate-500">{workers.length} found</span></div>
-        {searched && workers.length === 0 && !loading && <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center text-slate-500">No available workers match that search.</div>}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {workers.map((worker) => <WorkerCard key={worker._id} worker={worker} />)}
+        {/* Quick Links */}
+        <div className="flex gap-3 mb-8">
+          <Link to="/booking-dashboard" className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium text-slate-700 hover:border-primary hover:text-primary transition-colors">
+            <LayoutGrid className="w-4 h-4" /> My Bookings
+            {activeBookings.length > 0 && (
+              <span className="bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">{activeBookings.length}</span>
+            )}
+          </Link>
         </div>
-        {bookings.length > 0 && <section className="mt-12"><h2 className="mb-4 text-2xl font-bold text-secondary">Your booking requests</h2><div className="grid gap-4 lg:grid-cols-2">{bookings.map((booking) => <BookingStatus key={booking._id} booking={booking} />)}</div></section>}
+
+        {/* Active Bookings Banner */}
+        {activeBookings.length > 0 && (
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 mb-8">
+            <h3 className="font-bold text-secondary mb-3">Active Bookings</h3>
+            <div className="space-y-2">
+              {activeBookings.slice(0, 3).map(booking => (
+                <div key={booking._id} className="flex items-center justify-between bg-white rounded-xl p-3 border border-slate-100">
+                  <div>
+                    <p className="text-sm font-medium text-slate-700">
+                      {booking.workerId?.userId?.fullName || booking.workerId?.occupation || 'Worker'}
+                    </p>
+                    <p className="text-xs text-slate-400">
+                      {booking.selectedServices?.map(s => s.serviceName).join(', ')}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+                      booking.status === 'accepted' ? 'bg-success/10 text-success' :
+                      booking.status === 'pending' ? 'bg-warning/10 text-warning' :
+                      booking.status === 'in-progress' ? 'bg-info/10 text-info' :
+                      'bg-warning/10 text-warning'
+                    }`}>
+                      {booking.status}
+                    </span>
+                    {booking.status === 'work-completed-pending-confirmation' && (
+                      <Link to="/booking-dashboard" className="text-xs text-primary font-medium hover:underline">Confirm</Link>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Service Categories */}
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-secondary mb-4">Browse Services</h2>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {displayCategories.map(cat => {
+            const IconComponent = cat.icon;
+            const linkTo = cat._id === '__all__'
+              ? '/dashboard/search'
+              : `/dashboard/main/${encodeURIComponent(cat.name)}`;
+            return (
+              <Link
+                key={cat._id}
+                to={linkTo}
+                className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md hover:border-primary transition-all group"
+              >
+                <div className="mb-3 text-primary"><IconComponent className="w-8 h-8" strokeWidth={1.5} /></div>
+                <h3 className="font-semibold text-secondary text-sm group-hover:text-primary transition-colors">{cat.name}</h3>
+                <div className="flex items-center gap-1 mt-2 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  Browse services <ArrowRight className="w-3 h-3" />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 };
-
-const WorkerCard = ({ worker }) => (
-  <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-lg">
-    <div className="flex items-center gap-4 bg-secondary p-5 text-white">
-      <img src={worker.profilePhotoUrl} alt={worker.userId?.fullName || 'Worker'} className="h-16 w-16 rounded-full border-2 border-primary object-cover" />
-      <div><h3 className="font-semibold">{worker.userId?.fullName || 'ODForce worker'}</h3><p className="text-sm text-slate-300">{worker.occupation}</p></div>
-    </div>
-    <div className="space-y-4 p-5">
-      <div className="flex items-center justify-between text-sm"><span className="flex items-center gap-1 text-slate-500"><Star className="h-4 w-4 fill-warning text-warning" />{worker.rating?.toFixed(1) || '0.0'} ({worker.totalReviews || 0})</span><span className="font-semibold text-primary">₹{worker.hourlyCharge}/hr</span></div>
-      <div className="flex flex-wrap gap-2">{worker.skills?.slice(0, 3).map((item) => <span key={item} className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">{item}</span>)}</div>
-      <p className="text-sm text-slate-500">{worker.city}, {worker.state} · {worker.experienceYears} years experience</p>
-      <Link to={`/dashboard/worker/${worker._id}`} className="btn-secondary w-full">View profile</Link>
-    </div>
-  </article>
-);
-
-const BookingStatus = ({ booking }) => <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center justify-between gap-3"><div><h3 className="font-semibold text-secondary">{booking.workerId?.userId?.fullName || 'Worker request'}</h3><p className="mt-1 text-sm text-slate-500">{booking.bookingType === 'hourly' ? `${booking.duration} hour(s)` : 'Full day'} · ₹{booking.estimatedPayment}</p></div><span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase ${booking.status === 'accepted' ? 'bg-success/10 text-success' : booking.status === 'rejected' ? 'bg-danger/10 text-danger' : 'bg-warning/10 text-warning'}`}>{booking.status}</span></div><p className="mt-3 text-sm text-slate-500">{new Date(booking.scheduledDate).toLocaleDateString()} at {booking.scheduledTime}</p></article>;
 
 export default CustomerDashboard;

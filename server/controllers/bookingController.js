@@ -1,123 +1,403 @@
 import asyncHandler from '../utils/asyncHandler.js';
 import Booking from '../models/Booking.js';
 import Worker from '../models/Worker.js';
+import Wallet from '../models/Wallet.js';
+import Notification from '../models/Notification.js';
+import mongoose from 'mongoose';
 
+const INSPECTION_FEE = 80;
+
+// Create a new booking (customer sends request)
 export const createBooking = asyncHandler(async (req, res) => {
-  const {
-    workerId,
-    bookingType,
-    duration,
-    scheduledDate,
-    scheduledTime,
-    serviceAddress,
-  } = req.body;
+  const { workerId, selectedServices, customerLocation, tip } = req.body;
 
-  if (!workerId || !['hourly', 'full-day'].includes(bookingType)) {
+  if (!workerId || !selectedServices || !Array.isArray(selectedServices) || selectedServices.length === 0) {
     res.status(400);
-    throw new Error('Choose a valid worker and booking type');
+    throw new Error('Worker ID and at least one selected service are required');
   }
 
-  const parsedDuration = Number(duration);
-  if (!Number.isInteger(parsedDuration) || parsedDuration < 1 || parsedDuration > 24) {
+  if (!customerLocation || !customerLocation.address) {
     res.status(400);
-    throw new Error('Duration must be a whole number between 1 and 24');
+    throw new Error('Customer location is required');
   }
 
-  if (!scheduledDate || !scheduledTime || !serviceAddress?.trim()) {
-    res.status(400);
-    throw new Error('Date, time, and service address are required');
-  }
-
+  // Verify worker exists and is available
   const worker = await Worker.findById(workerId);
   if (!worker) {
     res.status(404);
-    throw new Error('Worker profile not found');
+    throw new Error('Worker not found');
   }
   if (!worker.isAvailable) {
     res.status(400);
-    throw new Error('This worker is currently unavailable');
+    throw new Error('Worker is not currently available');
   }
 
-  const rate = bookingType === 'hourly' ? worker.hourlyCharge : worker.fullDayCharge;
-  const estimatedPayment = bookingType === 'hourly' ? rate * parsedDuration : rate;
-  if (estimatedPayment < 300) {
-    res.status(400);
-    throw new Error('Booking amount must be at least ₹300');
+  // Server-side price validation: look up each service in the catalog
+  const ServiceCatalog = mongoose.model('ServiceCatalog');
+  let servicesTotal = 0;
+  const snapshotServices = [];
+
+  for (const item of selectedServices) {
+    const service = await ServiceCatalog.findById(item.serviceId);
+    if (!service || !service.isActive) {
+      res.status(400);
+      throw new Error(`Service not found or inactive: ${item.serviceId}`);
+    }
+    const qty = Math.max(1, parseInt(item.quantity) || 1);
+    const lineTotal = service.price * qty;
+    servicesTotal += lineTotal;
+    snapshotServices.push({
+      serviceId: service._id,
+      serviceName: service.serviceName,
+      mainCategory: service.mainCategory,
+      category: service.category,
+      subCategory: service.subCategory,
+      unitPrice: service.price,
+      quantity: qty,
+      lineTotal,
+    });
   }
+
+  const tipAmount = Math.max(0, Number(tip) || 0);
+  const totalAmount = servicesTotal + INSPECTION_FEE + tipAmount;
 
   const booking = await Booking.create({
     customerId: req.user._id,
-    workerId: worker._id,
-    bookingType,
-    duration: parsedDuration,
-    scheduledDate,
-    scheduledTime,
-    serviceAddress: serviceAddress.trim(),
-    estimatedPayment,
+    workerId,
+    selectedServices: snapshotServices,
+    servicesTotal,
+    inspectionFee: INSPECTION_FEE,
+    tip: tipAmount,
+    totalAmount,
+    customerLocation,
     status: 'pending',
   });
 
-  const populatedBooking = await booking.populate([
-    { path: 'customerId', select: 'fullName email phone' },
-    { path: 'workerId', populate: { path: 'userId', select: 'fullName email' } },
-  ]);
-  req.app.get('io')?.to(`user:${populatedBooking.workerId.userId._id}`).emit('new_booking_request', populatedBooking);
+  // Emit real-time event to the worker
+  const io = req.app.get('io');
+  if (io) {
+    io.to(`user:${workerId}`).emit('new_booking_request', {
+      booking,
+      customer: { _id: req.user._id, fullName: req.user.fullName },
+    });
+  }
 
-  res.status(201).json(populatedBooking);
+  // Persist notification for the worker
+  const workerUser = await Worker.findById(workerId).populate('userId', '_id');
+  if (workerUser?.userId) {
+    const serviceNames = snapshotServices.map(s => s.serviceName).join(', ');
+    await Notification.create({
+      userId: workerUser.userId._id,
+      type: 'new_booking_request',
+      title: 'New Booking Request',
+      message: `${req.user.fullName} wants to book: ${serviceNames}`,
+      bookingId: booking._id,
+    });
+  }
+
+  res.status(201).json(booking);
 });
 
+// Get bookings for the logged-in user (customer or worker)
 export const getMyBookings = asyncHandler(async (req, res) => {
-  const filter = req.user.role === 'customer'
-    ? { customerId: req.user._id }
-    : { workerId: (await Worker.findOne({ userId: req.user._id }).select('_id'))?._id };
+  const filter = req.user.role === 'worker'
+    ? { workerId: (await Worker.findOne({ userId: req.user._id }))?._id }
+    : { customerId: req.user._id };
 
-  if (!filter.customerId && !filter.workerId) return res.json([]);
+  if (!filter.workerId && !filter.customerId) {
+    return res.json([]);
+  }
 
   const bookings = await Booking.find(filter)
-    .populate('customerId', 'fullName email phone')
-    .populate({ path: 'workerId', populate: { path: 'userId', select: 'fullName email' } })
+    .populate({ path: 'customerId', select: 'fullName email phone location' })
+    .populate({ path: 'workerId', populate: { path: 'userId', select: 'fullName email phone' } })
     .sort({ createdAt: -1 });
+
   res.json(bookings);
 });
 
+// Worker accepts or rejects a booking
 export const updateBookingStatus = asyncHandler(async (req, res) => {
+  const { bookingId } = req.params;
   const { status } = req.body;
+
   if (!['accepted', 'rejected'].includes(status)) {
     res.status(400);
-    throw new Error('Invalid booking action');
+    throw new Error('Status must be "accepted" or "rejected"');
   }
 
-  const worker = await Worker.findOne({ userId: req.user._id }).select('_id');
+  const worker = await Worker.findOne({ userId: req.user._id });
   if (!worker) {
     res.status(404);
     throw new Error('Worker profile not found');
   }
 
-  const booking = await Booking.findOneAndUpdate(
-    { _id: req.params.bookingId, workerId: worker._id, status: 'pending' },
-    { $set: { status } },
-    { new: true }
-  )
-    .populate('customerId', 'fullName email phone')
-    .populate({ path: 'workerId', populate: { path: 'userId', select: 'fullName email' } });
-
+  const booking = await Booking.findById(bookingId);
   if (!booking) {
-    const existing = await Booking.findById(req.params.bookingId).select('workerId status');
-    if (!existing) {
-      res.status(404);
-      throw new Error('Booking not found');
-    }
-    if (!existing.workerId.equals(worker._id)) {
-      res.status(403);
-      throw new Error('You are not authorized to modify this booking');
-    }
+    res.status(404);
+    throw new Error('Booking not found');
+  }
+
+  if (booking.workerId.toString() !== worker._id.toString()) {
+    res.status(403);
+    throw new Error('Not authorized to update this booking');
+  }
+
+  if (booking.status !== 'pending') {
     res.status(409);
     throw new Error('Only pending bookings can be updated');
   }
 
-  req.app.get('io')?.to(`user:${booking.customerId._id}`).emit(
-    status === 'accepted' ? 'booking_accepted' : 'booking_rejected',
-    booking
-  );
+  booking.status = status;
+  booking.acceptedAt = status === 'accepted' ? new Date() : undefined;
+  await booking.save();
+
+  // Emit real-time event to the customer
+  const io = req.app.get('io');
+  if (io) {
+    const event = status === 'accepted' ? 'booking_accepted' : 'booking_rejected';
+    io.to(`user:${booking.customerId}`).emit(event, {
+      bookingId: booking._id,
+      status,
+    });
+  }
+
+  // Persist notification for the customer
+  const notifType = status === 'accepted' ? 'booking_accepted' : 'booking_rejected';
+  const notifTitle = status === 'accepted' ? 'Booking Accepted' : 'Booking Rejected';
+  const notifMessage = status === 'accepted'
+    ? 'Your booking has been accepted by the worker.'
+    : 'Your booking has been rejected by the worker.';
+  await Notification.create({
+    userId: booking.customerId,
+    type: notifType,
+    title: notifTitle,
+    message: notifMessage,
+    bookingId: booking._id,
+  });
+
+  res.json(booking);
+});
+
+// Worker marks booking as in-progress
+export const startBooking = asyncHandler(async (req, res) => {
+  const { bookingId } = req.params;
+  const worker = await Worker.findOne({ userId: req.user._id });
+  if (!worker) { res.status(404); throw new Error('Worker profile not found'); }
+
+  const booking = await Booking.findById(bookingId);
+  if (!booking) { res.status(404); throw new Error('Booking not found'); }
+  if (booking.workerId.toString() !== worker._id.toString()) { res.status(403); throw new Error('Not authorized'); }
+  if (booking.status !== 'accepted') { res.status(409); throw new Error('Only accepted bookings can be started'); }
+
+  booking.status = 'in-progress';
+  await booking.save();
+  res.json(booking);
+});
+
+// Worker marks work completed
+export const completeWork = asyncHandler(async (req, res) => {
+  const { bookingId } = req.params;
+  const worker = await Worker.findOne({ userId: req.user._id });
+  if (!worker) { res.status(404); throw new Error('Worker profile not found'); }
+
+  const booking = await Booking.findById(bookingId);
+  if (!booking) { res.status(404); throw new Error('Booking not found'); }
+  if (booking.workerId.toString() !== worker._id.toString()) { res.status(403); throw new Error('Not authorized'); }
+  if (booking.status !== 'in-progress') { res.status(409); throw new Error('Only in-progress bookings can be completed'); }
+
+  booking.status = 'work-completed-pending-confirmation';
+  booking.workCompletedAt = new Date();
+  await booking.save();
+
+  const io = req.app.get('io');
+  if (io) {
+    io.to(`user:${booking.customerId}`).emit('work_completed', { bookingId: booking._id });
+  }
+
+  // Persist notification for the customer
+  await Notification.create({
+    userId: booking.customerId,
+    type: 'work_completed',
+    title: 'Work Completed',
+    message: 'The worker has marked the job as completed. Please verify and confirm.',
+    bookingId: booking._id,
+  });
+
+  res.json(booking);
+});
+
+// Customer confirms completion (triggers settlement)
+export const confirmCompletion = asyncHandler(async (req, res) => {
+  const { bookingId } = req.params;
+
+  const booking = await Booking.findById(bookingId);
+  if (!booking) { res.status(404); throw new Error('Booking not found'); }
+  if (booking.customerId.toString() !== req.user._id.toString()) { res.status(403); throw new Error('Not authorized'); }
+  if (booking.status !== 'work-completed-pending-confirmation') {
+    res.status(409);
+    throw new Error('Only work-completed bookings can be confirmed');
+  }
+
+  booking.status = 'completed';
+  booking.confirmedAt = new Date();
+  await booking.save();
+
+  // Settlement: credit or deduct from worker wallet
+  const worker = await Worker.findById(booking.workerId);
+  if (worker) {
+    let wallet = await Wallet.findOne({ workerId: worker._id });
+    if (!wallet) {
+      wallet = await Wallet.create({ workerId: worker._id, balance: 0, transactions: [] });
+    }
+
+    if (booking.paymentMode === 'cash-on-service' || !booking.paymentMode) {
+      // Cash booking: platform fee deducted from worker wallet
+      const platformFee = Math.round(booking.totalAmount * 0.10); // 10% platform fee
+      wallet.balance -= platformFee;
+      wallet.transactions.push({
+        bookingId: booking._id,
+        type: 'platform-fee-deduction',
+        amount: -platformFee,
+        balanceAfter: wallet.balance,
+        note: `Platform fee for booking ${booking._id}`,
+      });
+    } else {
+      // Pay Before: worker earning credited (totalAmount - platform fee)
+      const platformFee = Math.round(booking.totalAmount * 0.10);
+      const earning = booking.totalAmount - platformFee;
+      wallet.balance += earning;
+      wallet.transactions.push({
+        bookingId: booking._id,
+        type: 'earning-credit',
+        amount: earning,
+        balanceAfter: wallet.balance,
+        note: `Earning for booking ${booking._id}`,
+      });
+    }
+
+    await wallet.save();
+
+    // Update worker stats
+    worker.totalJobsCompleted = (worker.totalJobsCompleted || 0) + 1;
+    await worker.save();
+  }
+
+  const io = req.app.get('io');
+  if (io) {
+    io.to(`user:${booking.customerId}`).emit('booking_confirmed', { bookingId: booking._id });
+    io.to(`user:${booking.workerId}`).emit('booking_confirmed', { bookingId: booking._id });
+  }
+
+  // Persist notifications for both parties
+  await Notification.create({
+    userId: booking.customerId,
+    type: 'booking_confirmed',
+    title: 'Booking Completed',
+    message: 'Your booking has been confirmed and completed. Thank you!',
+    bookingId: booking._id,
+  });
+
+  // Find worker's userId to notify them
+  const workerForNotif = await Worker.findById(booking.workerId).populate('userId', '_id');
+  if (workerForNotif?.userId) {
+    await Notification.create({
+      userId: workerForNotif.userId._id,
+      type: 'booking_confirmed',
+      title: 'Booking Completed',
+      message: 'A booking has been confirmed. Payment has been settled.',
+      bookingId: booking._id,
+    });
+  }
+
+  res.json(booking);
+});
+
+// Cancel booking (customer can cancel if pending, worker can cancel if accepted but not in-progress)
+export const cancelBooking = asyncHandler(async (req, res) => {
+  const { bookingId } = req.params;
+  const booking = await Booking.findById(bookingId);
+  if (!booking) { res.status(404); throw new Error('Booking not found'); }
+
+  const isCustomer = booking.customerId.toString() === req.user._id.toString();
+  const worker = await Worker.findOne({ userId: req.user._id });
+  const isWorker = worker && booking.workerId.toString() === worker._id.toString();
+
+  if (!isCustomer && !isWorker) { res.status(403); throw new Error('Not authorized'); }
+
+  if (isCustomer && booking.status !== 'pending') {
+    res.status(409);
+    throw new Error('Customers can only cancel pending bookings');
+  }
+  if (isWorker && !['accepted', 'in-progress'].includes(booking.status)) {
+    res.status(409);
+    throw new Error('Cannot cancel this booking');
+  }
+
+  booking.status = 'cancelled';
+  await booking.save();
+
+  const io = req.app.get('io');
+  if (io) {
+    const targetId = isCustomer ? booking.workerId : booking.customerId;
+    io.to(`user:${targetId}`).emit('booking_cancelled', { bookingId: booking._id });
+  }
+
+  // Persist notification for the other party
+  const cancelTargetId = isCustomer ? booking.workerId : booking.customerId;
+  const cancelNotifUserId = isCustomer
+    ? (await Worker.findById(booking.workerId).populate('userId', '_id'))?.userId?._id
+    : booking.customerId;
+  if (cancelNotifUserId) {
+    await Notification.create({
+      userId: cancelNotifUserId,
+      type: 'booking_cancelled',
+      title: 'Booking Cancelled',
+      message: `A booking has been cancelled by the ${isCustomer ? 'customer' : 'worker'}.`,
+      bookingId: booking._id,
+    });
+  }
+
+  res.json(booking);
+});
+
+// Customer sets payment mode after booking is accepted
+export const setPaymentMode = asyncHandler(async (req, res) => {
+  const { bookingId } = req.params;
+  const { paymentMode } = req.body;
+
+  if (!['cash-on-service', 'pay-before'].includes(paymentMode)) {
+    res.status(400);
+    throw new Error('Payment mode must be "cash-on-service" or "pay-before"');
+  }
+
+  const booking = await Booking.findById(bookingId);
+  if (!booking) { res.status(404); throw new Error('Booking not found'); }
+  if (booking.customerId.toString() !== req.user._id.toString()) {
+    res.status(403);
+    throw new Error('Not authorized');
+  }
+  if (booking.status !== 'accepted') {
+    res.status(409);
+    throw new Error('Can only set payment mode on accepted bookings');
+  }
+
+  // Wallet gate: only for cash-on-service, check assigned worker's wallet balance
+  if (paymentMode === 'cash-on-service') {
+    const wallet = await Wallet.findOne({ workerId: booking.workerId });
+    if (!wallet || wallet.balance < 300) {
+      res.status(400);
+      throw new Error('Worker has insufficient wallet balance for cash-on-service (minimum ₹300 required). Please choose Pay Before instead.');
+    }
+  }
+
+  booking.paymentMode = paymentMode;
+  if (paymentMode === 'cash-on-service') {
+    booking.paymentStatus = 'not-required';
+  } else {
+    booking.paymentStatus = 'pending';
+  }
+  await booking.save();
+
   res.json(booking);
 });

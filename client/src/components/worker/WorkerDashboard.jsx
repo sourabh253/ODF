@@ -7,6 +7,12 @@ import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import workerService from '../../services/workerService';
 import WorkRequestsPanel from './WorkRequestsPanel';
+import WalletPanel from './WalletPanel';
+import ReviewPanel from './ReviewPanel';
+import AnalyticsPanel from './AnalyticsPanel';
+import SettingsPanel from './SettingsPanel';
+import ThemePanel from './ThemePanel';
+import NotificationsPanel from './NotificationsPanel';
 
 // ─── Placeholder Panel ───────────────────────────────────────────
 const PlaceholderPanel = ({ title, icon: Icon, phase }) => (
@@ -29,8 +35,6 @@ const ProfilePanel = ({ worker, user, onUpdate }) => {
   const [error, setError] = useState('');
   const [form, setForm] = useState({
     occupation: worker?.occupation || '',
-    hourlyCharge: worker?.hourlyCharge || '',
-    fullDayCharge: worker?.fullDayCharge || '',
     workingHours: worker?.workingHours || '',
     address: worker?.address || '',
     city: worker?.city || '',
@@ -41,17 +45,11 @@ const ProfilePanel = ({ worker, user, onUpdate }) => {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSave = async () => {
-    if (Number(form.hourlyCharge) < 300) {
-      setError('Minimum hourly charge is ₹300');
-      return;
-    }
     setSaving(true);
     setError('');
     try {
       const updated = await workerService.updateProfile({
         ...form,
-        hourlyCharge: Number(form.hourlyCharge),
-        fullDayCharge: Number(form.fullDayCharge),
       }, user.token);
       onUpdate(updated);
       setEditing(false);
@@ -115,8 +113,6 @@ const ProfilePanel = ({ worker, user, onUpdate }) => {
           <h4 className="font-semibold text-slate-700 mb-4">Work Information</h4>
           <div className="space-y-3">
             <Field label="Occupation" name="occupation" value={form.occupation} editing={editing} onChange={handleChange} inputClass={inputClass} />
-            <Field label="Hourly Charge (₹)" name="hourlyCharge" value={form.hourlyCharge} type="number" editing={editing} onChange={handleChange} inputClass={inputClass} hint="Min ₹300" />
-            <Field label="Full Day Charge (₹)" name="fullDayCharge" value={form.fullDayCharge} type="number" editing={editing} onChange={handleChange} inputClass={inputClass} />
             <Field label="Working Hours" name="workingHours" value={form.workingHours} editing={editing} onChange={handleChange} inputClass={inputClass} />
           </div>
         </div>
@@ -245,17 +241,17 @@ const WorkerDashboard = () => {
       case 'work-requests':
         return <WorkRequestsPanel />;
       case 'wallet':
-        return <PlaceholderPanel title="Wallet & Earnings" icon={Wallet} phase="Phase 7" />;
+        return <WalletPanel />;
       case 'analytics':
-        return <PlaceholderPanel title="Analytics" icon={BarChart2} phase="Phase 7" />;
+        return <AnalyticsPanel />;
       case 'ratings':
-        return <PlaceholderPanel title="Ratings & Reviews" icon={Star} phase="Phase 7" />;
+        return <ReviewPanel workerId={worker?._id} />;
       case 'notifications':
-        return <PlaceholderPanel title="Notifications" icon={Bell} phase="Phase 5" />;
+        return <NotificationsPanel />;
       case 'settings':
-        return <PlaceholderPanel title="Settings" icon={Settings} phase="Phase 7" />;
+        return <SettingsPanel user={user} />;
       case 'theme':
-        return <PlaceholderPanel title="Theme" icon={Palette} phase="Phase 7" />;
+        return <ThemePanel />;
       default:
         return null;
     }

@@ -19,8 +19,6 @@ export const completeWorkerProfile = asyncHandler(async (req, res) => {
     occupation,
     skills,
     experienceYears,
-    hourlyCharge,
-    fullDayCharge,
     workingHours,
     languagesKnown,
     identityInfo,
@@ -37,11 +35,6 @@ export const completeWorkerProfile = asyncHandler(async (req, res) => {
   if (!Array.isArray(languagesKnown) || languagesKnown.length === 0) {
     res.status(400);
     throw new Error('At least one known language is required');
-  }
-
-  if (Number(hourlyCharge) < 300) {
-    res.status(400);
-    throw new Error('Minimum hourly charge must be ₹300');
   }
 
   if (agreedToTerms !== true) {
@@ -61,8 +54,6 @@ export const completeWorkerProfile = asyncHandler(async (req, res) => {
     occupation,
     skills,
     experienceYears,
-    hourlyCharge,
-    fullDayCharge,
     workingHours,
     languagesKnown,
     identityInfo,
@@ -89,11 +80,6 @@ export const updateWorkerProfile = asyncHandler(async (req, res) => {
   const worker = await Worker.findOne({ userId: req.user._id });
 
   if (worker) {
-    if (req.body.hourlyCharge !== undefined && Number(req.body.hourlyCharge) < 300) {
-      res.status(400);
-      throw new Error('Minimum hourly charge must be ₹300');
-    }
-
     // Assign updates carefully to avoid overriding stats
     const updateData = { ...req.body };
     delete updateData.totalReviews;
