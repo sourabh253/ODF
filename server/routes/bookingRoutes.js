@@ -8,6 +8,8 @@ import {
   confirmCompletion,
   cancelBooking,
   setPaymentMode,
+  simulatePayment,
+  autoExpireBookings,
 } from '../controllers/bookingController.js';
 import { authorize, protect } from '../middleware/authMiddleware.js';
 
@@ -21,6 +23,8 @@ router.patch('/:bookingId/complete', protect, authorize('worker'), completeWork)
 router.patch('/:bookingId/confirm', protect, authorize('customer'), confirmCompletion);
 router.patch('/:bookingId/cancel', protect, cancelBooking);
 router.patch('/:bookingId/payment-mode', protect, authorize('customer'), setPaymentMode);
+router.post('/simulate-payment', protect, authorize('customer'), simulatePayment);
+router.post('/auto-expire', protect, authorize('admin'), autoExpireBookings);
 
 // Admin: get all bookings
 router.get('/admin/all', protect, authorize('admin'), async (req, res, next) => {

@@ -35,7 +35,7 @@ const walletSchema = new mongoose.Schema(
     balance: {
       type: Number,
       default: 0,
-      min: 0,
+      // No min constraint — cash bookings can legitimately take wallet negative
     },
     transactions: [walletTransactionSchema],
   },

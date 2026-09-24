@@ -37,6 +37,7 @@ const bookingSchema = new mongoose.Schema(
         'pending',
         'accepted',
         'rejected',
+        'confirmed',
         'in-progress',
         'work-completed-pending-confirmation',
         'completed',
@@ -59,6 +60,8 @@ const bookingSchema = new mongoose.Schema(
     acceptedAt: { type: Date },
     workCompletedAt: { type: Date },
     confirmedAt: { type: Date },
+    autoExpired: { type: Boolean, default: false },
+    expiredAt: { type: Date },
   },
   { timestamps: true }
 );

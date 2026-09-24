@@ -48,27 +48,36 @@ const CustomerDashboard = () => {
 
   useEffect(() => {
     if (!socket) return;
-    const handleBookingUpdate = (data) => {
-      setBookings(prev => prev.map(b => b._id === data._id ? data : b));
+    const handleBookingAccepted = (data) => {
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'accepted' } : b));
     };
-    const handleNewStatus = (data) => {
-      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: data.status } : b));
+    const handleBookingRejected = (data) => {
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'rejected', autoExpired: data.autoExpired } : b));
     };
-    socket.on('booking_accepted', handleBookingUpdate);
-    socket.on('booking_rejected', handleBookingUpdate);
-    socket.on('work_completed', (data) => {
+    const handleWorkCompleted = (data) => {
       setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'work-completed-pending-confirmation' } : b));
-    });
-    socket.on('booking_confirmed', handleNewStatus);
+    };
+    const handleBookingConfirmed = (data) => {
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'confirmed' } : b));
+    };
+    const handleWorkStarted = (data) => {
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'in-progress' } : b));
+    };
+    socket.on('booking_accepted', handleBookingAccepted);
+    socket.on('booking_rejected', handleBookingRejected);
+    socket.on('work_completed', handleWorkCompleted);
+    socket.on('booking_confirmed', handleBookingConfirmed);
+    socket.on('work_started', handleWorkStarted);
     return () => {
-      socket.off('booking_accepted', handleBookingUpdate);
-      socket.off('booking_rejected', handleBookingUpdate);
-      socket.off('work_completed');
-      socket.off('booking_confirmed', handleNewStatus);
+      socket.off('booking_accepted', handleBookingAccepted);
+      socket.off('booking_rejected', handleBookingRejected);
+      socket.off('work_completed', handleWorkCompleted);
+      socket.off('booking_confirmed', handleBookingConfirmed);
+      socket.off('work_started', handleWorkStarted);
     };
   }, [socket]);
 
-  const activeBookings = bookings.filter(b => ['pending', 'accepted', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status));
+  const activeBookings = bookings.filter(b => ['pending', 'accepted', 'confirmed', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status));
 
   const displayCategories = [
     ...mainCategories.map(name => ({ _id: name, name, icon: MAIN_CATEGORY_ICONS[name] || Sparkles })),
@@ -118,12 +127,15 @@ const CustomerDashboard = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                      booking.status === 'accepted' ? 'bg-success/10 text-success' :
+                      booking.status === 'accepted' ? 'bg-info/10 text-info' :
+                      booking.status === 'confirmed' ? 'bg-success/10 text-success' :
                       booking.status === 'pending' ? 'bg-warning/10 text-warning' :
                       booking.status === 'in-progress' ? 'bg-info/10 text-info' :
                       'bg-warning/10 text-warning'
                     }`}>
-                      {booking.status}
+                      {booking.status === 'accepted' ? 'Awaiting Payment' :
+                       booking.status === 'confirmed' ? 'Confirmed' :
+                       booking.status}
                     </span>
                     {booking.status === 'work-completed-pending-confirmation' && (
                       <Link to="/booking-dashboard" className="text-xs text-primary font-medium hover:underline">Confirm</Link>

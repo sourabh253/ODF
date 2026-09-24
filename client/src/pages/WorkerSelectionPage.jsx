@@ -4,7 +4,100 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import customerService from '../services/customerService';
 import bookingService from '../services/bookingService';
-import { MapPin, Star, ArrowLeft, ShoppingCart, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { MapPin, Star, ArrowLeft, ShoppingCart, Send, CheckCircle, AlertCircle, X, Clock, Briefcase } from 'lucide-react';
+
+const WorkerProfileModal = ({ worker, onClose, onSendRequest, sending }) => {
+  if (!worker) return null;
+  const user_ = worker.userId || {};
+
+  return (
+    <div className="fixed inset-0 bg-slate-900/50 z-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-primary to-primary-hover p-6 text-white rounded-t-2xl relative">
+          <button onClick={onClose} className="absolute top-4 right-4 text-white/80 hover:text-white">
+            <X className="w-5 h-5" />
+          </button>
+          <div className="flex items-center gap-4">
+            <img
+              src={worker.profilePhotoUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(user_.fullName)}&background=fff&color=15803D`}
+              alt={user_.fullName}
+              className="w-16 h-16 rounded-full object-cover border-3 border-white/30 shadow-lg"
+            />
+            <div>
+              <h2 className="text-xl font-bold">{user_.fullName}</h2>
+              <p className="text-white/80 text-sm">{worker.occupation}</p>
+              <div className="flex items-center gap-2 mt-1">
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                <span className="text-sm">{worker.rating?.toFixed(1) || '0.0'}</span>
+                <span className="text-white/60">|</span>
+                <span className="text-sm">{worker.totalReviews || 0} reviews</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Details */}
+        <div className="p-6 space-y-5">
+          {/* Quick Info */}
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-slate-50 rounded-xl p-3 text-center">
+              <Briefcase className="w-5 h-5 text-primary mx-auto mb-1" />
+              <p className="text-xs text-slate-400">Experience</p>
+              <p className="text-sm font-semibold">{worker.experienceYears || 0} yrs</p>
+            </div>
+            <div className="bg-slate-50 rounded-xl p-3 text-center">
+              <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
+              <p className="text-xs text-slate-400">Hours</p>
+              <p className="text-sm font-semibold">{worker.workingHours || '—'}</p>
+            </div>
+            <div className="bg-slate-50 rounded-xl p-3 text-center">
+              <MapPin className="w-5 h-5 text-primary mx-auto mb-1" />
+              <p className="text-xs text-slate-400">City</p>
+              <p className="text-sm font-semibold">{worker.city || '—'}</p>
+            </div>
+          </div>
+
+          {/* Skills */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {(worker.skills || []).map(skill => (
+                <span key={skill} className="bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Location */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Location</h3>
+            <p className="text-sm text-slate-700">{worker.address}, {worker.city}, {worker.state} - {worker.pinCode}</p>
+          </div>
+
+          {/* Availability */}
+          <div className="flex items-center gap-2">
+            <div className={`w-2.5 h-2.5 rounded-full ${worker.isAvailable ? 'bg-success' : 'bg-slate-300'}`}></div>
+            <span className={`text-sm font-medium ${worker.isAvailable ? 'text-success' : 'text-slate-400'}`}>
+              {worker.isAvailable ? 'Available now' : 'Currently offline'}
+            </span>
+          </div>
+
+          {/* Send Request Button */}
+          <button
+            onClick={() => onSendRequest(worker)}
+            disabled={sending || !worker.isAvailable}
+            className="w-full btn-primary flex items-center justify-center gap-2 py-3"
+          >
+            <Send className="w-4 h-4" />
+            {sending ? 'Sending...' : 'Send Request'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const WorkerSelectionPage = () => {
   const { user } = useAuth();
@@ -17,6 +110,7 @@ const WorkerSelectionPage = () => {
   const [selectedWorker, setSelectedWorker] = useState(null);
   const [sending, setSending] = useState(false);
   const [bookingSent, setBookingSent] = useState(false);
+  const [modalWorker, setModalWorker] = useState(null);
 
   useEffect(() => {
     if (!cartCategory) {
@@ -36,13 +130,13 @@ const WorkerSelectionPage = () => {
     if (user?.token) fetchWorkers();
   }, [cartCategory, user?.token]);
 
-  const handleSendRequest = async () => {
-    if (!selectedWorker) return;
+  const handleSendRequest = async (worker) => {
+    if (!worker) return;
     setSending(true);
     setError('');
     try {
       await bookingService.createBooking({
-        workerId: selectedWorker._id,
+        workerId: worker._id,
         selectedServices: cartItems.map(item => ({
           serviceId: item._id,
           quantity: item.quantity,
@@ -50,6 +144,8 @@ const WorkerSelectionPage = () => {
         customerLocation: user.location || { address: 'Location not set' },
       }, user.token);
       setBookingSent(true);
+      setSelectedWorker(worker);
+      setModalWorker(null);
       clearCart();
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to send booking request');
@@ -121,14 +217,11 @@ const WorkerSelectionPage = () => {
             ) : (
               <div className="grid gap-4 sm:grid-cols-2">
                 {workers.map(worker => {
-                  const isSelected = selectedWorker?._id === worker._id;
                   return (
                     <div
                       key={worker._id}
-                      onClick={() => setSelectedWorker(worker)}
-                      className={`bg-white rounded-2xl border-2 shadow-sm p-5 cursor-pointer transition-all ${
-                        isSelected ? 'border-primary ring-2 ring-primary/20' : 'border-slate-200 hover:border-slate-300 hover:shadow-md'
-                      }`}
+                      onClick={() => setModalWorker(worker)}
+                      className="bg-white rounded-2xl border-2 border-slate-200 hover:border-primary shadow-sm p-5 cursor-pointer transition-all hover:shadow-md hover:border-primary"
                     >
                       <div className="flex items-center gap-4">
                         <img
@@ -146,7 +239,6 @@ const WorkerSelectionPage = () => {
                             <span className="text-sm text-slate-500">{worker.experienceYears} yrs</span>
                           </div>
                         </div>
-                        {isSelected && <CheckCircle className="w-6 h-6 text-primary shrink-0" />}
                       </div>
                       <div className="flex flex-wrap gap-1.5 mt-3">
                         {worker.skills?.slice(0, 3).map(skill => (
@@ -156,27 +248,25 @@ const WorkerSelectionPage = () => {
                       <div className="flex items-center gap-1 mt-2 text-xs text-slate-400">
                         <MapPin className="w-3 h-3" /> {worker.city}, {worker.state}
                       </div>
+                      <p className="text-xs text-primary mt-2 font-medium">View Profile & Send Request →</p>
                     </div>
                   );
                 })}
               </div>
             )}
-
-            {selectedWorker && (
-              <div className="mt-6 flex justify-end">
-                <button
-                  onClick={handleSendRequest}
-                  disabled={sending}
-                  className="btn-primary flex items-center gap-2 px-8"
-                >
-                  <Send className="w-4 h-4" />
-                  {sending ? 'Sending...' : 'Send Booking Request'}
-                </button>
-              </div>
-            )}
           </>
         )}
       </div>
+
+      {/* Worker Profile Modal */}
+      {modalWorker && (
+        <WorkerProfileModal
+          worker={modalWorker}
+          onClose={() => setModalWorker(null)}
+          onSendRequest={handleSendRequest}
+          sending={sending}
+        />
+      )}
     </div>
   );
 };

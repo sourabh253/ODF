@@ -105,3 +105,76 @@ export const adminGetWallet = asyncHandler(async (req, res) => {
   }
   res.json(wallet);
 });
+
+// SIMULATED BANKING — no real bank transfer occurs. Bank details are captured but not verified
+// or used to move real money. This exists only because no live payment gateway account is available yet.
+// Worker: manual credit (simulate adding money to wallet)
+export const manualCredit = asyncHandler(async (req, res) => {
+  const { amount, accountHolderName, accountNumber, ifsc } = req.body;
+
+  if (!amount || amount <= 0) {
+    res.status(400);
+    throw new Error('Valid credit amount is required');
+  }
+
+  const worker = await Worker.findOne({ userId: req.user._id });
+  if (!worker) { res.status(404); throw new Error('Worker profile not found'); }
+
+  let wallet = await Wallet.findOne({ workerId: worker._id });
+  if (!wallet) {
+    wallet = await Wallet.create({ workerId: worker._id, balance: 0, transactions: [] });
+  }
+
+  wallet.balance += Number(amount);
+  wallet.transactions.push({
+    type: 'manual-credit',
+    amount: Number(amount),
+    balanceAfter: wallet.balance,
+    note: `Manual credit — ${accountHolderName || 'N/A'}, A/c ${accountNumber || 'N/A'}, IFSC ${ifsc || 'N/A'}`,
+  });
+
+  await wallet.save();
+  res.json(wallet);
+});
+
+// SIMULATED BANKING — no real bank transfer occurs. Bank details are captured but not verified
+// or used to move real money. This exists only because no live payment gateway account is available yet.
+// Worker: manual debit (simulate withdrawal from wallet)
+export const manualDebit = asyncHandler(async (req, res) => {
+  const { amount, accountHolderName, accountNumber, ifsc } = req.body;
+
+  if (!amount || amount <= 0) {
+    res.status(400);
+    throw new Error('Valid debit amount is required');
+  }
+
+  const worker = await Worker.findOne({ userId: req.user._id });
+  if (!worker) { res.status(404); throw new Error('Worker profile not found'); }
+
+  // Block debit if any booking is in-progress or pending confirmation
+  const activeBooking = await Booking.findOne({
+    workerId: worker._id,
+    status: { $in: ['in-progress', 'work-completed-pending-confirmation'] },
+  });
+  if (activeBooking) {
+    res.status(400);
+    throw new Error('Cannot withdraw while a booking is active or pending confirmation');
+  }
+
+  let wallet = await Wallet.findOne({ workerId: worker._id });
+  if (!wallet || wallet.balance < amount) {
+    res.status(400);
+    throw new Error('Insufficient wallet balance');
+  }
+
+  wallet.balance -= Number(amount);
+  wallet.transactions.push({
+    type: 'manual-debit',
+    amount: -Number(amount),
+    balanceAfter: wallet.balance,
+    note: `Manual debit — ${accountHolderName || 'N/A'}, A/c ${accountNumber || 'N/A'}, IFSC ${ifsc || 'N/A'}`,
+  });
+
+  await wallet.save();
+  res.json(wallet);
+});

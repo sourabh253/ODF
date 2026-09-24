@@ -16,6 +16,7 @@ const PayBeforePage = () => {
   const [couponCode, setCouponCode] = useState('');
   const [couponDiscount, setCouponDiscount] = useState(0);
   const [couponError, setCouponError] = useState('');
+  const [couponApplied, setCouponApplied] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
@@ -41,59 +42,23 @@ const PayBeforePage = () => {
     try {
       const result = await paymentService.validateCoupon(couponCode, bookingId, user.token);
       setCouponDiscount(result.discount || 0);
+      setCouponApplied(true);
     } catch (err) {
       setCouponError(err.response?.data?.message || 'Invalid coupon');
       setCouponDiscount(0);
+      setCouponApplied(false);
     }
   };
 
+  // SIMULATED PAYMENT — no live Razorpay. Calls backend which recalculates, marks paid, confirms.
   const handlePayment = async () => {
     setProcessing(true);
     setError('');
     try {
-      // Create Razorpay order
-      const orderData = await paymentService.createOrder(bookingId, user.token);
-
-      // Open Razorpay checkout
-      const options = {
-        key: orderData.key,
-        amount: (booking.totalAmount - couponDiscount) * 100,
-        currency: orderData.currency,
-        name: 'ODForce',
-        description: `Payment for booking`,
-        order_id: orderData.orderId,
-        handler: async function (response) {
-          // Verify payment server-side
-          try {
-            await paymentService.verifyPayment({
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-              bookingId,
-            }, user.token);
-            setPaymentSuccess(true);
-          } catch (err) {
-            setError('Payment verification failed. Please contact support.');
-          }
-        },
-        prefill: {
-          name: user.fullName,
-          email: user.email,
-        },
-        theme: {
-          color: '#15803D',
-        },
-        modal: {
-          ondismiss: function () {
-            setProcessing(false);
-          },
-        },
-      };
-
-      const rzp = new window.Razorpay(options);
-      rzp.open();
+      const result = await paymentService.simulatePayment(bookingId, couponApplied ? couponCode : null, user.token);
+      setPaymentSuccess(true);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to initiate payment');
+      setError(err.response?.data?.message || 'Payment failed. Please try again.');
     } finally {
       setProcessing(false);
     }
@@ -113,8 +78,8 @@ const PayBeforePage = () => {
         <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 text-center max-w-md">
           <CheckCircle className="w-16 h-16 text-success mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-secondary mb-2">Payment Successful!</h2>
-          <p className="text-slate-500 mb-6">Your payment has been processed. The worker will be notified to start the service.</p>
-          <button onClick={() => navigate('/dashboard')} className="btn-primary">Back to Dashboard</button>
+          <p className="text-slate-500 mb-6">Your booking is confirmed. The worker will be notified to start the service.</p>
+          <button onClick={() => navigate('/booking-dashboard')} className="btn-primary">View My Bookings</button>
         </div>
       </div>
     );
@@ -157,6 +122,11 @@ const PayBeforePage = () => {
               <div className="flex justify-between text-sm text-slate-500">
                 <span>Inspection Fee</span><span>₹{booking.inspectionFee}</span>
               </div>
+              {booking.tip > 0 && (
+                <div className="flex justify-between text-sm text-slate-500">
+                  <span>Tip</span><span>₹{booking.tip}</span>
+                </div>
+              )}
               {couponDiscount > 0 && (
                 <div className="flex justify-between text-sm text-success font-medium">
                   <span>Coupon Discount</span><span>-₹{couponDiscount}</span>
@@ -178,26 +148,29 @@ const PayBeforePage = () => {
             <input
               type="text"
               value={couponCode}
-              onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+              onChange={(e) => { setCouponCode(e.target.value.toUpperCase()); setCouponApplied(false); setCouponDiscount(0); }}
               placeholder="Enter coupon code"
               className="flex-1 border border-slate-300 rounded-lg px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm"
             />
-            <button onClick={applyCoupon} className="btn-secondary text-sm px-4">Apply</button>
+            <button onClick={applyCoupon} disabled={couponApplied} className="btn-secondary text-sm px-4">
+              {couponApplied ? 'Applied' : 'Apply'}
+            </button>
           </div>
           {couponError && <p className="text-danger text-sm mt-2">{couponError}</p>}
-          {couponDiscount > 0 && <p className="text-success text-sm mt-2">Coupon applied! You save ₹{couponDiscount}</p>}
+          {couponApplied && couponDiscount > 0 && <p className="text-success text-sm mt-2">Coupon applied! You save ₹{couponDiscount}</p>}
         </div>
 
-        {/* Razorpay Button */}
+        {/* Pay Now Button (Simulated) */}
         <button
           onClick={handlePayment}
           disabled={processing || !booking}
           className="w-full btn-primary flex items-center justify-center gap-2 py-3 text-base"
         >
           <CreditCard className="w-5 h-5" />
-          {processing ? 'Processing...' : `Pay ₹${finalAmount} via Razorpay`}
+          {processing ? 'Processing Payment...' : `Pay ₹${finalAmount} Now`}
         </button>
-        <p className="text-xs text-slate-400 text-center mt-3">Test mode — use Razorpay test credentials</p>
+        {/* SIMULATED PAYMENT — no live payment gateway account exists yet. This directly marks payment as successful. Replace with real Razorpay (or another gateway) integration before any real money is involved. */}
+        <p className="text-xs text-slate-400 text-center mt-3">Simulated payment — no real money is charged</p>
       </div>
     </div>
   );

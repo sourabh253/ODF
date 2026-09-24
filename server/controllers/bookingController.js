@@ -179,7 +179,7 @@ export const updateBookingStatus = asyncHandler(async (req, res) => {
   res.json(booking);
 });
 
-// Worker marks booking as in-progress
+// Worker marks booking as in-progress — ONLY allowed on confirmed bookings
 export const startBooking = asyncHandler(async (req, res) => {
   const { bookingId } = req.params;
   const worker = await Worker.findOne({ userId: req.user._id });
@@ -188,10 +188,28 @@ export const startBooking = asyncHandler(async (req, res) => {
   const booking = await Booking.findById(bookingId);
   if (!booking) { res.status(404); throw new Error('Booking not found'); }
   if (booking.workerId.toString() !== worker._id.toString()) { res.status(403); throw new Error('Not authorized'); }
-  if (booking.status !== 'accepted') { res.status(409); throw new Error('Only accepted bookings can be started'); }
+  if (booking.status !== 'confirmed') {
+    res.status(409);
+    throw new Error('Booking must be confirmed (payment resolved) before work can start');
+  }
 
   booking.status = 'in-progress';
   await booking.save();
+
+  // Notify customer that worker is on the way
+  const io = req.app.get('io');
+  if (io) {
+    io.to(`user:${booking.customerId}`).emit('work_started', { bookingId: booking._id });
+  }
+
+  await Notification.create({
+    userId: booking.customerId,
+    type: 'work_started',
+    title: 'Worker On The Way',
+    message: 'Your worker is on the way — arriving in about 20 minutes',
+    bookingId: booking._id,
+  });
+
   res.json(booking);
 });
 
@@ -362,6 +380,8 @@ export const cancelBooking = asyncHandler(async (req, res) => {
 });
 
 // Customer sets payment mode after booking is accepted
+// Cash on Service: immediately confirms the booking (no payment needed now)
+// Pay Before: sets paymentStatus to pending, customer proceeds to Pay Before page
 export const setPaymentMode = asyncHandler(async (req, res) => {
   const { bookingId } = req.params;
   const { paymentMode } = req.body;
@@ -382,22 +402,183 @@ export const setPaymentMode = asyncHandler(async (req, res) => {
     throw new Error('Can only set payment mode on accepted bookings');
   }
 
-  // Wallet gate: only for cash-on-service, check assigned worker's wallet balance
-  if (paymentMode === 'cash-on-service') {
-    const wallet = await Wallet.findOne({ workerId: booking.workerId });
-    if (!wallet || wallet.balance < 300) {
-      res.status(400);
-      throw new Error('Worker has insufficient wallet balance for cash-on-service (minimum ₹300 required). Please choose Pay Before instead.');
-    }
-  }
-
   booking.paymentMode = paymentMode;
   if (paymentMode === 'cash-on-service') {
+    // Cash on Service — no online payment, booking is confirmed immediately
     booking.paymentStatus = 'not-required';
+    booking.status = 'confirmed';
+    booking.confirmedAt = new Date();
   } else {
+    // Pay Before — customer will pay via simulated checkout next
     booking.paymentStatus = 'pending';
   }
   await booking.save();
 
+  // If cash-on-service, notify the worker that booking is confirmed
+  if (paymentMode === 'cash-on-service') {
+    const io = req.app.get('io');
+    if (io) {
+      io.to(`user:${booking.workerId}`).emit('booking_confirmed', { bookingId: booking._id });
+    }
+    const workerForNotif = await Worker.findById(booking.workerId).populate('userId', '_id');
+    if (workerForNotif?.userId) {
+      await Notification.create({
+        userId: workerForNotif.userId._id,
+        type: 'booking_confirmed',
+        title: 'Booking Confirmed',
+        message: 'Customer selected Cash on Service. You can start work when ready.',
+        bookingId: booking._id,
+      });
+    }
+  }
+
   res.json(booking);
+});
+
+// Simulated payment — no real Razorpay call. Recalculates server-side, marks paid, confirms booking.
+// SIMULATED PAYMENT — no live payment gateway account exists yet. This directly marks payment as successful.
+// Replace with real Razorpay (or another gateway) integration before any real money is involved.
+export const simulatePayment = asyncHandler(async (req, res) => {
+  const { bookingId, couponCode } = req.body;
+
+  if (!bookingId) {
+    res.status(400);
+    throw new Error('Booking ID is required');
+  }
+
+  const booking = await Booking.findById(bookingId);
+  if (!booking) { res.status(404); throw new Error('Booking not found'); }
+  if (booking.customerId.toString() !== req.user._id.toString()) {
+    res.status(403);
+    throw new Error('Not authorized');
+  }
+  if (booking.status !== 'accepted') {
+    res.status(409);
+    throw new Error('Booking must be in accepted state to pay');
+  }
+  if (booking.paymentMode !== 'pay-before') {
+    res.status(409);
+    throw new Error('Payment mode must be pay-before');
+  }
+
+  // Server-side recalculation of final total
+  let finalAmount = booking.totalAmount;
+  let discount = 0;
+
+  if (couponCode) {
+    const Coupon = (await import('../models/Coupon.js')).default;
+    const coupon = await Coupon.findOne({ code: couponCode.toUpperCase().trim() });
+    if (coupon && coupon.isActive && (!coupon.expiresAt || coupon.expiresAt >= new Date())) {
+      if (!coupon.usageLimit || coupon.usedCount < coupon.usageLimit) {
+        if (booking.totalAmount >= (coupon.minBookingAmount || 0)) {
+          if (coupon.discountType === 'flat') {
+            discount = coupon.discountValue;
+          } else {
+            discount = Math.round(booking.totalAmount * coupon.discountValue / 100);
+            if (coupon.maxDiscount && discount > coupon.maxDiscount) {
+              discount = coupon.maxDiscount;
+            }
+          }
+          if (discount >= booking.totalAmount) {
+            discount = booking.totalAmount - 1;
+          }
+          finalAmount = booking.totalAmount - discount;
+          // Increment coupon usage
+          coupon.usedCount = (coupon.usedCount || 0) + 1;
+          await coupon.save();
+        }
+      }
+    }
+  }
+
+  // Mark payment as paid and confirm the booking
+  booking.paymentStatus = 'paid';
+  booking.status = 'confirmed';
+  booking.confirmedAt = new Date();
+  await booking.save();
+
+  // Notify the worker
+  const io = req.app.get('io');
+  if (io) {
+    io.to(`user:${booking.workerId}`).emit('booking_confirmed', { bookingId: booking._id });
+  }
+  const workerForNotif = await Worker.findById(booking.workerId).populate('userId', '_id');
+  if (workerForNotif?.userId) {
+    await Notification.create({
+      userId: workerForNotif.userId._id,
+      type: 'booking_confirmed',
+      title: 'Booking Confirmed',
+      message: 'Customer has paid online. You can start work when ready.',
+      bookingId: booking._id,
+    });
+  }
+
+  res.json({
+    success: true,
+    bookingId: booking._id,
+    finalAmount,
+    discount,
+    paymentStatus: 'paid',
+    status: 'confirmed',
+  });
+});
+
+// Auto-expire pending bookings older than 5 minutes (admin endpoint / manual trigger)
+// Uses targeted updateMany to avoid full-document schema validation on stale pre-pivot data.
+export const autoExpireBookings = asyncHandler(async (req, res) => {
+  const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
+
+  // Lean query — only fetch IDs and foreign keys needed for notifications
+  const expiredBookings = await Booking.find({
+    status: 'pending',
+    createdAt: { $lt: fiveMinutesAgo },
+    autoExpired: { $ne: true },
+  }).select('_id customerId workerId').lean();
+
+  if (expiredBookings.length === 0) {
+    return res.json({ expiredCount: 0 });
+  }
+
+  // Bulk update — skip validation since we're only touching status/autoExpired/expiredAt
+  await Booking.updateMany(
+    { _id: { $in: expiredBookings.map(b => b._id) } },
+    { $set: { status: 'rejected', autoExpired: true, expiredAt: new Date() } },
+    { runValidators: false }
+  );
+
+  const io = req.app.get('io');
+  let expiredCount = 0;
+
+  for (const booking of expiredBookings) {
+    if (io) {
+      io.to(`user:${booking.customerId}`).emit('booking_rejected', {
+        bookingId: booking._id,
+        status: 'rejected',
+        autoExpired: true,
+      });
+    }
+
+    await Notification.create({
+      userId: booking.customerId,
+      type: 'booking_auto_expired',
+      title: 'Booking Request Expired',
+      message: 'Your booking request expired because the worker did not respond within 5 minutes.',
+      bookingId: booking._id,
+    });
+
+    const workerForNotif = await Worker.findById(booking.workerId).select('userId').populate('userId', '_id');
+    if (workerForNotif?.userId) {
+      await Notification.create({
+        userId: workerForNotif.userId._id,
+        type: 'booking_auto_expired',
+        title: 'Booking Request Expired',
+        message: 'A booking request expired because it was not responded to within 5 minutes.',
+        bookingId: booking._id,
+      });
+    }
+
+    expiredCount++;
+  }
+
+  res.json({ expiredCount });
 });

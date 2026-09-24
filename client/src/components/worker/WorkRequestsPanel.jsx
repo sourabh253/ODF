@@ -88,8 +88,8 @@ const WorkRequestsPanel = () => {
   }
 
   const pending = bookings.filter(b => b.status === 'pending');
-  const active = bookings.filter(b => ['accepted', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status));
-  const past = bookings.filter(b => ['completed', 'rejected', 'cancelled'].includes(b.status));
+  const active = bookings.filter(b => ['confirmed', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status));
+  const past = bookings.filter(b => ['completed', 'rejected', 'cancelled', 'accepted'].includes(b.status));
 
   return (
     <div>
@@ -165,6 +165,7 @@ const WorkRequestsPanel = () => {
 const BookingCard = ({ booking, actionId, onAccept, onReject, onStart, onComplete }) => {
   const isPending = booking.status === 'pending';
   const isAccepted = booking.status === 'accepted';
+  const isConfirmed = booking.status === 'confirmed';
   const isInProgress = booking.status === 'in-progress';
   const isAwaitingConfirmation = booking.status === 'work-completed-pending-confirmation';
   const isLoading = actionId === booking._id;
@@ -173,12 +174,24 @@ const BookingCard = ({ booking, actionId, onAccept, onReject, onStart, onComplet
 
   const statusColors = {
     pending: 'bg-warning/10 text-warning',
-    accepted: 'bg-success/10 text-success',
+    accepted: 'bg-info/10 text-info',
     rejected: 'bg-danger/10 text-danger',
+    confirmed: 'bg-success/10 text-success',
     'in-progress': 'bg-info/10 text-info',
     'work-completed-pending-confirmation': 'bg-warning/10 text-warning',
     completed: 'bg-primary/10 text-primary',
     cancelled: 'bg-danger/10 text-danger',
+  };
+
+  const statusLabels = {
+    pending: 'Pending',
+    accepted: 'Awaiting Payment',
+    confirmed: 'Confirmed',
+    'in-progress': 'In Progress',
+    'work-completed-pending-confirmation': 'Awaiting Confirmation',
+    completed: 'Completed',
+    rejected: 'Rejected',
+    cancelled: 'Cancelled',
   };
 
   return (
@@ -188,7 +201,7 @@ const BookingCard = ({ booking, actionId, onAccept, onReject, onStart, onComplet
           <div className="flex items-center gap-2 mb-1">
             <h4 className="font-semibold text-secondary">{customerName}</h4>
             <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${statusColors[booking.status] || 'bg-slate-100 text-slate-500'}`}>
-              {booking.status}
+              {statusLabels[booking.status] || booking.status}
             </span>
           </div>
           <p className="text-sm text-slate-500 mb-1">{services}</p>
@@ -201,6 +214,12 @@ const BookingCard = ({ booking, actionId, onAccept, onReject, onStart, onComplet
           <p className="text-xs text-slate-400 mt-1">
             {new Date(booking.createdAt).toLocaleDateString()} at {new Date(booking.createdAt).toLocaleTimeString()}
           </p>
+          {booking.autoExpired && (
+            <p className="text-xs text-warning mt-1 font-medium">Auto-expired — no response within 5 minutes</p>
+          )}
+          {booking.paymentMode === 'cash-on-service' && booking.status === 'completed' && (
+            <p className="text-xs text-info mt-1 font-medium">Cash payment — collect directly from customer</p>
+          )}
         </div>
 
         <div className="flex flex-col gap-2">
@@ -214,14 +233,17 @@ const BookingCard = ({ booking, actionId, onAccept, onReject, onStart, onComplet
               </button>
             </>
           )}
-          {isAccepted && onStart && (
+          {isAccepted && (
+            <span className="text-xs text-info font-medium text-center px-2">Waiting for customer to choose payment</span>
+          )}
+          {isConfirmed && onStart && (
             <button onClick={onStart} disabled={isLoading} className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-hover disabled:opacity-50 flex items-center gap-1">
-              <Play className="w-4 h-4" /> {isLoading ? '...' : 'Start Work'}
+              <Play className="w-4 h-4" /> {isLoading ? '...' : 'Go for Work'}
             </button>
           )}
           {isInProgress && onComplete && (
             <button onClick={onComplete} disabled={isLoading} className="bg-success text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-success/90 disabled:opacity-50 flex items-center gap-1">
-              <CheckCircle className="w-4 h-4" /> {isLoading ? '...' : 'Mark Complete'}
+              <CheckCircle className="w-4 h-4" /> {isLoading ? '...' : 'Mark as Completed'}
             </button>
           )}
           {isAwaitingConfirmation && (

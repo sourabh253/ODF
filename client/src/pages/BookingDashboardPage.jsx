@@ -8,8 +8,9 @@ import { ArrowLeft, Clock, CheckCircle, XCircle, AlertCircle, Loader, Star } fro
 
 const STATUS_CONFIG = {
   pending: { color: 'bg-warning/10 text-warning', icon: Clock, label: 'Pending' },
-  accepted: { color: 'bg-success/10 text-success', icon: CheckCircle, label: 'Accepted' },
+  accepted: { color: 'bg-info/10 text-info', icon: Clock, label: 'Awaiting Payment' },
   rejected: { color: 'bg-danger/10 text-danger', icon: XCircle, label: 'Rejected' },
+  confirmed: { color: 'bg-success/10 text-success', icon: CheckCircle, label: 'Confirmed' },
   'in-progress': { color: 'bg-info/10 text-info', icon: Loader, label: 'In Progress' },
   'work-completed-pending-confirmation': { color: 'bg-warning/10 text-warning', icon: Clock, label: 'Awaiting Confirmation' },
   completed: { color: 'bg-primary/10 text-primary', icon: CheckCircle, label: 'Completed' },
@@ -111,7 +112,7 @@ const BookingDashboardPage = () => {
   useEffect(() => {
     if (!socket) return;
     const handleUpdate = (data) => {
-      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: data.status || b.status } : b));
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: data.status || b.status, autoExpired: data.autoExpired || b.autoExpired } : b));
     };
     socket.on('booking_accepted', handleUpdate);
     socket.on('booking_rejected', handleUpdate);
@@ -119,11 +120,15 @@ const BookingDashboardPage = () => {
     socket.on('work_completed', (data) => {
       setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'work-completed-pending-confirmation' } : b));
     });
+    socket.on('work_started', (data) => {
+      setBookings(prev => prev.map(b => b._id === data.bookingId ? { ...b, status: 'in-progress' } : b));
+    });
     return () => {
       socket.off('booking_accepted', handleUpdate);
       socket.off('booking_rejected', handleUpdate);
       socket.off('booking_confirmed', handleUpdate);
       socket.off('work_completed');
+      socket.off('work_started');
     };
   }, [socket]);
 
@@ -145,7 +150,7 @@ const BookingDashboardPage = () => {
   };
 
   const filteredBookings = filter === 'all' ? bookings : bookings.filter(b => {
-    if (filter === 'active') return ['pending', 'accepted', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status);
+    if (filter === 'active') return ['pending', 'accepted', 'confirmed', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status);
     if (filter === 'completed') return b.status === 'completed';
     if (filter === 'cancelled') return ['cancelled', 'rejected'].includes(b.status);
     return true;
@@ -224,8 +229,11 @@ const BookingDashboardPage = () => {
                           onClick={() => navigate(`/booking/${booking._id}/payment-options`)}
                           className="btn-primary text-xs px-3 py-1.5"
                         >
-                          Pay / Choose
+                          Choose Payment
                         </button>
+                      )}
+                      {booking.status === 'confirmed' && (
+                        <span className="text-xs text-success font-medium px-2">Waiting for worker to start</span>
                       )}
                       {booking.status === 'work-completed-pending-confirmation' && (
                         <button
@@ -234,7 +242,7 @@ const BookingDashboardPage = () => {
                           className="btn-primary text-xs px-3 py-1.5 flex items-center gap-1"
                         >
                           <CheckCircle className="w-3 h-3" />
-                          {confirmingId === booking._id ? 'Confirming...' : 'Confirm Done'}
+                          {confirmingId === booking._id ? 'Confirming...' : 'Confirm Completion'}
                         </button>
                       )}
                       {booking.status === 'completed' && (
@@ -247,6 +255,12 @@ const BookingDashboardPage = () => {
                       )}
                     </div>
                   </div>
+                  {booking.autoExpired && (
+                    <p className="text-xs text-warning mt-2 font-medium">Expired — no response within 5 minutes</p>
+                  )}
+                  {booking.paymentMode === 'cash-on-service' && booking.status === 'completed' && (
+                    <p className="text-xs text-info mt-2 font-medium">Cash payment — please pay the worker directly in person</p>
+                  )}
                 </div>
               );
             })}

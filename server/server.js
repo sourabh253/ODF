@@ -110,6 +110,70 @@ if (process.env.MONGO_URI) {
   connectDB().then(() => {
     httpServer.listen(port, () => {
       console.log(`Server running on port ${port}`);
+
+      // Auto-expire pending bookings every 60 seconds
+      // Uses targeted updateMany to avoid full-document schema validation on stale pre-pivot data.
+      // This is a periodic sweep (not per-booking timers) so it survives server restarts.
+      setInterval(async () => {
+        try {
+          const Booking = (await import('./models/Booking.js')).default;
+          const Worker = (await import('./models/Worker.js')).default;
+          const Notification = (await import('./models/Notification.js')).default;
+          const io = app.get('io');
+
+          const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
+
+          // Step 1: Find matching bookings (lean query — just IDs and needed fields, no full doc hydration)
+          const expiredBookings = await Booking.find({
+            status: 'pending',
+            createdAt: { $lt: fiveMinutesAgo },
+            autoExpired: { $ne: true },
+          }).select('_id customerId workerId').lean();
+
+          if (expiredBookings.length === 0) return;
+
+          // Step 2: Bulk update — skip validation since we're only touching status/autoExpired/expiredAt
+          await Booking.updateMany(
+            { _id: { $in: expiredBookings.map(b => b._id) } },
+            { $set: { status: 'rejected', autoExpired: true, expiredAt: new Date() } },
+            { runValidators: false }
+          );
+
+          // Step 3: Emit events and create notifications for each expired booking
+          for (const booking of expiredBookings) {
+            if (io) {
+              io.to(`user:${booking.customerId}`).emit('booking_rejected', {
+                bookingId: booking._id,
+                status: 'rejected',
+                autoExpired: true,
+              });
+            }
+
+            await Notification.create({
+              userId: booking.customerId,
+              type: 'booking_auto_expired',
+              title: 'Booking Request Expired',
+              message: 'Your booking request expired because the worker did not respond within 5 minutes.',
+              bookingId: booking._id,
+            });
+
+            const workerForNotif = await Worker.findById(booking.workerId).select('userId').populate('userId', '_id');
+            if (workerForNotif?.userId) {
+              await Notification.create({
+                userId: workerForNotif.userId._id,
+                type: 'booking_auto_expired',
+                title: 'Booking Request Expired',
+                message: 'A booking request expired because it was not responded to within 5 minutes.',
+                bookingId: booking._id,
+              });
+            }
+          }
+
+          console.log(`Auto-expire sweep: ${expiredBookings.length} booking(s) expired`);
+        } catch (err) {
+          console.error('Auto-expire sweep error:', err.message);
+        }
+      }, 60 * 1000); // every 60 seconds
     });
   });
 } else {
