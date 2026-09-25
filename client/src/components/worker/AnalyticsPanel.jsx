@@ -28,8 +28,9 @@ const AnalyticsPanel = () => {
 
         const completed = bookings.filter(b => b.status === 'completed');
         const earnings = completed.reduce((sum, b) => {
-          const fee = Math.round(b.totalAmount * 0.10);
-          return sum + (b.paymentMode === 'pay-before' ? b.totalAmount - fee : -fee);
+          const base = b.paymentMode === 'pay-before' ? (b.amountPaid ?? b.totalAmount) : b.totalAmount;
+          const fee = Math.round(base * 0.10);
+          return sum + (b.paymentMode === 'pay-before' ? base - fee : -fee);
         }, 0);
 
         setStats({

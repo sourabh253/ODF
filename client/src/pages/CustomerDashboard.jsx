@@ -1,29 +1,27 @@
 import { useEffect, useState } from 'react';
-import { AlertCircle, ArrowRight, LayoutGrid, Scissors, SprayCan, Sparkles, Wind, Zap, LayoutList } from 'lucide-react';
+import { AlertCircle, ArrowRight, LayoutGrid, RefreshCw } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useSocket } from '../context/SocketContext';
 import bookingService from '../services/bookingService';
 import catalogService from '../services/catalogService';
-
-const MAIN_CATEGORY_ICONS = {
-  "Women's Salon & Spa": Scissors,
-  "Men's Salon & Massage": Scissors,
-  'Cleaning': SprayCan,
-  'AC & Appliance Repair': Wind,
-  'Electrician, Plumber & Carpenter': Zap,
-};
-
-const ALL_SERVICES_ENTRY = { _id: '__all__', name: 'All Services', icon: LayoutList };
+import CategoryTile from '../components/catalog/CategoryTile';
+import { QuickCategorySkeleton } from '../components/catalog/Skeletons';
+import { mainCategoryLink } from '../utils/catalogLinks';
 
 const CustomerDashboard = () => {
   const { user } = useAuth();
   const socket = useSocket();
   const [bookings, setBookings] = useState([]);
   const [mainCategories, setMainCategories] = useState([]);
+  const [loadingCategories, setLoadingCategories] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    if (!user?.token) {
+      setBookings([]);
+      return;
+    }
     const loadBookings = async () => {
       try {
         setBookings(await bookingService.getMyBookings(user.token));
@@ -32,19 +30,25 @@ const CustomerDashboard = () => {
       }
     };
     loadBookings();
-  }, [user.token]);
+  }, [user?.token]);
+
+  const loadMainCategories = async () => {
+    setLoadingCategories(true);
+    setError('');
+    try {
+      const cats = await catalogService.getMainCategories(user?.token);
+      setMainCategories(cats);
+    } catch (err) {
+      setError('Failed to load service categories');
+    } finally {
+      setLoadingCategories(false);
+    }
+  };
 
   useEffect(() => {
-    const loadMainCategories = async () => {
-      try {
-        const cats = await catalogService.getMainCategories(user.token);
-        setMainCategories(cats);
-      } catch (err) {
-        setError('Failed to load service categories');
-      }
-    };
     loadMainCategories();
-  }, [user.token]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.token]);
 
   useEffect(() => {
     if (!socket) return;
@@ -79,54 +83,68 @@ const CustomerDashboard = () => {
 
   const activeBookings = bookings.filter(b => ['pending', 'accepted', 'confirmed', 'in-progress', 'work-completed-pending-confirmation'].includes(b.status));
 
-  const displayCategories = [
-    ...mainCategories.map(name => ({ _id: name, name, icon: MAIN_CATEGORY_ICONS[name] || Sparkles })),
-    ALL_SERVICES_ENTRY,
-  ];
-
   return (
-    <div className="min-h-screen bg-slate-50 py-12">
+    <div className="min-h-screen bg-slate-50 py-10">
       <div className="container-custom">
         {/* Hero */}
         <div className="mb-8 max-w-2xl">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">Welcome, {user.fullName}</p>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-primary">
+            {user ? `Welcome, ${user.fullName}` : 'Browse our catalog'}
+          </p>
           <h1 className="text-4xl font-bold text-secondary">What do you need done?</h1>
-          <p className="mt-3 text-slate-600">Browse our service categories and book trusted workers in your area.</p>
+          <p className="mt-3 text-slate-600">
+            Browse our service categories and book trusted workers in your area.
+          </p>
         </div>
 
         {error && (
-          <div className="mb-6 flex items-center gap-2 rounded-xl bg-danger/10 p-4 text-sm text-danger">
-            <AlertCircle className="h-5 w-5" /> {error}
+          <div className="mb-6 flex items-center gap-3 rounded-xl border border-danger/20 bg-danger/5 p-4 text-sm text-danger">
+            <AlertCircle className="h-5 w-5 shrink-0" />
+            <span>{error}</span>
+            <button
+              type="button"
+              onClick={loadMainCategories}
+              className="ml-auto inline-flex items-center gap-1.5 font-semibold underline"
+            >
+              <RefreshCw className="h-4 w-4" /> Retry
+            </button>
           </div>
         )}
 
         {/* Quick Links */}
-        <div className="flex gap-3 mb-8">
-          <Link to="/booking-dashboard" className="flex items-center gap-2 bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium text-slate-700 hover:border-primary hover:text-primary transition-colors">
-            <LayoutGrid className="w-4 h-4" /> My Bookings
-            {activeBookings.length > 0 && (
-              <span className="bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">{activeBookings.length}</span>
-            )}
-          </Link>
-        </div>
+        {user && (
+          <div className="mb-8 flex gap-3">
+            <Link
+              to="/booking-dashboard"
+              className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-primary hover:text-primary"
+            >
+              <LayoutGrid className="h-4 w-4" /> My Bookings
+              {activeBookings.length > 0 && (
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">
+                  {activeBookings.length}
+                </span>
+              )}
+            </Link>
+          </div>
+        )}
 
         {/* Active Bookings Banner */}
         {activeBookings.length > 0 && (
-          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 mb-8">
-            <h3 className="font-bold text-secondary mb-3">Active Bookings</h3>
+          <div className="mb-8 rounded-2xl border border-primary/20 bg-primary/5 p-5">
+            <h3 className="mb-3 font-bold text-secondary">Active Bookings</h3>
             <div className="space-y-2">
               {activeBookings.slice(0, 3).map(booking => (
-                <div key={booking._id} className="flex items-center justify-between bg-white rounded-xl p-3 border border-slate-100">
-                  <div>
-                    <p className="text-sm font-medium text-slate-700">
+                <div key={booking._id} className="flex items-center justify-between rounded-xl border border-slate-100 bg-white p-3">
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-medium text-slate-700">
                       {booking.workerId?.userId?.fullName || booking.workerId?.occupation || 'Worker'}
                     </p>
-                    <p className="text-xs text-slate-400">
+                    <p className="truncate text-xs text-slate-400">
                       {booking.selectedServices?.map(s => s.serviceName).join(', ')}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+                  <div className="ml-3 flex shrink-0 items-center gap-2">
+                    <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
                       booking.status === 'accepted' ? 'bg-info/10 text-info' :
                       booking.status === 'confirmed' ? 'bg-success/10 text-success' :
                       booking.status === 'pending' ? 'bg-warning/10 text-warning' :
@@ -138,7 +156,9 @@ const CustomerDashboard = () => {
                        booking.status}
                     </span>
                     {booking.status === 'work-completed-pending-confirmation' && (
-                      <Link to="/booking-dashboard" className="text-xs text-primary font-medium hover:underline">Confirm</Link>
+                      <Link to="/booking-dashboard" className="text-xs font-medium text-primary hover:underline">
+                        Confirm
+                      </Link>
                     )}
                   </div>
                 </div>
@@ -148,30 +168,49 @@ const CustomerDashboard = () => {
         )}
 
         {/* Service Categories */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold text-secondary mb-4">Browse Services</h2>
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <h2 className="text-2xl font-bold text-secondary">Browse Services</h2>
+          <span className="hidden text-sm text-slate-400 sm:block">
+            Use the search bar above to find a specific service
+          </span>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {displayCategories.map(cat => {
-            const IconComponent = cat.icon;
-            const linkTo = cat._id === '__all__'
-              ? '/dashboard/search'
-              : `/dashboard/main/${encodeURIComponent(cat.name)}`;
-            return (
-              <Link
-                key={cat._id}
-                to={linkTo}
-                className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md hover:border-primary transition-all group"
-              >
-                <div className="mb-3 text-primary"><IconComponent className="w-8 h-8" strokeWidth={1.5} /></div>
-                <h3 className="font-semibold text-secondary text-sm group-hover:text-primary transition-colors">{cat.name}</h3>
-                <div className="flex items-center gap-1 mt-2 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  Browse services <ArrowRight className="w-3 h-3" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+
+        {loadingCategories ? (
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {[1, 2, 3, 4, 5].map((item) => (
+              <QuickCategorySkeleton key={item} />
+            ))}
+          </div>
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {mainCategories.map((name) => (
+              <CategoryTile
+                key={name}
+                name={name}
+                to={mainCategoryLink(name)}
+                description="Browse services"
+              />
+            ))}
+          </div>
+        )}
+
+        {!loadingCategories && !error && mainCategories.length === 0 && (
+          <div className="rounded-2xl border border-dashed border-slate-300 bg-white py-14 text-center">
+            <p className="font-semibold text-secondary">No service categories available</p>
+            <p className="mt-1 text-sm text-slate-400">Please check back soon.</p>
+          </div>
+        )}
+
+        {!loadingCategories && user && (
+          <div className="mt-8 flex justify-end">
+            <Link
+              to="/booking-dashboard"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-hover"
+            >
+              View booking history <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

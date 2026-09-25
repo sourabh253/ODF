@@ -7,7 +7,7 @@ const walletTransactionSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['platform-fee-deduction', 'earning-credit', 'withdrawal', 'manual-adjustment'],
+    enum: ['platform-fee-deduction', 'earning-credit', 'withdrawal', 'manual-adjustment', 'manual-credit', 'manual-debit'],
     required: true,
   },
   amount: {

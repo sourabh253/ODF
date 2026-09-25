@@ -38,10 +38,10 @@ Worker Dashboard → Work Requests panel (live via Socket.io) → Accept / Rejec
 
 Worker marks job "in-progress" on arrival → "Work Completed" →
 Customer sees verification prompt → Customer "Confirm Completion" →
-   Booking → completed → Settlement fires automatically:
-     Cash booking   → platform fee DEDUCTED from worker's Wallet
-     Pay Before     → (totalAmount − platform fee) CREDITED to worker's Wallet
-   → Customer can leave a Review → Worker's rating/analytics recompute
+  Booking → completed → Settlement fires automatically:
+    Cash booking   → platform fee DEDUCTED from worker's Wallet
+    Pay Before     → (amount actually collected − platform fee) CREDITED to worker's Wallet
+  → Customer can leave a Review → Worker's rating/analytics recompute
 
 Worker Wallet → Withdraw → blocked while any booking is in-progress
    or work-completed-pending-confirmation for that worker
@@ -51,12 +51,21 @@ Worker Wallet → Withdraw → blocked while any booking is in-progress
 
 ```
 /api/auth/*      → auth routes (register/login for customer + worker + admin, /me)
-/api/catalog/*   → NEW: service catalog browsing (nested category trees, prices)
+/api/catalog/*   → service catalog browsing (nested category trees, prices).
+                   READ routes (main-categories, categories, tree, subcategories,
+                   services, search, service/:id) are PUBLIC — the landing page,
+                   navbar search and category browsing must work for anonymous
+                   visitors. Only /api/catalog/admin/* (CRUD) stays behind
+                   protect + authorize('admin'). [Changed 2026-09-25 for the
+                   marketplace UI retouch; 2 E2E checks updated to match.]
 /api/customers/* → worker discovery, worker profile views (unchanged)
 /api/worker/*    → worker profile CRUD, availability, analytics (pricing fields removed)
 /api/bookings/*  → booking lifecycle: create (cart-based), accept, reject, start, complete,
-                   confirm-completion, cancel, list — status enum expanded (see §6)
+                   confirm-completion, cancel, list — status enum expanded (see §6);
+                   POST /simulate-payment is the LIVE Pay Before checkout (server
+                   recalculates coupon + total, marks paid, confirms the booking)
 /api/payments/*  → coupon validation, Razorpay order creation, payment verification
+                   (Razorpay endpoints kept for later; no gateway account is in use yet)
 /api/wallet/*    → NEW: worker wallet balance, transaction history, withdrawal
 /api/reviews/*   → review submission
 /api/upload      → Cloudinary file upload (photos, ID docs)
@@ -77,13 +86,20 @@ odforce/
 ├── client/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── common/        # Navbar, Footer, HelpPanel, LanguageSwitcher, ThemeToggle, ProtectedRoute
-│   │   │   ├── landing/       # Hero, About, ServiceCategories, WhyChoose, HowItWorks, Testimonials, FAQ
+│   │   │   ├── common/        # Navbar (search+location+cart), Footer, LocationSelector, ProtectedRoute
+│   │   │   ├── search/        # GlobalServiceSearch (debounced navbar/hero search, suggestions)
+│   │   │   ├── catalog/       # ServiceCard, ServiceCarousel, CategorySection, CategoryTile,
+│   │   │   │                  # SectionHeader, Skeletons (NEW, shared by landing + catalog + dashboard)
+│   │   │   ├── landing/       # HeroSection, PopularServices (NEW)
+│   │   │   ├── cart/          # CartDrawer (navbar cart panel over CartContext) (NEW)
 │   │   │   ├── auth/          # CustomerAuthModal, WorkerLoginModal, WorkerRegisterFlow
 │   │   │   ├── worker/        # WorkerProfileSetup, WorkerDashboard, WorkRequestsPanel,
 │   │   │   │                  # WalletPanel (NEW), ActiveJobsPanel (NEW), Settings, Analytics, Ratings
 │   │   │   └── customer/      # CategoryBrowser (NEW), CartSummary (NEW), WorkerSelection (NEW),
 │   │   │                      # WorkerProfileView, PaymentOptions, PayBefore
+│   │   ├── data/              # serviceImages.js — central image map, all URLs HTTP-200 verified (NEW)
+│   │   ├── hooks/             # useDebounce (NEW)
+│   │   ├── utils/             # catalogLinks, catalogTree (flatten/group/popular pick) (NEW)
 │   │   ├── pages/
 │   │   ├── context/           # AuthContext, SocketContext, ThemeContext, LanguageContext, CartContext (NEW)
 │   │   ├── services/          # authService, catalogService (NEW), workerService, customerService,
@@ -152,7 +168,10 @@ role: enum ["customer", "worker", "admin"]
   selectedServices: [{ serviceId, serviceName, unitPrice, quantity }],  // snapshotted at booking time
   inspectionFee: Number,        // flat platform constant, currently ₹80, charged once per booking
   servicesTotal: Number,        // server-calculated sum
-  totalAmount: Number,          // servicesTotal + inspectionFee
+  totalAmount: Number,          // servicesTotal + inspectionFee + tip
+  couponCode: String,           // only set when a coupon actually discounted the payment
+  discountAmount: Number,       // coupon discount applied at Pay Before checkout (default 0)
+  amountPaid: Number,           // what the customer actually paid (totalAmount − discountAmount)
   status: enum ["pending", "rejected", "accepted", "confirmed", "in-progress",
                 "work-completed-pending-confirmation", "completed", "cancelled"],
   paymentMode: enum ["cash-on-service", "pay-before", null],
@@ -165,15 +184,16 @@ role: enum ["customer", "worker", "admin"]
 {
   workerId,
   balance: Number,
-  transactions: [{ bookingId, type: enum ["platform-fee-deduction","earning-credit","withdrawal","manual-adjustment"],
+  transactions: [{ bookingId, type: enum ["platform-fee-deduction","earning-credit","withdrawal",
+                    "manual-adjustment","manual-credit","manual-debit"],
                     amount, balanceAfter, note, createdAt }]
 }
 
-// Platform constants (server config, never client-editable)
+// Platform constants (server config, never client-editable) — server/config/platform.js
 PLATFORM_CONFIG = {
   INSPECTION_FEE: 80,
-  MIN_WALLET_BALANCE_FOR_CASH_BOOKINGS: 300,
-  PLATFORM_FEE_PERCENT: <TO BE DECIDED — see rules.md note before Phase 8 builds settlement>
+  MIN_WALLET_BALANCE_FOR_CASH_BOOKINGS: 300,   // enforced when a customer picks Cash on Service
+  PLATFORM_FEE_PERCENT: 10,                     // of the amount actually collected
 }
 ```
 

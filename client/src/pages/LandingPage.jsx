@@ -1,187 +1,194 @@
-import { Shield, Clock, IndianRupee, MapPin, ChevronDown, CheckCircle2, Star, Quote, User } from 'lucide-react';
-import { useState } from 'react';
-import { SKILLS } from '../constants';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { ChevronDown, Quote, RefreshCw, ShieldCheck, AlertCircle } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/CartContext';
+import catalogService from '../services/catalogService';
+import { flattenCatalogTree, pickPopularServices } from '../utils/catalogTree';
+import { mainCategoryLink } from '../utils/catalogLinks';
+import HeroSection from '../components/landing/HeroSection';
+import PopularServices from '../components/landing/PopularServices';
+import CategoryTile from '../components/catalog/CategoryTile';
+import SectionHeader from '../components/catalog/SectionHeader';
+import { HeroSkeleton, QuickCategorySkeleton } from '../components/catalog/Skeletons';
+
+const MAIN_CATEGORY_DESCRIPTIONS = {
+  Cleaning: 'Kitchens, bathrooms, sofas, floors and full-home deep cleaning.',
+  'AC & Appliance Repair': 'AC service, refrigerators, washing machines, geysers and more.',
+  'Electrician, Plumber & Carpenter': 'Quick fixes, fittings and installations at clear prices.',
+  "Women's Salon & Spa": 'Hair, skin, makeup, waxing and spa — done at your home.',
+  "Men's Salon & Massage": 'Haircuts, beard care, facials and massage at home.',
+};
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border border-slate-200 rounded-lg overflow-hidden mb-4">
-      <button 
-        className="w-full flex justify-between items-center p-4 bg-white hover:bg-slate-50 transition-colors text-left"
+    <div className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
+      <button
+        type="button"
+        className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-slate-50"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
       >
         <span className="font-semibold text-slate-800">{question}</span>
-        <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          className={`h-5 w-5 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+        />
       </button>
       {isOpen && (
-        <div className="p-4 bg-white border-t border-slate-100 text-slate-600">
-          {answer}
-        </div>
+        <div className="border-t border-slate-100 bg-white p-4 text-slate-600">{answer}</div>
       )}
     </div>
   );
 };
 
 const LandingPage = () => {
+  const { user } = useAuth();
+  const { cartItems, addToCart, updateQuantity, INSPECTION_FEE } = useCart();
+
+  const [mainCategories, setMainCategories] = useState([]);
+  const [catalogTree, setCatalogTree] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  const loadCatalog = useCallback(async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const [categories, tree] = await Promise.all([
+        catalogService.getMainCategories(user?.token),
+        catalogService.getCatalogTree(user?.token),
+      ]);
+      setMainCategories(Array.isArray(categories) ? categories : []);
+      setCatalogTree(tree || {});
+    } catch {
+      setError('We could not load the service catalog. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }, [user?.token]);
+
+  useEffect(() => {
+    loadCatalog();
+  }, [loadCatalog]);
+
+  const services = useMemo(() => flattenCatalogTree(catalogTree), [catalogTree]);
+  const popular = useMemo(() => pickPopularServices(services), [services]);
+  const categoryCount = useMemo(
+    () => new Set(services.map((service) => service.category)).size,
+    [services]
+  );
+
+  const getQuantity = useCallback(
+    (serviceId) => cartItems.find((item) => item._id === serviceId)?.quantity || 0,
+    [cartItems]
+  );
+
+  const cartApi = {
+    getQuantity,
+    onAdd: (service, category) => addToCart(service, category),
+    onIncrement: (serviceId, quantity) => updateQuantity(serviceId, quantity),
+    onDecrement: (serviceId, quantity) => updateQuantity(serviceId, quantity),
+  };
+
+  const stats = {
+    categories: categoryCount,
+    services: services.length,
+    inspectionFee: INSPECTION_FEE,
+  };
+
+  if (loading) {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <HeroSkeleton />
+        <div className="container-custom py-12">
+          <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {[1, 2, 3, 4, 5].map((item) => (
+              <QuickCategorySkeleton key={item} />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
-      
-      {/* Hero Section */}
-      <section className="bg-surface py-20 lg:py-32 overflow-hidden relative border-b border-slate-200">
-        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-4xl lg:text-6xl font-black text-secondary leading-tight mb-6">
-              Expert Home Services,<br/> 
-              <span className="text-primary">On Demand.</span>
-            </h1>
-            <p className="text-lg lg:text-xl text-slate-600 mb-8 max-w-lg">
-              Connect directly with verified skilled and unskilled workers for hourly or full-day hire. No middlemen, transparent pricing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary text-lg px-8 py-3 shadow-lg shadow-primary/30">
-                Book a Service
-              </button>
-              <button className="btn-secondary text-lg px-8 py-3 bg-white">
-                How It Works
-              </button>
-            </div>
-          </div>
-          <div className="relative hidden lg:block">
-            {/* Abstract visual composition avoiding generic stock */}
-            <div className="aspect-square bg-primary/5 rounded-full absolute -top-12 -right-12 w-[120%] -z-10 blur-3xl"></div>
-            <div className="bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 relative">
-              <div className="absolute -top-6 -left-6 bg-success text-white px-4 py-2 rounded-full font-bold shadow-lg flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5"/> Verified Workers
-              </div>
-              <div className="space-y-6">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                    <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center">
-                      <User className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="h-4 w-32 bg-slate-200 rounded mb-2"></div>
-                      <div className="h-3 w-24 bg-slate-200 rounded"></div>
-                    </div>
-                    <div className="flex text-warning">
-                      <Star className="w-4 h-4 fill-current" />
-                      <span className="text-sm font-bold text-slate-700 ml-1">4.9</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+      <HeroSection stats={stats} mainCategories={mainCategories} />
+
+      {error && (
+        <div className="container-custom mt-6">
+          <div className="flex flex-wrap items-center gap-3 rounded-xl border border-danger/20 bg-danger/5 p-4 text-sm text-danger">
+            <AlertCircle className="h-5 w-5 shrink-0" />
+            <span>{error}</span>
+            <button
+              type="button"
+              onClick={loadCatalog}
+              className="ml-auto inline-flex items-center gap-1.5 font-semibold underline"
+            >
+              <RefreshCw className="h-4 w-4" /> Retry
+            </button>
           </div>
         </div>
-      </section>
+      )}
 
-      {/* About ODForce */}
-      <section id="about" className="py-20 bg-white">
-        <div className="container-custom text-center max-w-3xl">
-          <h2 className="text-3xl font-bold mb-6">About ODForce</h2>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            ODForce replaces the informal, middleman-driven local hiring process with a centralized, trustworthy platform. We believe in direct connection: customers get access to verified talent instantly, and workers retain full control over their bookings and earnings. By eliminating the middleman, we guarantee fair pay and transparent pricing for everyone.
-          </p>
+      {!error && services.length === 0 && (
+        <div className="container-custom py-16 text-center">
+          <h2 className="text-xl font-bold text-secondary">No services available yet</h2>
+          <p className="mt-2 text-slate-500">Please check back soon — new services are added daily.</p>
         </div>
-      </section>
+      )}
 
-      {/* Service Categories */}
-      <section id="services" className="py-20 bg-slate-50 border-y border-slate-200">
+      {/* What do you need done? — category discovery grid */}
+      <section id="services" className="bg-slate-50 py-14 border-b border-slate-200">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Services</h2>
-            <p className="text-slate-600 max-w-xl mx-auto">Find exactly the right professional for your needs, ready to help today.</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            {SKILLS.map((skill) => (
-              <div key={skill} className="bg-white border border-slate-200 hover:border-primary hover:shadow-md transition-all p-4 rounded-xl text-center cursor-pointer group flex flex-col items-center justify-center h-32">
-                <span className="font-medium text-slate-700 group-hover:text-primary transition-colors">{skill}</span>
-              </div>
+          <SectionHeader
+            eyebrow="Service categories"
+            title="What do you need done?"
+            subtitle="Pick a category to see every service, price and sub-category — then add services to your cart."
+          />
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {mainCategories.map((name) => (
+              <CategoryTile
+                key={name}
+                name={name}
+                description={MAIN_CATEGORY_DESCRIPTIONS[name]}
+                to={mainCategoryLink(name)}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      {/* Popular services */}
+      <section className="bg-slate-50 py-14">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Why Choose ODForce</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Verified Profiles</h3>
-              <p className="text-slate-600">Every worker on our platform is carefully verified for your safety and peace of mind.</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <IndianRupee className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Transparent Pricing</h3>
-              <p className="text-slate-600">Pay direct charges with no hidden fees. Choose between Cash on Service or Pay Before.</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Clock className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Instant Booking</h3>
-              <p className="text-slate-600">Get real-time responses from available workers in your immediate location.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20 bg-secondary text-white">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-white">How It Works</h2>
-            <p className="text-slate-400">Simple steps to get your job done</p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { step: 1, title: 'Search', desc: 'Find workers by skill and your live location.' },
-              { step: 2, title: 'Request', desc: 'Send an hourly or full-day booking request.' },
-              { step: 3, title: 'Connect', desc: 'Worker accepts instantly in real-time.' },
-              { step: 4, title: 'Complete', desc: 'Pay securely and leave a review.' }
-            ].map((s) => (
-              <div key={s.step} className="text-center relative">
-                <div className="w-16 h-16 rounded-full bg-slate-800 border-2 border-primary text-primary flex items-center justify-center text-2xl font-bold mx-auto mb-4 relative z-10">
-                  {s.step}
-                </div>
-                <h3 className="text-lg font-bold mb-2">{s.title}</h3>
-                <p className="text-slate-400 text-sm">{s.desc}</p>
-              </div>
-            ))}
-          </div>
+          <PopularServices services={popular} actionTo="/dashboard" {...cartApi} />
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="bg-white py-16">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-6 text-center">What Our Early Users Say</h2>
-          <p className="text-center text-slate-500 mb-12 max-w-lg mx-auto">
-            Real feedback from customers and workers using ODForce. Check back soon — our first bookings are just getting started.
+          <h2 className="mb-3 text-center text-3xl font-bold">What our early users say</h2>
+          <p className="mx-auto mb-12 max-w-lg text-center text-slate-500">
+            Real feedback from customers and workers using ODForce. Check back soon — our first
+            bookings are just getting started.
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-3">
             {[
               { quote: 'Booked an electrician in 2 minutes. Transparent pricing, no surprises.', role: 'Customer', tag: 'Mumbai' },
               { quote: 'I get direct bookings without paying commission to middlemen.', role: 'Worker', tag: 'Pune' },
               { quote: 'Cash on service option gave me confidence to try the platform.', role: 'Customer', tag: 'Delhi' },
             ].map((item, i) => (
-              <div key={i} className="bg-slate-50 p-8 rounded-2xl border border-slate-100 relative">
-                <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6" />
-                <p className="text-slate-600 mb-6 italic">"{item.quote}"</p>
+              <div key={i} className="relative rounded-2xl border border-slate-100 bg-slate-50 p-8">
+                <Quote className="absolute right-6 top-6 h-10 w-10 text-primary/20" />
+                <p className="mb-6 italic text-slate-600">“{item.quote}”</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center font-bold text-primary text-sm">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
                     {item.role[0]}
                   </div>
                   <div>
-                    <div className="font-bold text-slate-800 text-sm">{item.role}</div>
+                    <div className="text-sm font-bold text-slate-800">{item.role}</div>
                     <div className="text-xs text-slate-400">{item.tag}</div>
                   </div>
                 </div>
@@ -191,31 +198,43 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
-        <div className="container-custom max-w-3xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
-          <div className="space-y-4">
-            <FAQItem 
-              question="How do I pay for a service?" 
-              answer="You can pay using 'Cash on Service' directly to the worker after completion, or use our 'Pay Before' secure online checkout via UPI with available coupons."
-            />
-            <FAQItem 
-              question="Are the workers verified?" 
-              answer="Yes, all workers undergo a verification process including ID checks before their profiles go live on our platform."
-            />
-            <FAQItem 
-              question="What is the minimum charge?" 
-              answer="To ensure fair wages, the minimum booking charge on ODForce is ₹300."
-            />
-            <FAQItem 
-              question="Can I cancel a booking?" 
-              answer="Yes, you can cancel a pending request anytime, or cancel an accepted booking before the worker arrives."
-            />
-          </div>
+      {/* About */}
+      <section id="about" className="border-t border-slate-200 bg-slate-50 py-16">
+        <div className="container-custom mx-auto max-w-3xl text-center">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+            <ShieldCheck className="h-3.5 w-3.5" /> About ODForce
+          </span>
+          <p className="text-lg leading-relaxed text-slate-600">
+            ODForce replaces the informal, middleman-driven local hiring process with a centralized,
+            trustworthy platform. Customers get access to verified talent instantly, and workers
+            retain full control over their bookings and earnings — with fair pay and transparent
+            pricing for everyone.
+          </p>
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-t border-slate-200 bg-white py-16">
+        <div className="container-custom mx-auto max-w-3xl">
+          <h2 className="mb-10 text-center text-3xl font-bold">Frequently asked questions</h2>
+          <FAQItem
+            question="How do I pay for a service?"
+            answer="You can pay using 'Cash on Service' directly to the worker after completion, or use our 'Pay Before' secure online checkout via UPI with available coupons."
+          />
+          <FAQItem
+            question="Are the workers verified?"
+            answer="Yes, all workers undergo a verification process including ID checks before their profiles go live on our platform."
+          />
+          <FAQItem
+            question="What is the minimum charge?"
+            answer={`To ensure fair wages, the minimum booking charge on ODForce is ₹300, and a flat ₹${INSPECTION_FEE} inspection fee applies per booking.`}
+          />
+          <FAQItem
+            question="Can I cancel a booking?"
+            answer="Yes, you can cancel a pending request anytime, or cancel an accepted booking before the worker arrives."
+          />
+        </div>
+      </section>
     </div>
   );
 };

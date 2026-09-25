@@ -29,6 +29,9 @@ const allowedOrigins = [
   process.env.CLIENT_ORIGIN || 'http://localhost:5173',
   'http://localhost:5173',
   'http://127.0.0.1:5173',
+  // Vite falls back to 5174 when 5173 is already taken (a second `npm run dev`)
+  'http://localhost:5174',
+  'http://127.0.0.1:5174',
 ];
 
 // Middleware

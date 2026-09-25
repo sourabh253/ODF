@@ -71,6 +71,14 @@ export const verifyPayment = asyncHandler(async (req, res) => {
   booking.razorpayPaymentId = razorpay_payment_id;
   booking.paymentStatus = 'paid';
   booking.paymentMode = 'pay-before';
+  booking.amountPaid = booking.totalAmount;
+
+  // A verified payment is what unlocks work: mirror the simulated path so the
+  // worker can move the booking to in-progress.
+  if (booking.status === 'accepted') {
+    booking.status = 'confirmed';
+    booking.confirmedAt = new Date();
+  }
   await booking.save();
 
   res.json({ message: 'Payment verified successfully', bookingId: booking._id });

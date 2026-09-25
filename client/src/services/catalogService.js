@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL + '/api/catalog/';
 
-const getAuthHeader = (token) => ({ headers: { Authorization: `Bearer ${token}` } });
+const getAuthHeader = (token) =>
+  token ? { headers: { Authorization: `Bearer ${token}` } } : { headers: {} };
 
 const catalogService = {
   getMainCategories: (token) =>

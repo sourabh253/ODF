@@ -1,9 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import catalogService from '../services/catalogService';
-import { ShoppingCart, Plus, Minus, Trash2, ArrowLeft, ChevronRight } from 'lucide-react';
+import { openAuthModal } from '../services/authModal';
+import { getCategoryImage } from '../data/serviceImages';
+import ServiceCard from '../components/catalog/ServiceCard';
+import { ServiceCardSkeleton } from '../components/catalog/Skeletons';
+import { ArrowLeft, ChevronRight, RefreshCw, ShoppingCart, Trash2 } from 'lucide-react';
 
 const ServiceCatalogPage = () => {
   const { categorySlug } = useParams();
@@ -11,7 +15,18 @@ const ServiceCatalogPage = () => {
   const mainCategory = searchParams.get('mainCategory');
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { cartItems, cartCategory, addToCart, updateQuantity, removeFromCart, clearCart, servicesTotal, INSPECTION_FEE, totalAmount, itemCount } = useCart();
+  const {
+    cartItems,
+    cartCategory,
+    addToCart,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+    servicesTotal,
+    INSPECTION_FEE,
+    totalAmount,
+    itemCount,
+  } = useCart();
 
   const [catalogTree, setCatalogTree] = useState({});
   const [loading, setLoading] = useState(true);
@@ -22,17 +37,19 @@ const ServiceCatalogPage = () => {
   const category = decodeURIComponent(categorySlug || '');
 
   useEffect(() => {
+    let cancelled = false;
     const fetchCatalog = async () => {
+      setLoading(true);
+      setError('');
       try {
-        const tree = await catalogService.getCatalogTree(user.token, mainCategory || undefined);
+        const tree = await catalogService.getCatalogTree(undefined, mainCategory || undefined);
+        if (cancelled) return;
         setCatalogTree(tree);
 
-        // Find the services for this category
         let categoryData = null;
         if (mainCategory && tree[mainCategory]?.[category]) {
           categoryData = tree[mainCategory][category];
         } else {
-          // Search across all main categories
           for (const mc of Object.keys(tree)) {
             if (tree[mc][category]) {
               categoryData = tree[mc][category];
@@ -48,15 +65,18 @@ const ServiceCatalogPage = () => {
           }
         }
       } catch (err) {
-        setError(err.response?.data?.message || 'Failed to load service catalog');
+        if (!cancelled) setError(err.response?.data?.message || 'Failed to load service catalog');
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
-    if (user?.token) fetchCatalog();
-  }, [user?.token, category, mainCategory]);
+    fetchCatalog();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category, mainCategory]);
 
-  // Find subcategories for the current category
   const getSubCategories = () => {
     if (mainCategory && catalogTree[mainCategory]?.[category]) {
       return Object.keys(catalogTree[mainCategory][category]);
@@ -85,20 +105,28 @@ const ServiceCatalogPage = () => {
   const subCategories = getSubCategories();
   const services = getServices();
 
-  const isInCart = (serviceId) => cartItems.some(item => item._id === serviceId);
-  const getCartQuantity = (serviceId) => {
-    const item = cartItems.find(item => item._id === serviceId);
-    return item ? item.quantity : 0;
-  };
+  const getQuantity = (serviceId) => cartItems.find((item) => item._id === serviceId)?.quantity || 0;
 
   const handleAddToCart = (service) => {
     addToCart({ ...service, category }, category);
   };
 
+  const handleChooseWorker = () => {
+    if (user && user.role === 'customer') navigate('/dashboard/choose-worker');
+    else openAuthModal();
+  };
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+      <div className="min-h-screen bg-slate-50">
+        <div className="container-custom py-8">
+          <div className="mb-6 h-36 animate-pulse rounded-2xl bg-slate-200" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <ServiceCardSkeleton key={item} />
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
@@ -107,47 +135,65 @@ const ServiceCatalogPage = () => {
     <div className="min-h-screen bg-slate-50">
       <div className="container-custom py-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
+        <div className="relative mb-6 overflow-hidden rounded-2xl border border-slate-200">
+          <img
+            src={getCategoryImage(category)}
+            alt={category}
+            className="h-40 w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/85 via-secondary/55 to-transparent" />
+          <div className="absolute inset-0 flex items-center gap-4 px-6">
             <button
-              onClick={() => mainCategory ? navigate(`/dashboard/main/${encodeURIComponent(mainCategory)}`) : navigate('/dashboard')}
-              className="p-2 hover:bg-slate-200 rounded-lg transition-colors"
+              type="button"
+              onClick={() =>
+                mainCategory
+                  ? navigate(`/dashboard/main/${encodeURIComponent(mainCategory)}`)
+                  : navigate('/')
+              }
+              aria-label="Go back"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition-colors hover:bg-white/30"
             >
-              <ArrowLeft className="w-5 h-5 text-slate-600" />
+              <ArrowLeft className="h-5 w-5" />
             </button>
             <div>
-              <h1 className="text-2xl font-bold text-secondary">{category}</h1>
-              <p className="text-sm text-slate-500">Select services and add to cart</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                {mainCategory || 'All services'}
+              </p>
+              <h1 className="text-2xl font-bold text-white sm:text-3xl">{category}</h1>
+              <p className="text-sm text-slate-200">Select services and add them to your cart</p>
             </div>
           </div>
-          {itemCount > 0 && (
-            <button
-              onClick={() => setShowCart(!showCart)}
-              className="relative flex items-center gap-2 bg-primary text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-primary-hover transition-colors"
-            >
-              <ShoppingCart className="w-5 h-5" />
-              Cart ({itemCount})
-              <span className="absolute -top-2 -right-2 bg-warning text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                {itemCount}
-              </span>
-            </button>
-          )}
         </div>
 
         {error && (
-          <div className="bg-danger/10 text-danger p-4 rounded-xl mb-6">{error}</div>
+          <div className="mb-6 flex items-center gap-3 rounded-xl border border-danger/20 bg-danger/5 p-4 text-sm text-danger">
+            <span>{error}</span>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="ml-auto inline-flex items-center gap-1.5 font-semibold underline"
+            >
+              <RefreshCw className="h-4 w-4" /> Retry
+            </button>
+          </div>
         )}
 
         <div className="flex gap-6">
           {/* Subcategory Sidebar */}
           <div className="w-56 shrink-0">
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-3 sticky top-24">
-              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-3 mb-2">Subcategories</h3>
-              {subCategories.map(sub => (
+            <div className="sticky top-28 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+              <h3 className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Subcategories
+              </h3>
+              {subCategories.length === 0 && (
+                <p className="px-3 py-2 text-sm text-slate-400">No subcategories</p>
+              )}
+              {subCategories.map((sub) => (
                 <button
                   key={sub}
+                  type="button"
                   onClick={() => setSelectedSubCategory(sub)}
-                  className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  className={`w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-colors ${
                     selectedSubCategory === sub
                       ? 'bg-primary/10 text-primary'
                       : 'text-slate-600 hover:bg-slate-50'
@@ -161,58 +207,46 @@ const ServiceCatalogPage = () => {
 
           {/* Services Grid */}
           <div className="flex-1">
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <p className="text-sm text-slate-500">
+                {services.length} service{services.length === 1 ? '' : 's'}
+                {selectedSubCategory ? ` in ${selectedSubCategory}` : ''}
+              </p>
+              {itemCount > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setShowCart(!showCart)}
+                  className="btn-primary relative py-2 text-sm"
+                >
+                  <span className="flex items-center gap-2">
+                    <ShoppingCart className="h-4 w-4" /> Cart ({itemCount})
+                  </span>
+                </button>
+              )}
+            </div>
+
             {services.length === 0 ? (
-              <div className="text-center py-16 text-slate-400">
-                <p>No services found in this subcategory.</p>
+              <div className="rounded-2xl border border-dashed border-slate-300 bg-white py-16 text-center">
+                <p className="font-semibold text-secondary">No services found here yet</p>
+                <p className="mt-1 text-sm text-slate-400">
+                  Try another subcategory or browse a different category.
+                </p>
               </div>
             ) : (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {services.map(service => {
-                  const inCart = isInCart(service._id);
-                  const qty = getCartQuantity(service._id);
-
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                {services.map((service) => {
+                  const quantity = getQuantity(service._id);
                   return (
-                    <div key={service._id} className={`bg-white rounded-2xl border shadow-sm p-5 transition-all ${inCart ? 'border-primary ring-1 ring-primary/20' : 'border-slate-200 hover:shadow-md'}`}>
-                      <div className="flex justify-between items-start mb-3">
-                        <h3 className="font-semibold text-secondary text-sm leading-tight">{service.serviceName}</h3>
-                        {service.isQuotationOnly && (
-                          <span className="text-xs bg-warning/10 text-warning px-2 py-0.5 rounded-full font-medium">Quote</span>
-                        )}
-                      </div>
-                      {service.description && (
-                        <p className="text-xs text-slate-400 mb-3 line-clamp-2">{service.description}</p>
-                      )}
-                      <div className="flex items-end justify-between mt-auto">
-                        <div>
-                          <span className="text-lg font-bold text-primary">₹{service.price}</span>
-                          <span className="text-xs text-slate-400 ml-1">/ {service.unit}</span>
-                        </div>
-                        {inCart ? (
-                          <div className="flex items-center gap-2">
-                            <button
-                              onClick={() => updateQuantity(service._id, qty - 1)}
-                              className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
-                            >
-                              <Minus className="w-4 h-4" />
-                            </button>
-                            <span className="w-8 text-center font-bold text-sm">{qty}</span>
-                            <button
-                              onClick={() => updateQuantity(service._id, qty + 1)}
-                              className="w-8 h-8 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary flex items-center justify-center transition-colors"
-                            >
-                              <Plus className="w-4 h-4" />
-                            </button>
-                          </div>
-                        ) : (
-                          <button
-                            onClick={() => handleAddToCart(service)}
-                            className="flex items-center gap-1 bg-primary/10 hover:bg-primary/20 text-primary px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
-                          >
-                            <Plus className="w-4 h-4" /> Add
-                          </button>
-                        )}
-                      </div>
-                    </div>
+                    <ServiceCard
+                      key={service._id}
+                      service={{ ...service, category }}
+                      mainCategory={mainCategory || undefined}
+                      inCart={quantity > 0}
+                      quantity={quantity}
+                      onAdd={() => handleAddToCart(service)}
+                      onIncrement={() => updateQuantity(service._id, quantity + 1)}
+                      onDecrement={() => updateQuantity(service._id, quantity - 1)}
+                    />
                   );
                 })}
               </div>
@@ -220,67 +254,100 @@ const ServiceCatalogPage = () => {
           </div>
 
           {/* Cart Sidebar */}
-          {showCart && (
+          {showCart && itemCount > 0 && (
             <div className="w-80 shrink-0">
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sticky top-24">
-                <div className="flex items-center justify-between mb-4">
+              <div className="sticky top-28 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="mb-4 flex items-center justify-between">
                   <h3 className="font-bold text-secondary">Your Cart</h3>
-                  <button onClick={() => setShowCart(false)} className="text-slate-400 hover:text-slate-600 text-sm">Close</button>
+                  <button
+                    type="button"
+                    onClick={() => setShowCart(false)}
+                    className="text-sm text-slate-400 hover:text-slate-600"
+                  >
+                    Close
+                  </button>
                 </div>
 
-                {cartItems.length === 0 ? (
-                  <p className="text-sm text-slate-400 text-center py-8">Cart is empty</p>
-                ) : (
-                  <>
-                    <div className="space-y-3 mb-4 max-h-64 overflow-y-auto">
-                      {cartItems.map(item => (
-                        <div key={item._id} className="flex items-center justify-between gap-2">
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-slate-700 truncate">{item.serviceName}</p>
-                            <p className="text-xs text-slate-400">₹{item.price} × {item.quantity}</p>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <button onClick={() => updateQuantity(item._id, item.quantity - 1)} className="w-6 h-6 rounded bg-slate-100 flex items-center justify-center hover:bg-slate-200">
-                              <Minus className="w-3 h-3" />
-                            </button>
-                            <span className="w-6 text-center text-sm font-bold">{item.quantity}</span>
-                            <button onClick={() => updateQuantity(item._id, item.quantity + 1)} className="w-6 h-6 rounded bg-primary/10 flex items-center justify-center hover:bg-primary/20 text-primary">
-                              <Plus className="w-3 h-3" />
-                            </button>
-                            <button onClick={() => removeFromCart(item._id)} className="w-6 h-6 rounded bg-danger/10 flex items-center justify-center hover:bg-danger/20 text-danger ml-1">
-                              <Trash2 className="w-3 h-3" />
-                            </button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="border-t border-slate-100 pt-3 space-y-2">
-                      <div className="flex justify-between text-sm text-slate-500">
-                        <span>Services ({itemCount} items)</span>
-                        <span>₹{servicesTotal}</span>
-                      </div>
-                      <div className="flex justify-between text-sm text-slate-500">
-                        <span>Inspection Fee</span>
-                        <span>₹{INSPECTION_FEE}</span>
-                      </div>
-                      <div className="flex justify-between font-bold text-secondary border-t border-slate-100 pt-2">
-                        <span>Total</span>
-                        <span>₹{totalAmount}</span>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => navigate('/dashboard/choose-worker')}
-                      className="w-full btn-primary mt-4 flex items-center justify-center gap-2"
-                    >
-                      Choose Worker <ChevronRight className="w-4 h-4" />
-                    </button>
-                    <button onClick={clearCart} className="w-full text-sm text-slate-400 hover:text-danger mt-2 transition-colors">
-                      Clear cart
-                    </button>
-                  </>
+                {cartCategory && (
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
+                    {cartCategory}
+                  </p>
                 )}
+
+                <div className="mb-4 max-h-64 space-y-3 overflow-y-auto">
+                  {cartItems.map((item) => (
+                    <div key={item._id} className="flex items-center justify-between gap-2">
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-medium text-slate-700">
+                          {item.serviceName}
+                        </p>
+                        <p className="text-xs text-slate-400">
+                          ₹{item.price} × {item.quantity}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          aria-label="Decrease quantity"
+                          onClick={() => updateQuantity(item._id, item.quantity - 1)}
+                          className="flex h-6 w-6 items-center justify-center rounded bg-slate-100 hover:bg-slate-200"
+                        >
+                          −
+                        </button>
+                        <span className="w-6 text-center text-sm font-bold">{item.quantity}</span>
+                        <button
+                          type="button"
+                          aria-label="Increase quantity"
+                          onClick={() => updateQuantity(item._id, item.quantity + 1)}
+                          className="flex h-6 w-6 items-center justify-center rounded bg-primary/10 text-primary hover:bg-primary/20"
+                        >
+                          +
+                        </button>
+                        <button
+                          type="button"
+                          aria-label="Remove item"
+                          onClick={() => removeFromCart(item._id)}
+                          className="ml-1 flex h-6 w-6 items-center justify-center rounded bg-danger/10 text-danger hover:bg-danger/20"
+                        >
+                          <Trash2 className="h-3 w-3" />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="space-y-2 border-t border-slate-100 pt-3">
+                  <div className="flex justify-between text-sm text-slate-500">
+                    <span>Services ({itemCount} items)</span>
+                    <span>₹{servicesTotal}</span>
+                  </div>
+                  <div className="flex justify-between text-sm text-slate-500">
+                    <span>Inspection Fee</span>
+                    <span>₹{INSPECTION_FEE}</span>
+                  </div>
+                  <div className="flex justify-between border-t border-slate-100 pt-2 font-bold text-secondary">
+                    <span>Total</span>
+                    <span>₹{totalAmount}</span>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleChooseWorker}
+                  className="btn-primary mt-4 w-full py-2.5"
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    {user ? 'Choose Worker' : 'Sign in to continue'}
+                    <ChevronRight className="h-4 w-4" />
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={clearCart}
+                  className="mt-2 w-full text-sm text-slate-400 transition-colors hover:text-danger"
+                >
+                  Clear cart
+                </button>
               </div>
             </div>
           )}

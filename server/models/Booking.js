@@ -26,6 +26,9 @@ const bookingSchema = new mongoose.Schema(
     inspectionFee: { type: Number, required: true, default: 80 },
     tip: { type: Number, default: 0 },
     totalAmount: { type: Number, required: true },
+    couponCode: { type: String },
+    discountAmount: { type: Number, default: 0 },
+    amountPaid: { type: Number },
     customerLocation: {
       address: String,
       lat: Number,

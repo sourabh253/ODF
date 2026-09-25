@@ -16,14 +16,16 @@ import { authorize, protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-// Public routes (authenticated users can browse)
-router.get('/main-categories', protect, getMainCategories);
-router.get('/search', protect, searchServices);
-router.get('/tree', protect, getCatalogTree);
-router.get('/categories', protect, getCategories);
-router.get('/:category/subcategories', protect, getSubCategories);
-router.get('/:category/services', protect, getServices);
-router.get('/service/:serviceId', protect, getServiceById);
+// Public read routes — the service catalog is public marketplace data.
+// Landing page, search and browsing must work for anonymous visitors.
+// (Admin CRUD below stays behind protect + authorize('admin'))
+router.get('/main-categories', getMainCategories);
+router.get('/search', searchServices);
+router.get('/tree', getCatalogTree);
+router.get('/categories', getCategories);
+router.get('/:category/subcategories', getSubCategories);
+router.get('/:category/services', getServices);
+router.get('/service/:serviceId', getServiceById);
 
 // Admin-only routes
 router.get('/admin/all', protect, authorize('admin'), getAllServicesAdmin);

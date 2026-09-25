@@ -5,6 +5,7 @@ import { CartProvider } from './context/CartContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { ThemeProvider } from './context/ThemeContext';
 import LandingPage from './pages/LandingPage';
+import OdfForJobPage from './pages/OdfForJobPage';
 import WorkerPortal from './pages/WorkerPortal';
 import WorkerDashboardPage from './pages/WorkerDashboardEntry';
 import CustomerDashboard from './pages/CustomerDashboard';
@@ -35,6 +36,7 @@ const AppLayout = () => {
       <main className={isWorkerDashboard || isAdminDashboard ? 'flex-grow' : 'flex-grow'}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/odf-for-job" element={<OdfForJobPage />} />
           <Route path="/worker-portal" element={<WorkerPortal />} />
           <Route path="/help" element={<HelpPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
@@ -55,28 +57,13 @@ const AppLayout = () => {
 
           <Route
             path="/dashboard"
-            element={
-              <ProtectedRoute allowedRoles={['customer']}>
-                <CustomerDashboard />
-              </ProtectedRoute>
-            }
+            element={<CustomerDashboard />}
           />
-          <Route
-            path="/dashboard/main/:mainCategorySlug"
-            element={
-              <ProtectedRoute allowedRoles={['customer']}>
-                <MainCategoryPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/dashboard/category/:categorySlug"
-            element={
-              <ProtectedRoute allowedRoles={['customer']}>
-                <ServiceCatalogPage />
-              </ProtectedRoute>
-            }
-          />
+          {/* Catalog browsing is public: landing search and the "Browse all
+              services" link must work for anonymous visitors. Booking/checkout
+              routes below stay customer-only. */}
+          <Route path="/dashboard/main/:mainCategorySlug" element={<MainCategoryPage />} />
+          <Route path="/dashboard/category/:categorySlug" element={<ServiceCatalogPage />} />
           <Route
             path="/dashboard/choose-worker"
             element={

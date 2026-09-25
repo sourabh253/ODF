@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const WorkerPortal = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  // /worker-portal?mode=register opens the existing registration form directly
+  // (used by the "ODF for Job" page's Register CTA).
+  const [searchParams] = useSearchParams();
+  const [isLogin, setIsLogin] = useState(searchParams.get('mode') !== 'register');
   const [formData, setFormData] = useState({
     fullName: '',
     identifier: '',

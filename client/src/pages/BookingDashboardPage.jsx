@@ -217,7 +217,12 @@ const BookingDashboardPage = () => {
                         </span>
                       </div>
                       <p className="text-sm text-slate-500 mb-1">{services}</p>
-                      <p className="text-lg font-bold text-primary">₹{booking.totalAmount}</p>
+                      <p className="text-lg font-bold text-primary">
+                        ₹{booking.discountAmount > 0 ? (booking.amountPaid ?? booking.totalAmount) : booking.totalAmount}
+                        {booking.discountAmount > 0 && (
+                          <span className="ml-2 text-xs font-medium text-slate-400 line-through">₹{booking.totalAmount}</span>
+                        )}
+                      </p>
                       <p className="text-xs text-slate-400 mt-1">
                         {new Date(booking.createdAt).toLocaleDateString()} at {new Date(booking.createdAt).toLocaleTimeString()}
                       </p>

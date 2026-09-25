@@ -9,7 +9,8 @@
     "dev": "node --watch server.js",
     "seed:admin": "node scripts/seedAdmin.js",
     "seed:catalog": "node scripts/seedCatalog.js",
-    "seed:coupons": "node scripts/seedCoupons.js"
+    "seed:coupons": "node scripts/seedCoupons.js",
+    "test:e2e": "node scripts/e2eTest.mjs"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

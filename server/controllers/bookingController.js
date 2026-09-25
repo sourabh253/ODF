@@ -4,8 +4,13 @@ import Worker from '../models/Worker.js';
 import Wallet from '../models/Wallet.js';
 import Notification from '../models/Notification.js';
 import mongoose from 'mongoose';
+import PLATFORM_CONFIG from '../config/platform.js';
 
-const INSPECTION_FEE = 80;
+const INSPECTION_FEE = PLATFORM_CONFIG.INSPECTION_FEE;
+
+// Platform fee for a settled booking, based on the amount actually collected.
+const platformFeeFor = (base) =>
+  Math.round((base * PLATFORM_CONFIG.PLATFORM_FEE_PERCENT) / 100);
 
 // Create a new booking (customer sends request)
 export const createBooking = asyncHandler(async (req, res) => {
@@ -259,9 +264,15 @@ export const confirmCompletion = asyncHandler(async (req, res) => {
 
   booking.status = 'completed';
   booking.confirmedAt = new Date();
+  if (booking.paymentMode === 'pay-before') {
+    booking.paymentStatus = 'settled';
+  }
   await booking.save();
 
-  // Settlement: credit or deduct from worker wallet
+  // Settlement: credit or deduct from worker wallet.
+  // Cash bookings were never paid online, so the fee base is the listed total.
+  // Pay Before bookings settle against what the customer actually paid
+  // (totalAmount minus any coupon discount).
   const worker = await Worker.findById(booking.workerId);
   if (worker) {
     let wallet = await Wallet.findOne({ workerId: worker._id });
@@ -269,9 +280,11 @@ export const confirmCompletion = asyncHandler(async (req, res) => {
       wallet = await Wallet.create({ workerId: worker._id, balance: 0, transactions: [] });
     }
 
+    const settleBase = booking.amountPaid ?? booking.totalAmount;
+    const platformFee = platformFeeFor(settleBase);
+
     if (booking.paymentMode === 'cash-on-service' || !booking.paymentMode) {
       // Cash booking: platform fee deducted from worker wallet
-      const platformFee = Math.round(booking.totalAmount * 0.10); // 10% platform fee
       wallet.balance -= platformFee;
       wallet.transactions.push({
         bookingId: booking._id,
@@ -281,9 +294,8 @@ export const confirmCompletion = asyncHandler(async (req, res) => {
         note: `Platform fee for booking ${booking._id}`,
       });
     } else {
-      // Pay Before: worker earning credited (totalAmount - platform fee)
-      const platformFee = Math.round(booking.totalAmount * 0.10);
-      const earning = booking.totalAmount - platformFee;
+      // Pay Before: worker earning credited (amount actually collected - platform fee)
+      const earning = settleBase - platformFee;
       wallet.balance += earning;
       wallet.transactions.push({
         bookingId: booking._id,
@@ -402,6 +414,19 @@ export const setPaymentMode = asyncHandler(async (req, res) => {
     throw new Error('Can only set payment mode on accepted bookings');
   }
 
+  // Phase 8 gate: cash-on-service is only allowed once the worker's wallet can
+  // absorb the platform fee. Rejected before any field on the booking is touched.
+  if (paymentMode === 'cash-on-service') {
+    const wallet = await Wallet.findOne({ workerId: booking.workerId });
+    const balance = wallet ? wallet.balance : 0;
+    if (balance < PLATFORM_CONFIG.MIN_WALLET_BALANCE_FOR_CASH_BOOKINGS) {
+      res.status(400);
+      throw new Error(
+        `This worker's wallet balance is below the ₹${PLATFORM_CONFIG.MIN_WALLET_BALANCE_FOR_CASH_BOOKINGS} minimum for Cash on Service. Please choose Pay Before instead.`
+      );
+    }
+  }
+
   booking.paymentMode = paymentMode;
   if (paymentMode === 'cash-on-service') {
     // Cash on Service — no online payment, booking is confirmed immediately
@@ -490,6 +515,12 @@ export const simulatePayment = asyncHandler(async (req, res) => {
       }
     }
   }
+
+  if (couponCode && discount > 0) {
+    booking.couponCode = couponCode.toUpperCase().trim();
+  }
+  booking.discountAmount = discount;
+  booking.amountPaid = finalAmount;
 
   // Mark payment as paid and confirm the booking
   booking.paymentStatus = 'paid';
