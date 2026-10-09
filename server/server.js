@@ -48,12 +48,17 @@ const allowedOrigins = new Set([
   'http://127.0.0.1:5174',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
-  // Vercel production (framework deployments also get *.vercel.app previews)
+  // Vercel deployments (production + the alias domains for this project)
+  'https://odf-cyan.vercel.app',
   'https://odf-mvg7ibf5l-sourabhjangid253-3182s-projects.vercel.app',
   // Optional extra origin(s) supplied at runtime — comma-separated
   ...parseOrigins(process.env.FRONTEND_URL),
   ...parseOrigins(process.env.CLIENT_ORIGIN),
 ]);
+
+// NOTE: `origin: true` style wildcards ("*") cannot be used together with
+// credentials: true — the browser rejects that combination, so every allowed
+// origin is listed explicitly (add new domains via the FRONTEND_URL env var).
 
 const corsOptions = {
   credentials: true,
