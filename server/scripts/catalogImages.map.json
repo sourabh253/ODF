@@ -1,0 +1,2724 @@
+{
+  "odforce/categories/ac-appliance-repair/ac-installation": {
+    "level": "category",
+    "label": "AC & Appliance Repair / AC Installation",
+    "source": "legacy",
+    "legacyKey": "acInstallation",
+    "url": "https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg"
+  },
+  "odforce/categories/ac-appliance-repair/ac-service-repair": {
+    "level": "category",
+    "label": "AC & Appliance Repair / AC Service & Repair",
+    "source": "legacy",
+    "legacyKey": "acServiceRepair",
+    "url": "https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg"
+  },
+  "odforce/categories/ac-appliance-repair/chimney": {
+    "level": "category",
+    "label": "AC & Appliance Repair / Chimney",
+    "source": "legacy",
+    "legacyKey": "chimney",
+    "url": "https://images.pexels.com/photos/12119355/pexels-photo-12119355.jpeg"
+  },
+  "odforce/categories/ac-appliance-repair/dishwasher": {
+    "level": "category",
+    "label": "AC & Appliance Repair / Dishwasher",
+    "source": "legacy",
+    "legacyKey": "dishwasher",
+    "url": "https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/ac-appliance-repair/geyser": {
+    "level": "category",
+    "label": "AC & Appliance Repair / Geyser",
+    "source": "legacy",
+    "legacyKey": "geyser",
+    "url": "https://images.pexels.com/photos/8142983/pexels-photo-8142983.jpeg"
+  },
+  "odforce/categories/ac-appliance-repair/microwave": {
+    "level": "category",
+    "label": "AC & Appliance Repair / Microwave",
+    "source": "legacy",
+    "legacyKey": "microwave",
+    "url": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/ac-appliance-repair/other-home-appliances": {
+    "level": "category",
+    "label": "AC & Appliance Repair / Other Home Appliances",
+    "source": "legacy",
+    "legacyKey": "craftsmanTools",
+    "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/ac-appliance-repair/refrigerator": {
+    "level": "category",
+    "label": "AC & Appliance Repair / Refrigerator",
+    "source": "legacy",
+    "legacyKey": "refrigerator",
+    "url": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/ac-appliance-repair/ro-water-purifier": {
+    "level": "category",
+    "label": "AC & Appliance Repair / RO/Water Purifier",
+    "source": "legacy",
+    "legacyKey": "waterGlass",
+    "url": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/ac-appliance-repair/washing-machine": {
+    "level": "category",
+    "label": "AC & Appliance Repair / Washing Machine",
+    "source": "legacy",
+    "legacyKey": "washingMachineRoom",
+    "url": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/bathroom-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Bathroom Cleaning",
+    "source": "legacy",
+    "legacyKey": "bathroom",
+    "url": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/chair-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Chair Cleaning",
+    "source": "legacy",
+    "legacyKey": "chairCleaning",
+    "url": "https://images.pexels.com/photos/27176673/pexels-photo-27176673.jpeg"
+  },
+  "odforce/categories/cleaning/deep-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Deep Cleaning",
+    "source": "legacy",
+    "legacyKey": "sprayBottle",
+    "url": "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/floor-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Floor Cleaning",
+    "source": "legacy",
+    "legacyKey": "vacuumCarpet",
+    "url": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/home-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Home Cleaning",
+    "source": "legacy",
+    "legacyKey": "bedroom",
+    "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/kitchen-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Kitchen Cleaning",
+    "source": "legacy",
+    "legacyKey": "kitchen",
+    "url": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/mattress-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Mattress Cleaning",
+    "source": "legacy",
+    "legacyKey": "bedLinen",
+    "url": "https://images.unsplash.com/photo-1616627561950-9f746e330187?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/pest-control": {
+    "level": "category",
+    "label": "Cleaning / Pest Control",
+    "source": "legacy",
+    "legacyKey": "pestControl",
+    "url": "https://images.pexels.com/photos/19789841/pexels-photo-19789841/free-photo-of-smoke-used-for-pest-control.jpeg"
+  },
+  "odforce/categories/cleaning/sofa-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Sofa Cleaning",
+    "source": "legacy",
+    "legacyKey": "sofaRoom",
+    "url": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/cleaning/window-glass-cleaning": {
+    "level": "category",
+    "label": "Cleaning / Window & Glass Cleaning",
+    "source": "legacy",
+    "legacyKey": "windowCleaning",
+    "url": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/electrician-plumber-carpenter/carpenter": {
+    "level": "category",
+    "label": "Electrician, Plumber & Carpenter / Carpenter",
+    "source": "legacy",
+    "legacyKey": "carpenterDrill",
+    "url": "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/electrician-plumber-carpenter/electrician": {
+    "level": "category",
+    "label": "Electrician, Plumber & Carpenter / Electrician",
+    "source": "legacy",
+    "legacyKey": "electricianHelmet",
+    "url": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/electrician-plumber-carpenter/plumber": {
+    "level": "category",
+    "label": "Electrician, Plumber & Carpenter / Plumber",
+    "source": "legacy",
+    "legacyKey": "faucet",
+    "url": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/mens-salon-massage/beard-shaving": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Beard & Shaving",
+    "source": "legacy",
+    "legacyKey": "beardShaving",
+    "url": "https://images.pexels.com/photos/2521978/pexels-photo-2521978.jpeg"
+  },
+  "odforce/categories/mens-salon-massage/body-massage": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Body Massage",
+    "source": "legacy",
+    "legacyKey": "massage",
+    "url": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/mens-salon-massage/facial-skin-care": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Facial & Skin Care",
+    "source": "pexels",
+    "photoId": "5912287",
+    "query": "explicit:5912287",
+    "alt": "Adult man applying a facial mask while looking in the mirror at home, promoting skincare routine.",
+    "url": "https://images.pexels.com/photos/5912287/pexels-photo-5912287.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/categories/mens-salon-massage/grooming-packages": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Grooming Packages",
+    "source": "legacy",
+    "legacyKey": "groomingPackages",
+    "url": "https://images.pexels.com/photos/7781844/pexels-photo-7781844.jpeg"
+  },
+  "odforce/categories/mens-salon-massage/hair-beard-combo": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Hair & Beard Combo",
+    "source": "legacy",
+    "legacyKey": "hairBeardCombo",
+    "url": "https://images.pexels.com/photos/7518707/pexels-photo-7518707.jpeg"
+  },
+  "odforce/categories/mens-salon-massage/hair-spa": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Hair Spa",
+    "source": "pexels",
+    "photoId": "23349900",
+    "query": "mens hair spa treatment shampoo",
+    "alt": "shampoo",
+    "url": "https://images.pexels.com/photos/23349900/pexels-photo-23349900.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/categories/mens-salon-massage/hair-styling": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Hair Styling",
+    "source": "pexels",
+    "photoId": "5368632",
+    "query": "mens hair styling barber",
+    "alt": "hairdresser",
+    "url": "https://images.pexels.com/photos/5368632/pexels-photo-5368632.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/categories/mens-salon-massage/haircut": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Haircut",
+    "source": "legacy",
+    "legacyKey": "haircut",
+    "url": "https://images.pexels.com/photos/19664889/pexels-photo-19664889.jpeg"
+  },
+  "odforce/categories/mens-salon-massage/head-massage": {
+    "level": "category",
+    "label": "Men's Salon & Massage / Head Massage",
+    "source": "legacy",
+    "legacyKey": "headMassage",
+    "url": "https://images.pexels.com/photos/6628689/pexels-photo-6628689.jpeg"
+  },
+  "odforce/categories/womens-salon-spa/bridal-special-occasion": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Bridal & Special Occasion",
+    "source": "legacy",
+    "legacyKey": "bridal",
+    "url": "https://images.pexels.com/photos/37710473/pexels-photo-37710473.jpeg"
+  },
+  "odforce/categories/womens-salon-spa/facial-skin-care": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Facial & Skin Care",
+    "source": "legacy",
+    "legacyKey": "facialMask",
+    "url": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/womens-salon-spa/hair-care": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Hair Care",
+    "source": "legacy",
+    "legacyKey": "longHair",
+    "url": "https://images.pexels.com/photos/7943231/pexels-photo-7943231.jpeg"
+  },
+  "odforce/categories/womens-salon-spa/hair-removal": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Hair Removal",
+    "source": "legacy",
+    "legacyKey": "hairRemoval",
+    "url": "https://images.pexels.com/photos/6763621/pexels-photo-6763621.jpeg"
+  },
+  "odforce/categories/womens-salon-spa/hair-spa": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Hair Spa",
+    "source": "legacy",
+    "legacyKey": "hairWash",
+    "url": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/womens-salon-spa/hair-styling": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Hair Styling",
+    "source": "legacy",
+    "legacyKey": "hairStyling",
+    "url": "https://images.pexels.com/photos/3993290/pexels-photo-3993290.jpeg"
+  },
+  "odforce/categories/womens-salon-spa/makeup": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Makeup",
+    "source": "legacy",
+    "legacyKey": "makeup",
+    "url": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/womens-salon-spa/manicure-pedicure": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Manicure & Pedicure",
+    "source": "legacy",
+    "legacyKey": "manicure",
+    "url": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/categories/womens-salon-spa/spa-massage": {
+    "level": "category",
+    "label": "Women's Salon & Spa / Spa & Massage",
+    "source": "legacy",
+    "legacyKey": "spaMassage",
+    "url": "https://images.pexels.com/photos/6187652/pexels-photo-6187652.jpeg"
+  },
+  "odforce/hero/main": {
+    "level": "ui",
+    "label": "odforce/hero/main",
+    "w": 1200,
+    "h": 800,
+    "source": "legacy",
+    "legacyKey": "windowCleanerSilhouette",
+    "url": "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/hero/thumb-electrician": {
+    "level": "ui",
+    "label": "odforce/hero/thumb-electrician",
+    "w": 400,
+    "h": 400,
+    "source": "legacy",
+    "legacyKey": "electricianPanel",
+    "url": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/hero/thumb-facial": {
+    "level": "ui",
+    "label": "odforce/hero/thumb-facial",
+    "w": 400,
+    "h": 400,
+    "source": "legacy",
+    "legacyKey": "facialTreatment",
+    "url": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/main-categories/ac-appliance-repair": {
+    "level": "main",
+    "label": "AC & Appliance Repair",
+    "source": "legacy",
+    "legacyKey": "applianceRepair",
+    "url": "https://images.pexels.com/photos/38190070/pexels-photo-38190070.jpeg"
+  },
+  "odforce/main-categories/cleaning": {
+    "level": "main",
+    "label": "Cleaning",
+    "source": "legacy",
+    "legacyKey": "cleaningTeam",
+    "url": "https://images.pexels.com/photos/6195274/pexels-photo-6195274.jpeg"
+  },
+  "odforce/main-categories/electrician-plumber-carpenter": {
+    "level": "main",
+    "label": "Electrician, Plumber & Carpenter",
+    "source": "legacy",
+    "legacyKey": "plumberRadiator",
+    "url": "https://images.pexels.com/photos/32497160/pexels-photo-32497160/free-photo-of-electrician-inspecting-residential-fuse-box-area.jpeg"
+  },
+  "odforce/main-categories/mens-salon-massage": {
+    "level": "main",
+    "label": "Men's Salon & Massage",
+    "source": "legacy",
+    "legacyKey": "barbershop",
+    "url": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/main-categories/womens-salon-spa": {
+    "level": "main",
+    "label": "Women's Salon & Spa",
+    "source": "legacy",
+    "legacyKey": "hairBlowDry",
+    "url": "https://images.pexels.com/photos/8834113/pexels-photo-8834113.jpeg"
+  },
+  "odforce/odf-for-job/odf-hero": {
+    "level": "ui",
+    "label": "odforce/odf-for-job/odf-hero",
+    "w": 1200,
+    "h": 800,
+    "source": "legacy",
+    "legacyKey": "odfHero",
+    "url": "https://images.pexels.com/photos/36712860/pexels-photo-36712860.jpeg"
+  },
+  "odforce/odf-for-job/odf-team": {
+    "level": "ui",
+    "label": "odforce/odf-for-job/odf-team",
+    "w": 800,
+    "h": 500,
+    "source": "legacy",
+    "legacyKey": "odfTeam",
+    "url": "https://images.pexels.com/photos/1181738/pexels-photo-1181738.jpeg"
+  },
+  "odforce/odf-for-job/odf-worker": {
+    "level": "ui",
+    "label": "odforce/odf-for-job/odf-worker",
+    "w": 800,
+    "h": 500,
+    "source": "legacy",
+    "legacyKey": "odfWorker",
+    "url": "https://images.pexels.com/photos/6050244/pexels-photo-6050244.jpeg"
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/split-ac-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Installation / AC Installation / Split AC installation",
+    "source": "pexels",
+    "photoId": "5463581",
+    "query": "air conditioner installation technician",
+    "alt": "Free A technician is repairing an air conditioning unit on a rooftop, demonstrating skilled manual work. Stock Photo",
+    "url": "https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/split-ac-removal": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Installation / AC Installation / Split AC removal",
+    "source": "pexels",
+    "photoId": "5463576",
+    "query": "explicit:5463576",
+    "alt": "A technician performs maintenance on an outdoor air conditioning unit, focusing on hose connections.",
+    "url": "https://images.pexels.com/photos/5463576/pexels-photo-5463576.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/window-ac-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Installation / AC Installation / Window AC installation",
+    "source": "pexels",
+    "photoId": "38788452",
+    "query": "Window AC installation",
+    "alt": "ac",
+    "url": "https://images.pexels.com/photos/38788452/pexels-photo-38788452.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/window-ac-removal": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Installation / AC Installation / Window AC removal",
+    "source": "pexels",
+    "photoId": "18725613",
+    "query": "explicit:18725613",
+    "alt": "Facade of an urban building with air conditioners and windows in view.",
+    "url": "https://images.pexels.com/photos/18725613/pexels-photo-18725613.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-cooling-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair / AC cooling inspection",
+    "source": "pexels",
+    "photoId": "6471913",
+    "query": "AC cooling inspection",
+    "alt": "hvac technician",
+    "url": "https://images.pexels.com/photos/6471913/pexels-photo-6471913.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-electrical-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair / AC electrical inspection",
+    "source": "pexels",
+    "photoId": "34526423",
+    "query": "AC electrical inspection",
+    "alt": "electrical engineering",
+    "url": "https://images.pexels.com/photos/34526423/pexels-photo-34526423.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-gas-leakage-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair / AC gas leakage inspection",
+    "source": "pexels",
+    "photoId": "20046692",
+    "query": "explicit:20046692",
+    "alt": "Outdoor air conditioning unit mounted on a residential building exterior.",
+    "url": "https://images.pexels.com/photos/20046692/pexels-photo-20046692.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/split-ac-basic-service": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair / Split AC basic service",
+    "source": "pexels",
+    "photoId": "37913513",
+    "query": "Split AC basic service",
+    "alt": "hvac system",
+    "url": "https://images.pexels.com/photos/37913513/pexels-photo-37913513.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/split-ac-deep-cleaning": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair / Split AC deep cleaning",
+    "source": "pexels",
+    "photoId": "3964617",
+    "query": "Split AC deep cleaning",
+    "alt": "hvac",
+    "url": "https://images.pexels.com/photos/3964617/pexels-photo-3964617.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/window-ac-basic-service": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair / Window AC basic service",
+    "source": "pexels",
+    "photoId": "31725399",
+    "query": "Window AC basic service",
+    "alt": "appliance repair",
+    "url": "https://images.pexels.com/photos/31725399/pexels-photo-31725399.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/window-ac-deep-cleaning": {
+    "level": "service",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair / Window AC deep cleaning",
+    "source": "pexels",
+    "photoId": "12186828",
+    "query": "Window AC deep cleaning",
+    "alt": "Free Detailed view of a window with plants and air conditioner on a weathered urban building wall. Stock Photo",
+    "url": "https://images.pexels.com/photos/12186828/pexels-photo-12186828.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/chimney/chimney/chimney-exterior-cleaning": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Chimney / Chimney / Chimney exterior cleaning",
+    "source": "pexels",
+    "photoId": "7515855",
+    "query": "explicit:7515855",
+    "alt": "Sleek modular kitchen with contemporary cabinets and tile backsplash, showcasing urban style.",
+    "url": "https://images.pexels.com/photos/7515855/pexels-photo-7515855.png?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/chimney/chimney/chimney-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Chimney / Chimney / Chimney installation",
+    "source": "pexels",
+    "photoId": "13422435",
+    "query": "kitchen chimney hood",
+    "alt": "gas stove",
+    "url": "https://images.pexels.com/photos/13422435/pexels-photo-13422435.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/dishwasher/dishwasher/dishwasher-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Dishwasher / Dishwasher / Dishwasher installation",
+    "source": "pexels",
+    "photoId": "5904038",
+    "query": "explicit:5904038",
+    "alt": "Close-up of hand washing dishes in a kitchen sink with water flowing from faucet.",
+    "url": "https://images.pexels.com/photos/5904038/pexels-photo-5904038.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/geyser/geyser/geyser-electrical-connection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Geyser / Geyser / Geyser electrical connection",
+    "source": "pexels",
+    "photoId": "12644994",
+    "query": "water heater switch",
+    "alt": "thermostat",
+    "url": "https://images.pexels.com/photos/12644994/pexels-photo-12644994.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/geyser/geyser/geyser-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Geyser / Geyser / Geyser installation",
+    "source": "pexels",
+    "photoId": "14724663",
+    "query": "water heater installation",
+    "alt": "boiler",
+    "url": "https://images.pexels.com/photos/14724663/pexels-photo-14724663.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/geyser/geyser/geyser-removal": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Geyser / Geyser / Geyser removal",
+    "source": "pexels",
+    "photoId": "4819052",
+    "query": "water heater",
+    "alt": "heating",
+    "url": "https://images.pexels.com/photos/4819052/pexels-photo-4819052.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/microwave/microwave/microwave-electrical-connection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Microwave / Microwave / Microwave electrical connection",
+    "source": "pexels",
+    "photoId": "32168944",
+    "query": "explicit:32168944",
+    "alt": "Stylish kitchen setup featuring a black microwave and coffee maker on a counter.",
+    "url": "https://images.pexels.com/photos/32168944/pexels-photo-32168944.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/microwave/microwave/microwave-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Microwave / Microwave / Microwave installation",
+    "source": "pexels",
+    "photoId": "4686822",
+    "query": "explicit:4686822",
+    "alt": "A cozy retro kitchen featuring a white vintage microwave and potted plants.",
+    "url": "https://images.pexels.com/photos/4686822/pexels-photo-4686822.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/other-home-appliances/other-home-appliances/air-cooler-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Other Home Appliances / Other Home Appliances / Air cooler installation",
+    "source": "pexels",
+    "photoId": "17301209",
+    "query": "air cooler desert room",
+    "alt": "Free A sleek electric fan placed on a wooden floor in a modern indoor setting, providing comfort and cooling. Stock Photo",
+    "url": "https://images.pexels.com/photos/17301209/pexels-photo-17301209/free-photo-of-blow-fan.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/other-home-appliances/other-home-appliances/air-cooler-removal": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Other Home Appliances / Other Home Appliances / Air cooler removal",
+    "source": "pexels",
+    "photoId": "11256510",
+    "query": "explicit:11256510",
+    "alt": "A collection of various old and broken air conditioning units piled outdoors.",
+    "url": "https://images.pexels.com/photos/11256510/pexels-photo-11256510.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/door-gasket-replacement": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Refrigerator / Refrigerator / Door gasket replacement",
+    "source": "pexels",
+    "photoId": "9031968",
+    "query": "explicit:9031968",
+    "alt": "Back view of a blonde woman retrieving food from a refrigerator in a bright kitchen.",
+    "url": "https://images.pexels.com/photos/9031968/pexels-photo-9031968.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-basic-service": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Refrigerator / Refrigerator / Refrigerator basic service",
+    "source": "pexels",
+    "photoId": "8146322",
+    "query": "Refrigerator basic service",
+    "alt": "home appliances",
+    "url": "https://images.pexels.com/photos/8146322/pexels-photo-8146322.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-deep-cleaning": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Refrigerator / Refrigerator / Refrigerator deep cleaning",
+    "source": "pexels",
+    "photoId": "5591933",
+    "query": "Refrigerator deep cleaning",
+    "alt": "Free A woman wipes a refrigerator with a cloth, focusing on maintaining cleanliness in a kitchen. Stock Photo",
+    "url": "https://images.pexels.com/photos/5591933/pexels-photo-5591933.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-electrical-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Refrigerator / Refrigerator / Refrigerator electrical inspection",
+    "source": "pexels",
+    "photoId": "34872423",
+    "query": "explicit:34872423",
+    "alt": "A man looks inside a red fridge, checking food items in a contemporary kitchen.",
+    "url": "https://images.pexels.com/photos/34872423/pexels-photo-34872423.png?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Refrigerator / Refrigerator / Refrigerator inspection",
+    "source": "pexels",
+    "photoId": "38853682",
+    "query": "Refrigerator inspection",
+    "alt": "refrigerator",
+    "url": "https://images.pexels.com/photos/38853682/pexels-photo-38853682.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/filter-replacement": {
+    "level": "service",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier / Filter replacement",
+    "source": "pexels",
+    "photoId": "2226387",
+    "query": "explicit:2226387",
+    "alt": "A modern minimalist photo of two black circular filters on contrasting paper for design and technology concepts.",
+    "url": "https://images.pexels.com/photos/2226387/pexels-photo-2226387.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/pipe-replacement": {
+    "level": "service",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier / Pipe replacement",
+    "source": "pexels",
+    "photoId": "8488035",
+    "query": "Pipe replacement",
+    "alt": "plumbing",
+    "url": "https://images.pexels.com/photos/8488035/pexels-photo-8488035.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-basic-service": {
+    "level": "service",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier / RO basic service",
+    "source": "pexels",
+    "photoId": "15247826",
+    "query": "water purifier filter",
+    "alt": "mineral water",
+    "url": "https://images.pexels.com/photos/15247826/pexels-photo-15247826.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-deep-cleaning": {
+    "level": "service",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier / RO deep cleaning",
+    "source": "pexels",
+    "photoId": "28576625",
+    "query": "RO deep cleaning",
+    "alt": "Free A hand wearing a yellow rubber glove holds a red and white spray bottle against a neutral background. Stock Photo",
+    "url": "https://images.pexels.com/photos/28576625/pexels-photo-28576625/free-photo-of-cleaning-with-yellow-rubber-gloves-and-spray-bottle.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier / RO inspection",
+    "source": "pexels",
+    "photoId": "3500006",
+    "query": "explicit:3500006",
+    "alt": "Crystal clear water being poured into a glass from a pitcher. Refreshing and hydrating concept.",
+    "url": "https://images.pexels.com/photos/3500006/pexels-photo-3500006.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier / RO installation",
+    "source": "pexels",
+    "photoId": "7166645",
+    "query": "explicit:7166645",
+    "alt": "Contemporary kitchen with sleek cabinets and a round dining table.",
+    "url": "https://images.pexels.com/photos/7166645/pexels-photo-7166645.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-removal": {
+    "level": "service",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier / RO removal",
+    "source": "pexels",
+    "photoId": "11612595",
+    "query": "explicit:11612595",
+    "alt": "Close-up of hands collecting flowing water from a pipe outdoors.",
+    "url": "https://images.pexels.com/photos/11612595/pexels-photo-11612595.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/drain-pipe-replacement": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Drain pipe replacement",
+    "source": "pexels",
+    "photoId": "6240578",
+    "query": "Drain pipe replacement",
+    "alt": "drainage",
+    "url": "https://images.pexels.com/photos/6240578/pexels-photo-6240578.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/inlet-pipe-replacement": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Inlet pipe replacement",
+    "source": "pexels",
+    "photoId": "38893871",
+    "query": "Inlet pipe replacement",
+    "alt": "pipe",
+    "url": "https://images.pexels.com/photos/38893871/pexels-photo-38893871.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-basic-service": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Washing machine basic service",
+    "source": "pexels",
+    "photoId": "17181948",
+    "query": "explicit:17181948",
+    "alt": "Cozy laundry room with wooden cabinets, washer, and dryer setup.",
+    "url": "https://images.pexels.com/photos/17181948/pexels-photo-17181948.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-deep-cleaning": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Washing machine deep cleaning",
+    "source": "legacy",
+    "legacyKey": "washerDrum",
+    "url": "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=1600&q=80"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-electrical-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Washing machine electrical inspection",
+    "source": "pexels",
+    "photoId": "4386143",
+    "query": "explicit:4386143",
+    "alt": "Contemporary laundromat featuring a row of stainless steel washing machines with open doors.",
+    "url": "https://images.pexels.com/photos/4386143/pexels-photo-4386143.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-inspection": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Washing machine inspection",
+    "source": "pexels",
+    "photoId": "4700400",
+    "query": "explicit:4700400",
+    "alt": "A row of modern washing machines in a launderette, showcasing contemporary laundry technology.",
+    "url": "https://images.pexels.com/photos/4700400/pexels-photo-4700400.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-installation": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Washing machine installation",
+    "source": "pexels",
+    "photoId": "6045788",
+    "query": "Washing machine installation",
+    "alt": "washing clothes",
+    "url": "https://images.pexels.com/photos/6045788/pexels-photo-6045788.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-removal": {
+    "level": "service",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine / Washing machine removal",
+    "source": "pexels",
+    "photoId": "8774364",
+    "query": "Washing machine removal",
+    "alt": "Free A woman in a laundry facility standing by a washing machine, contemplating the process. Stock Photo",
+    "url": "https://images.pexels.com/photos/8774364/pexels-photo-8774364.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/bathroom-basic-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Bathroom Cleaning / Bathroom Cleaning / Bathroom basic cleaning",
+    "source": "pexels",
+    "photoId": "4239131",
+    "query": "cleaning bathroom",
+    "alt": "Free From above anonymous housekeeper in yellow rubber gloves wiping by sponge sink in bathroom Stock Photo",
+    "url": "https://images.pexels.com/photos/4239131/pexels-photo-4239131.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/bathroom-deep-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Bathroom Cleaning / Bathroom Cleaning / Bathroom deep cleaning",
+    "source": "pexels",
+    "photoId": "5217889",
+    "query": "explicit:5217889",
+    "alt": "A vibrant assortment of cleaning product containers arranged on a reflective surface, perfect for household sanitation themes.",
+    "url": "https://images.pexels.com/photos/5217889/pexels-photo-5217889.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/toilet-deep-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Bathroom Cleaning / Bathroom Cleaning / Toilet deep cleaning",
+    "source": "pexels",
+    "photoId": "13885861",
+    "query": "Toilet deep cleaning",
+    "alt": "toilet",
+    "url": "https://images.pexels.com/photos/13885861/pexels-photo-13885861.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/chair-cleaning/chair-cleaning/dining-chair-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Chair Cleaning / Chair Cleaning / Dining chair cleaning",
+    "source": "pexels",
+    "photoId": "33646085",
+    "query": "dining chair",
+    "alt": "armchair",
+    "url": "https://images.pexels.com/photos/33646085/pexels-photo-33646085.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/chair-cleaning/chair-cleaning/office-chair-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Chair Cleaning / Chair Cleaning / Office chair cleaning",
+    "source": "pexels",
+    "photoId": "9300768",
+    "query": "Office chair cleaning",
+    "alt": "office furniture",
+    "url": "https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/deep-cleaning/deep-cleaning/1-bhk-deep-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Deep Cleaning / Deep Cleaning / 1 BHK deep cleaning",
+    "source": "pexels",
+    "photoId": "36715248",
+    "query": "explicit:36715248",
+    "alt": "Happy woman listening to music while mopping a modern living room.",
+    "url": "https://images.pexels.com/photos/36715248/pexels-photo-36715248.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/deep-cleaning/deep-cleaning/2-bhk-deep-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Deep Cleaning / Deep Cleaning / 2 BHK deep cleaning",
+    "source": "pexels",
+    "photoId": "5591852",
+    "query": "deep cleaning home",
+    "alt": "Free A woman wearing a plaid shirt cleans a kitchen counter using a spray bottle and cloth. Stock Photo",
+    "url": "https://images.pexels.com/photos/5591852/pexels-photo-5591852.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/deep-cleaning/deep-cleaning/3-bhk-deep-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Deep Cleaning / Deep Cleaning / 3 BHK deep cleaning",
+    "source": "pexels",
+    "photoId": "28576635",
+    "query": "deep cleaning apartment home",
+    "alt": "Free Hands in yellow gloves cleaning wall with sponge and spray bottle. Stock Photo",
+    "url": "https://images.pexels.com/photos/28576635/pexels-photo-28576635/free-photo-of-cleaning-walls-with-sponge-and-spray-bottle.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/floor-cleaning/floor-cleaning/balcony-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Floor Cleaning / Floor Cleaning / Balcony cleaning",
+    "source": "pexels",
+    "photoId": "14788843",
+    "query": "Balcony cleaning",
+    "alt": "balcony",
+    "url": "https://images.pexels.com/photos/14788843/pexels-photo-14788843.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/floor-cleaning/floor-cleaning/floor-deep-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Floor Cleaning / Floor Cleaning / Floor deep cleaning",
+    "source": "pexels",
+    "photoId": "15336533",
+    "query": "floor cleaning mop",
+    "alt": "mop",
+    "url": "https://images.pexels.com/photos/15336533/pexels-photo-15336533.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/floor-cleaning/floor-cleaning/terrace-basic-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Floor Cleaning / Floor Cleaning / Terrace basic cleaning",
+    "source": "pexels",
+    "photoId": "9653888",
+    "query": "roof terrace",
+    "alt": "rooftop",
+    "url": "https://images.pexels.com/photos/9653888/pexels-photo-9653888.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/home-cleaning/home-cleaning/1-bhk-basic-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Home Cleaning / Home Cleaning / 1 BHK basic cleaning",
+    "source": "pexels",
+    "photoId": "9462162",
+    "query": "explicit:9462162",
+    "alt": "A female housekeeper performing dusting on a television screen indoors.",
+    "url": "https://images.pexels.com/photos/9462162/pexels-photo-9462162.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/home-cleaning/home-cleaning/2-bhk-basic-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Home Cleaning / Home Cleaning / 2 BHK basic cleaning",
+    "source": "pexels",
+    "photoId": "9462749",
+    "query": "home cleaning house",
+    "alt": "housekeeping",
+    "url": "https://images.pexels.com/photos/9462749/pexels-photo-9462749.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/home-cleaning/home-cleaning/3-bhk-basic-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Home Cleaning / Home Cleaning / 3 BHK basic cleaning",
+    "source": "pexels",
+    "photoId": "3890165",
+    "query": "basic cleaning apartment home",
+    "alt": "clean home",
+    "url": "https://images.pexels.com/photos/3890165/pexels-photo-3890165.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/chimney-exterior-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Kitchen Cleaning / Kitchen Cleaning / Chimney exterior cleaning",
+    "source": "pexels",
+    "photoId": "36035073",
+    "query": "explicit:36035073",
+    "alt": "Spacious kitchen under renovation with ladder and tools, showcasing a fresh new design.",
+    "url": "https://images.pexels.com/photos/36035073/pexels-photo-36035073.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-basic-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Kitchen Cleaning / Kitchen Cleaning / Kitchen basic cleaning",
+    "source": "pexels",
+    "photoId": "5904036",
+    "query": "Kitchen basic cleaning",
+    "alt": "clean kitchen",
+    "url": "https://images.pexels.com/photos/5904036/pexels-photo-5904036.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-cabinet-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Kitchen Cleaning / Kitchen Cleaning / Kitchen cabinet cleaning",
+    "source": "pexels",
+    "photoId": "4030055",
+    "query": "Kitchen cabinet cleaning",
+    "alt": "kitchen cabinets",
+    "url": "https://images.pexels.com/photos/4030055/pexels-photo-4030055.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-deep-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Kitchen Cleaning / Kitchen Cleaning / Kitchen deep cleaning",
+    "source": "pexels",
+    "photoId": "10566507",
+    "query": "cleaning kitchen",
+    "alt": "cleaning products",
+    "url": "https://images.pexels.com/photos/10566507/pexels-photo-10566507.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/double-mattress-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Mattress Cleaning / Mattress Cleaning / Double mattress cleaning",
+    "source": "pexels",
+    "photoId": "18492337",
+    "query": "mattress",
+    "alt": "pillow",
+    "url": "https://images.pexels.com/photos/18492337/pexels-photo-18492337.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/king-mattress-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Mattress Cleaning / Mattress Cleaning / King mattress cleaning",
+    "source": "pexels",
+    "photoId": "14675103",
+    "query": "explicit:14675103",
+    "alt": "Man in protective gear vacuuming a mattress in a modern home interior.",
+    "url": "https://images.pexels.com/photos/14675103/pexels-photo-14675103.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/single-mattress-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Mattress Cleaning / Mattress Cleaning / Single mattress cleaning",
+    "source": "pexels",
+    "photoId": "28513849",
+    "query": "mattress",
+    "alt": "bed sheets",
+    "url": "https://images.pexels.com/photos/28513849/pexels-photo-28513849.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/pest-control/pest-control/1-bhk-pest-control": {
+    "level": "service",
+    "label": "Cleaning / Pest Control / Pest Control / 1 BHK pest control",
+    "source": "pexels",
+    "photoId": "32391776",
+    "query": "pest control",
+    "alt": "insects",
+    "url": "https://images.pexels.com/photos/32391776/pexels-photo-32391776.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/pest-control/pest-control/2-bhk-pest-control": {
+    "level": "service",
+    "label": "Cleaning / Pest Control / Pest Control / 2 BHK pest control",
+    "source": "pexels",
+    "photoId": "4176550",
+    "query": "explicit:4176550",
+    "alt": "A person in protective gear uses a sprayer for indoor disinfection.",
+    "url": "https://images.pexels.com/photos/4176550/pexels-photo-4176550.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/pest-control/pest-control/3-bhk-pest-control": {
+    "level": "service",
+    "label": "Cleaning / Pest Control / Pest Control / 3 BHK pest control",
+    "source": "pexels",
+    "photoId": "16851694",
+    "query": "explicit:16851694",
+    "alt": "A worker in safety gear sprays disinfectant outside a building, ensuring cleanliness.",
+    "url": "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/pest-control/pest-control/ant-control": {
+    "level": "service",
+    "label": "Cleaning / Pest Control / Pest Control / Ant control",
+    "source": "pexels",
+    "photoId": "37273378",
+    "query": "Ant control",
+    "alt": "ants",
+    "url": "https://images.pexels.com/photos/37273378/pexels-photo-37273378.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/pest-control/pest-control/bed-bug-control": {
+    "level": "service",
+    "label": "Cleaning / Pest Control / Pest Control / Bed bug control",
+    "source": "pexels",
+    "photoId": "4894608",
+    "query": "Bed bug control",
+    "alt": "pesticides",
+    "url": "https://images.pexels.com/photos/4894608/pexels-photo-4894608.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/pest-control/pest-control/cockroach-control": {
+    "level": "service",
+    "label": "Cleaning / Pest Control / Pest Control / Cockroach control",
+    "source": "pexels",
+    "photoId": "17177368",
+    "query": "Cockroach control",
+    "alt": "cockroaches",
+    "url": "https://images.pexels.com/photos/17177368/pexels-photo-17177368.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/pest-control/pest-control/mosquito-control": {
+    "level": "service",
+    "label": "Cleaning / Pest Control / Pest Control / Mosquito control",
+    "source": "pexels",
+    "photoId": "27178285",
+    "query": "Mosquito control",
+    "alt": "mosquitoes",
+    "url": "https://images.pexels.com/photos/27178285/pexels-photo-27178285.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/1-seat-sofa-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Sofa Cleaning / Sofa Cleaning / 1-seat sofa cleaning",
+    "source": "pexels",
+    "photoId": "7601374",
+    "query": "sofa cleaning couch",
+    "alt": "couch",
+    "url": "https://images.pexels.com/photos/7601374/pexels-photo-7601374.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/2-seat-sofa-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Sofa Cleaning / Sofa Cleaning / 2-seat sofa cleaning",
+    "source": "pexels",
+    "photoId": "6758245",
+    "query": "sofa cleaning couch",
+    "alt": "sofa",
+    "url": "https://images.pexels.com/photos/6758245/pexels-photo-6758245.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/3-seat-sofa-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Sofa Cleaning / Sofa Cleaning / 3-seat sofa cleaning",
+    "source": "pexels",
+    "photoId": "1239298",
+    "query": "explicit:1239298",
+    "alt": "Elegant interior decor featuring cactus-themed pillows and a cozy blanket on a modern couch.",
+    "url": "https://images.pexels.com/photos/1239298/pexels-photo-1239298.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/4-seat-sofa-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Sofa Cleaning / Sofa Cleaning / 4-seat sofa cleaning",
+    "source": "pexels",
+    "photoId": "6480707",
+    "query": "sofa cleaning couch",
+    "alt": "Free A cozy minimalist living room with a leather sofa and stylish decor. Stock Photo",
+    "url": "https://images.pexels.com/photos/6480707/pexels-photo-6480707.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/5-seat-sofa-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Sofa Cleaning / Sofa Cleaning / 5-seat sofa cleaning",
+    "source": "pexels",
+    "photoId": "4401535",
+    "query": "explicit:4401535",
+    "alt": "A professional performs sofa cleaning with a grinder in an indoor setting, showcasing efficient service.",
+    "url": "https://images.pexels.com/photos/4401535/pexels-photo-4401535.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/6-seat-sofa-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Sofa Cleaning / Sofa Cleaning / 6-seat sofa cleaning",
+    "source": "pexels",
+    "photoId": "4846459",
+    "query": "sofa cleaning couch",
+    "alt": "Free Soft couch with pillows placed in light living room on wooden floor near white wall Stock Photo",
+    "url": "https://images.pexels.com/photos/4846459/pexels-photo-4846459.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/glass-door-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Window & Glass Cleaning / Window & Glass Cleaning / Glass door cleaning",
+    "source": "pexels",
+    "photoId": "19368755",
+    "query": "Glass door cleaning",
+    "alt": "Free Glass entrance showcasing a modern bust, ideal for architectural and art themes. Stock Photo",
+    "url": "https://images.pexels.com/photos/19368755/pexels-photo-19368755/free-photo-of-glass-building-entrance.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/glass-partition-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Window & Glass Cleaning / Window & Glass Cleaning / Glass partition cleaning",
+    "source": "pexels",
+    "photoId": "6650984",
+    "query": "office glass partition",
+    "alt": "glass building",
+    "url": "https://images.pexels.com/photos/6650984/pexels-photo-6650984.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/window-cleaning": {
+    "level": "service",
+    "label": "Cleaning / Window & Glass Cleaning / Window & Glass Cleaning / Window cleaning",
+    "source": "pexels",
+    "photoId": "38921234",
+    "query": "Window cleaning",
+    "alt": "Free Two window cleaners suspended on ropes cleaning a modern skyscraper facade. Stock Photo",
+    "url": "https://images.pexels.com/photos/38921234/pexels-photo-38921234/free-photo-of-window-cleaners-hanging-on-skyscraper-facade.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/door-window-alignment-adjustment": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Door & Window / Door/window alignment/adjustment",
+    "source": "pexels",
+    "photoId": "13009039",
+    "query": "Door window alignment adjustment",
+    "alt": "window",
+    "url": "https://images.pexels.com/photos/13009039/pexels-photo-13009039.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/handle-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Door & Window / Handle replacement",
+    "source": "pexels",
+    "photoId": "30281096",
+    "query": "Handle replacement",
+    "alt": "door handle",
+    "url": "https://images.pexels.com/photos/30281096/pexels-photo-30281096.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/hinge-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Door & Window / Hinge replacement",
+    "source": "pexels",
+    "photoId": "11231039",
+    "query": "door hinge",
+    "alt": "door",
+    "url": "https://images.pexels.com/photos/11231039/pexels-photo-11231039.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/lock-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Door & Window / Lock installation",
+    "source": "pexels",
+    "photoId": "37095097",
+    "query": "Lock installation",
+    "alt": "lock",
+    "url": "https://images.pexels.com/photos/37095097/pexels-photo-37095097.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/window-latch-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Door & Window / Window latch replacement",
+    "source": "pexels",
+    "photoId": "9361627",
+    "query": "window latch lock",
+    "alt": "opening window",
+    "url": "https://images.pexels.com/photos/9361627/pexels-photo-9361627.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/curtain-rod-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Drilling & Installation / Curtain rod installation",
+    "source": "pexels",
+    "photoId": "5835536",
+    "query": "Curtain rod installation",
+    "alt": "curtains",
+    "url": "https://images.pexels.com/photos/5835536/pexels-photo-5835536.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/mirror-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Drilling & Installation / Mirror installation",
+    "source": "pexels",
+    "photoId": "39240990",
+    "query": "Mirror installation",
+    "alt": "mirrors",
+    "url": "https://images.pexels.com/photos/39240990/pexels-photo-39240990.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/wall-mounted-tv-unit-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Drilling & Installation / Wall-mounted TV unit installation",
+    "source": "pexels",
+    "photoId": "3423817",
+    "query": "Wall-mounted TV unit installation",
+    "alt": "tv unit",
+    "url": "https://images.pexels.com/photos/3423817/pexels-photo-3423817.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/wall-shelf-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Drilling & Installation / Wall shelf installation",
+    "source": "pexels",
+    "photoId": "6851831",
+    "query": "Wall shelf installation",
+    "alt": "shelf",
+    "url": "https://images.pexels.com/photos/6851831/pexels-photo-6851831.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/bed-assembly": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Assembly / Bed assembly",
+    "source": "pexels",
+    "photoId": "10554461",
+    "query": "Bed assembly",
+    "alt": "making bed",
+    "url": "https://images.pexels.com/photos/10554461/pexels-photo-10554461.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/bookshelf-assembly": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Assembly / Bookshelf assembly",
+    "source": "pexels",
+    "photoId": "8045884",
+    "query": "Bookshelf assembly",
+    "alt": "bookshelf",
+    "url": "https://images.pexels.com/photos/8045884/pexels-photo-8045884.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/chair-assembly": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Assembly / Chair assembly",
+    "source": "pexels",
+    "photoId": "30767131",
+    "query": "Chair assembly",
+    "alt": "chairs",
+    "url": "https://images.pexels.com/photos/30767131/pexels-photo-30767131.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/table-assembly": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Assembly / Table assembly",
+    "source": "pexels",
+    "photoId": "18823960",
+    "query": "Table assembly",
+    "alt": "table",
+    "url": "https://images.pexels.com/photos/18823960/pexels-photo-18823960.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/wardrobe-assembly": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Assembly / Wardrobe assembly",
+    "source": "pexels",
+    "photoId": "7587809",
+    "query": "Wardrobe assembly",
+    "alt": "wardrobe",
+    "url": "https://images.pexels.com/photos/7587809/pexels-photo-7587809.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/bed-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Repair / Bed repair",
+    "source": "pexels",
+    "photoId": "5644286",
+    "query": "explicit:5644286",
+    "alt": "Sunlit modern bedroom with wooden bed frame and cozy blankets, offering interior design inspiration.",
+    "url": "https://images.pexels.com/photos/5644286/pexels-photo-5644286.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/cabinet-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Repair / Cabinet repair",
+    "source": "pexels",
+    "photoId": "37030080",
+    "query": "Cabinet repair",
+    "alt": "cabinet",
+    "url": "https://images.pexels.com/photos/37030080/pexels-photo-37030080.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/chair-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Repair / Chair repair",
+    "source": "pexels",
+    "photoId": "13813929",
+    "query": "Chair repair",
+    "alt": "chair",
+    "url": "https://images.pexels.com/photos/13813929/pexels-photo-13813929.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/drawer-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Repair / Drawer repair",
+    "source": "pexels",
+    "photoId": "5974285",
+    "query": "Drawer repair",
+    "alt": "carpentry",
+    "url": "https://images.pexels.com/photos/5974285/pexels-photo-5974285.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/table-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Repair / Table repair",
+    "source": "pexels",
+    "photoId": "2995012",
+    "query": "Table repair",
+    "alt": "dining table",
+    "url": "https://images.pexels.com/photos/2995012/pexels-photo-2995012.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/wardrobe-door-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Repair / Wardrobe door repair",
+    "source": "pexels",
+    "photoId": "37663438",
+    "query": "explicit:37663438",
+    "alt": "A detailed view of carpentry tools on a workbench in a Mexican workshop.",
+    "url": "https://images.pexels.com/photos/37663438/pexels-photo-37663438.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/doorbell/doorbell-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Doorbell / Doorbell installation",
+    "source": "pexels",
+    "photoId": "12508073",
+    "query": "Doorbell installation",
+    "alt": "doorbell",
+    "url": "https://images.pexels.com/photos/12508073/pexels-photo-12508073.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/doorbell/doorbell-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Doorbell / Doorbell replacement",
+    "source": "pexels",
+    "photoId": "9461215",
+    "query": "explicit:9461215",
+    "alt": "Close-up of a person pressing a doorbell on a beige wall, emphasizing hand action.",
+    "url": "https://images.pexels.com/photos/9461215/pexels-photo-9461215.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/geyser-electrical-connection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Appliances / Geyser electrical connection",
+    "source": "pexels",
+    "photoId": "38215862",
+    "query": "water heater geyser",
+    "alt": "Free Solar water heater on a rooftop against a clear sky, energy efficient design. Stock Photo",
+    "url": "https://images.pexels.com/photos/38215862/pexels-photo-38215862/free-photo-of-solar-heater-on-rooftop-under-clear-sky.png?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/microwave-electrical-connection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Appliances / Microwave electrical connection",
+    "source": "pexels",
+    "photoId": "32831269",
+    "query": "explicit:32831269",
+    "alt": "A stack of old microwaves placed outdoors against a rustic wooden wall in warm sunlight.",
+    "url": "https://images.pexels.com/photos/32831269/pexels-photo-32831269.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/refrigerator-electrical-connection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Appliances / Refrigerator electrical connection",
+    "source": "pexels",
+    "photoId": "21071800",
+    "query": "refrigerator kitchen",
+    "alt": "freezer",
+    "url": "https://images.pexels.com/photos/21071800/pexels-photo-21071800.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/washing-machine-electrical-connection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Appliances / Washing machine electrical connection",
+    "source": "pexels",
+    "photoId": "2927523",
+    "query": "washing machine laundry",
+    "alt": "laundry",
+    "url": "https://images.pexels.com/photos/2927523/pexels-photo-2927523.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-inspection/fault-diagnosis": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Inspection / Fault diagnosis",
+    "source": "pexels",
+    "photoId": "8460227",
+    "query": "Fault diagnosis",
+    "alt": "diagnosis",
+    "url": "https://images.pexels.com/photos/8460227/pexels-photo-8460227.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-inspection/safety-inspection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Inspection / Safety inspection",
+    "source": "pexels",
+    "photoId": "31161593",
+    "query": "Safety inspection",
+    "alt": "safety",
+    "url": "https://images.pexels.com/photos/31161593/pexels-photo-31161593.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/ceiling-fan-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Fans / Ceiling fan installation",
+    "source": "pexels",
+    "photoId": "39558345",
+    "query": "Ceiling fan installation",
+    "alt": "ceiling fan",
+    "url": "https://images.pexels.com/photos/39558345/pexels-photo-39558345.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/ceiling-fan-removal": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Fans / Ceiling fan removal",
+    "source": "pexels",
+    "photoId": "3990590",
+    "query": "explicit:3990590",
+    "alt": "Spacious living room with classic wooden entertainment center and ceiling fan, perfect for a family setting.",
+    "url": "https://images.pexels.com/photos/3990590/pexels-photo-3990590.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/exhaust-fan-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Fans / Exhaust fan installation",
+    "source": "pexels",
+    "photoId": "5502720",
+    "query": "Exhaust fan installation",
+    "alt": "ventilation",
+    "url": "https://images.pexels.com/photos/5502720/pexels-photo-5502720.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/fan-capacitor-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Fans / Fan capacitor replacement",
+    "source": "pexels",
+    "photoId": "28054343",
+    "query": "Fan capacitor replacement",
+    "alt": "electric fan",
+    "url": "https://images.pexels.com/photos/28054343/pexels-photo-28054343.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/fan-regulator-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Fans / Fan regulator replacement",
+    "source": "pexels",
+    "photoId": "10117712",
+    "query": "explicit:10117712",
+    "alt": "A clean, minimalist arrangement of a remote control and four light switches against a white wall.",
+    "url": "https://images.pexels.com/photos/10117712/pexels-photo-10117712.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/inverter-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Inverter & Stabilizer / Inverter installation",
+    "source": "pexels",
+    "photoId": "38040020",
+    "query": "explicit:38040020",
+    "alt": "A collection of Duracell batteries scattered on a vibrant blue surface, showcasing energy storage.",
+    "url": "https://images.pexels.com/photos/38040020/pexels-photo-38040020.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/inverter-removal": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Inverter & Stabilizer / Inverter removal",
+    "source": "pexels",
+    "photoId": "37929911",
+    "query": "Inverter removal",
+    "alt": "battery storage",
+    "url": "https://images.pexels.com/photos/37929911/pexels-photo-37929911.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/stabilizer-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Inverter & Stabilizer / Stabilizer installation",
+    "source": "pexels",
+    "photoId": "11032801",
+    "query": "explicit:11032801",
+    "alt": "Close-up of an electrical transformer on a utility pole against a sunset sky.",
+    "url": "https://images.pexels.com/photos/11032801/pexels-photo-11032801.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/stabilizer-removal": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Inverter & Stabilizer / Stabilizer removal",
+    "source": "pexels",
+    "photoId": "11924298",
+    "query": "explicit:11924298",
+    "alt": "Close-up view of a row of industrial electricity meters for power monitoring and technology.",
+    "url": "https://images.pexels.com/photos/11924298/pexels-photo-11924298.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/bulb-install-replace": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights / Bulb install/replace",
+    "source": "pexels",
+    "photoId": "1025410",
+    "query": "Bulb install replace",
+    "alt": "bulb",
+    "url": "https://images.pexels.com/photos/1025410/pexels-photo-1025410.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/ceiling-light-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights / Ceiling light installation",
+    "source": "pexels",
+    "photoId": "15082877",
+    "query": "Ceiling light installation",
+    "alt": "led light",
+    "url": "https://images.pexels.com/photos/15082877/pexels-photo-15082877.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/decorative-light-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights / Decorative light installation",
+    "source": "pexels",
+    "photoId": "1955549",
+    "query": "Decorative light installation",
+    "alt": "lighting",
+    "url": "https://images.pexels.com/photos/1955549/pexels-photo-1955549.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/led-light-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights / LED light installation",
+    "source": "pexels",
+    "photoId": "30673703",
+    "query": "LED light installation",
+    "alt": "led lights",
+    "url": "https://images.pexels.com/photos/30673703/pexels-photo-30673703.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/led-panel-light-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights / LED panel light installation",
+    "source": "pexels",
+    "photoId": "7640978",
+    "query": "explicit:7640978",
+    "alt": "Man in a plaid shirt installs a lightbulb in a stylish interior setting.",
+    "url": "https://images.pexels.com/photos/7640978/pexels-photo-7640978.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/tube-light-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights / Tube light installation",
+    "source": "pexels",
+    "photoId": "988888",
+    "query": "explicit:988888",
+    "alt": "Minimalistic black and white photo of a fluorescent tube light in a dark room.",
+    "url": "https://images.pexels.com/photos/988888/pexels-photo-988888.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/wall-light-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights / Wall light installation",
+    "source": "pexels",
+    "photoId": "11440223",
+    "query": "explicit:11440223",
+    "alt": "A minimalist black and white photo showcasing a fluorescent light fixture on a wall.",
+    "url": "https://images.pexels.com/photos/11440223/pexels-photo-11440223.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/modular-socket-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Switches & Sockets / Modular socket replacement",
+    "source": "pexels",
+    "photoId": "8101107",
+    "query": "explicit:8101107",
+    "alt": "A clean and minimalist wall socket with a single plug connected, emphasizing modern interior design.",
+    "url": "https://images.pexels.com/photos/8101107/pexels-photo-8101107.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/modular-switch-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Switches & Sockets / Modular switch replacement",
+    "source": "pexels",
+    "photoId": "12996907",
+    "query": "explicit:12996907",
+    "alt": "Minimalist photo of white electrical rocker switches on a textured stone wall background.",
+    "url": "https://images.pexels.com/photos/12996907/pexels-photo-12996907.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/socket-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Switches & Sockets / Socket replacement",
+    "source": "pexels",
+    "photoId": "11039733",
+    "query": "Socket replacement",
+    "alt": "light switch",
+    "url": "https://images.pexels.com/photos/11039733/pexels-photo-11039733.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switch-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Switches & Sockets / Switch replacement",
+    "source": "pexels",
+    "photoId": "9871834",
+    "query": "Switch replacement",
+    "alt": "switch",
+    "url": "https://images.pexels.com/photos/9871834/pexels-photo-9871834.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switch-socket-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Switches & Sockets / Switch+socket replacement",
+    "source": "pexels",
+    "photoId": "3615711",
+    "query": "explicit:3615711",
+    "alt": "A minimalist image showcasing a modern wall outlet array on a bright white wall.",
+    "url": "https://images.pexels.com/photos/3615711/pexels-photo-3615711.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switchboard-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Switches & Sockets / Switchboard replacement",
+    "source": "pexels",
+    "photoId": "6000686",
+    "query": "Switchboard replacement",
+    "alt": "Free Close-up view of vintage light switches mounted on a wooden panel, illuminated softly in a dark interior setting. Stock Photo",
+    "url": "https://images.pexels.com/photos/6000686/pexels-photo-6000686.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/distribution-board-inspection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Wiring & Electrical Repair / Distribution board inspection",
+    "source": "pexels",
+    "photoId": "12207608",
+    "query": "explicit:12207608",
+    "alt": "Vertical shot of electricity meters and panels mounted on an industrial building exterior.",
+    "url": "https://images.pexels.com/photos/12207608/pexels-photo-12207608.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/fuse-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Wiring & Electrical Repair / Fuse replacement",
+    "source": "pexels",
+    "photoId": "12380719",
+    "query": "explicit:12380719",
+    "alt": "A close-up of a vintage fuse box mounted on a rustic brick wall with red and black wires.",
+    "url": "https://images.pexels.com/photos/12380719/pexels-photo-12380719.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/loose-wire-connection-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Wiring & Electrical Repair / Loose wire connection repair",
+    "source": "pexels",
+    "photoId": "20604375",
+    "query": "electrical wire hands",
+    "alt": "wires",
+    "url": "https://images.pexels.com/photos/20604375/pexels-photo-20604375.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/mcb-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Wiring & Electrical Repair / MCB replacement",
+    "source": "pexels",
+    "photoId": "3520692",
+    "query": "explicit:3520692",
+    "alt": "Detailed black and white photo of a circuit board showing intricate components, perfect for tech projects.",
+    "url": "https://images.pexels.com/photos/3520692/pexels-photo-3520692.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/minor-wiring-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Wiring & Electrical Repair / Minor wiring repair",
+    "source": "pexels",
+    "photoId": "11837451",
+    "query": "Minor wiring repair",
+    "alt": "electrical",
+    "url": "https://images.pexels.com/photos/11837451/pexels-photo-11837451.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/short-circuit-inspection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Wiring & Electrical Repair / Short-circuit inspection",
+    "source": "pexels",
+    "photoId": "6817477",
+    "query": "explicit:6817477",
+    "alt": "Dynamic and abstract long exposure shot of orange fiery light trails with high contrast and energy.",
+    "url": "https://images.pexels.com/photos/6817477/pexels-photo-6817477.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/bathroom-accessory-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Bathroom Plumbing / Bathroom accessory installation",
+    "source": "pexels",
+    "photoId": "4300078",
+    "query": "Bathroom accessory installation",
+    "alt": "bathroom",
+    "url": "https://images.pexels.com/photos/4300078/pexels-photo-4300078.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/bathroom-plumbing-inspection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Bathroom Plumbing / Bathroom plumbing inspection",
+    "source": "pexels",
+    "photoId": "29462819",
+    "query": "Bathroom plumbing inspection",
+    "alt": "restroom",
+    "url": "https://images.pexels.com/photos/29462819/pexels-photo-29462819.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/health-faucet-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Bathroom Plumbing / Health faucet installation",
+    "source": "pexels",
+    "photoId": "19666087",
+    "query": "explicit:19666087",
+    "alt": "Elegant bathroom featuring mosaic tiles, large mirror, and minimalist sink design.",
+    "url": "https://images.pexels.com/photos/19666087/pexels-photo-19666087.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/shower-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Bathroom Plumbing / Shower installation",
+    "source": "pexels",
+    "photoId": "13306717",
+    "query": "Shower installation",
+    "alt": "shower",
+    "url": "https://images.pexels.com/photos/13306717/pexels-photo-13306717.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/drain-pipe-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Pipes & Leakage / Drain pipe repair",
+    "source": "pexels",
+    "photoId": "10372434",
+    "query": "Drain pipe repair",
+    "alt": "Free A metal drainage pipe with a rustic appearance on an aged wall with flaking paint. Stock Photo",
+    "url": "https://images.pexels.com/photos/10372434/pexels-photo-10372434.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/minor-pipe-leakage-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Pipes & Leakage / Minor pipe leakage repair",
+    "source": "pexels",
+    "photoId": "158268",
+    "query": "leaking pipe water",
+    "alt": "flowing water",
+    "url": "https://images.pexels.com/photos/158268/water-bach-river-stones-158268.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/pipe-joint-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Pipes & Leakage / Pipe joint repair",
+    "source": "pexels",
+    "photoId": "18784617",
+    "query": "Pipe joint repair",
+    "alt": "pipeline",
+    "url": "https://images.pexels.com/photos/18784617/pexels-photo-18784617.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/water-leakage-inspection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Pipes & Leakage / Water leakage inspection",
+    "source": "pexels",
+    "photoId": "35302178",
+    "query": "Water leakage inspection",
+    "alt": "flood damage",
+    "url": "https://images.pexels.com/photos/35302178/pexels-photo-35302178.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/water-pipe-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Pipes & Leakage / Water pipe replacement",
+    "source": "pexels",
+    "photoId": "13726337",
+    "query": "Water pipe replacement",
+    "alt": "water pipe",
+    "url": "https://images.pexels.com/photos/13726337/pexels-photo-13726337.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-blockage-removal": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Sink / Sink blockage removal",
+    "source": "pexels",
+    "photoId": "9462652",
+    "query": "Sink blockage removal",
+    "alt": "Free A close-up of a hand in a glove cleaning a sink with a scrub brush. Stock Photo",
+    "url": "https://images.pexels.com/photos/9462652/pexels-photo-9462652.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Sink / Sink installation",
+    "source": "pexels",
+    "photoId": "7535016",
+    "query": "explicit:7535016",
+    "alt": "Elegant modern kitchen with sleek cabinetry, built-in oven, and minimalist design.",
+    "url": "https://images.pexels.com/photos/7535016/pexels-photo-7535016.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-pipe-leakage-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Sink / Sink pipe leakage repair",
+    "source": "pexels",
+    "photoId": "2339722",
+    "query": "Sink pipe leakage repair",
+    "alt": "Free Macro shot of a brass faucet with water droplets against a blurred yellow background. Stock Photo",
+    "url": "https://images.pexels.com/photos/2339722/pexels-photo-2339722.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-removal": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Sink / Sink removal",
+    "source": "pexels",
+    "photoId": "8647068",
+    "query": "kitchen sink",
+    "alt": "kitchen counter",
+    "url": "https://images.pexels.com/photos/8647068/pexels-photo-8647068.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/faucet-leakage-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Taps & Faucets / Faucet leakage repair",
+    "source": "pexels",
+    "photoId": "33388390",
+    "query": "Faucet leakage repair",
+    "alt": "plumber working",
+    "url": "https://images.pexels.com/photos/33388390/pexels-photo-33388390.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/faucet-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Taps & Faucets / Faucet replacement",
+    "source": "pexels",
+    "photoId": "17461785",
+    "query": "Faucet replacement",
+    "alt": "sink",
+    "url": "https://images.pexels.com/photos/17461785/pexels-photo-17461785.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/mixer-tap-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Taps & Faucets / Mixer tap installation",
+    "source": "pexels",
+    "photoId": "15667601",
+    "query": "explicit:15667601",
+    "alt": "A serene modern bathroom featuring twin sinks, elegant faucets, and decorative mirrors.",
+    "url": "https://images.pexels.com/photos/15667601/pexels-photo-15667601.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/tap-leakage-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Taps & Faucets / Tap leakage repair",
+    "source": "pexels",
+    "photoId": "15206136",
+    "query": "Tap leakage repair",
+    "alt": "water leak",
+    "url": "https://images.pexels.com/photos/15206136/pexels-photo-15206136.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/tap-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Taps & Faucets / Tap replacement",
+    "source": "pexels",
+    "photoId": "5294114",
+    "query": "Tap replacement",
+    "alt": "tap water",
+    "url": "https://images.pexels.com/photos/5294114/pexels-photo-5294114.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/flush-repair": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Toilet / Flush repair",
+    "source": "pexels",
+    "photoId": "7622581",
+    "query": "explicit:7622581",
+    "alt": "Close-up of a hand flushing a modern toilet, emphasizing hygiene and water conservation.",
+    "url": "https://images.pexels.com/photos/7622581/pexels-photo-7622581.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/flush-tank-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Toilet / Flush tank replacement",
+    "source": "pexels",
+    "photoId": "17854867",
+    "query": "explicit:17854867",
+    "alt": "Two water tanks on rooftop with clear blue sky in urban setting.",
+    "url": "https://images.pexels.com/photos/17854867/pexels-photo-17854867.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/seat-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Toilet / Seat replacement",
+    "source": "pexels",
+    "photoId": "10900758",
+    "query": "explicit:10900758",
+    "alt": "A white toilet positioned outdoors against a wooden fence backdrop, showcasing a rustic and modern contrast.",
+    "url": "https://images.pexels.com/photos/10900758/pexels-photo-10900758.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/toilet-blockage-removal": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Toilet / Toilet blockage removal",
+    "source": "pexels",
+    "photoId": "4239090",
+    "query": "Toilet blockage removal",
+    "alt": "Free Top view crop anonymous person wearing yellow cleaning gloves cleaning toilet while pouring liquid detergent from green bottle in toilet bowl Stock Photo",
+    "url": "https://images.pexels.com/photos/4239090/pexels-photo-4239090.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/toilet-installation": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Toilet / Toilet installation",
+    "source": "pexels",
+    "photoId": "3867603",
+    "query": "Toilet installation",
+    "alt": "Free Crop faceless male in orange rubber gloves placing roll of toilet paper in toilet Stock Photo",
+    "url": "https://images.pexels.com/photos/3867603/pexels-photo-3867603.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-inlet-pipe-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Water Supply / Water inlet pipe replacement",
+    "source": "pexels",
+    "photoId": "12142829",
+    "query": "Water inlet pipe replacement",
+    "alt": "pipes",
+    "url": "https://images.pexels.com/photos/12142829/pexels-photo-12142829.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-outlet-pipe-replacement": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Water Supply / Water outlet pipe replacement",
+    "source": "pexels",
+    "photoId": "31355851",
+    "query": "Water outlet pipe replacement",
+    "alt": "water pump",
+    "url": "https://images.pexels.com/photos/31355851/pexels-photo-31355851.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-tank-pipe-connection": {
+    "level": "service",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Water Supply / Water tank pipe connection",
+    "source": "pexels",
+    "photoId": "32200999",
+    "query": "Water tank pipe connection",
+    "alt": "water supply",
+    "url": "https://images.pexels.com/photos/32200999/pexels-photo-32200999.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/beard-styling": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Beard & Shaving / Beard & Shaving / Beard styling",
+    "source": "pexels",
+    "photoId": "10586305",
+    "query": "explicit:10586305",
+    "alt": "A barber trims a male client's beard in a modern salon, showcasing grooming techniques.",
+    "url": "https://images.pexels.com/photos/10586305/pexels-photo-10586305.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/beard-trimming": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Beard & Shaving / Beard & Shaving / Beard trimming",
+    "source": "pexels",
+    "photoId": "11800909",
+    "query": "Beard trimming",
+    "alt": "beard",
+    "url": "https://images.pexels.com/photos/11800909/pexels-photo-11800909.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/clean-shave": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Beard & Shaving / Beard & Shaving / Clean shave",
+    "source": "pexels",
+    "photoId": "7253884",
+    "query": "Clean shave",
+    "alt": "shaving",
+    "url": "https://images.pexels.com/photos/7253884/pexels-photo-7253884.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/body-massage/body-massage/back-massage": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Body Massage / Body Massage / Back massage",
+    "source": "pexels",
+    "photoId": "6629530",
+    "query": "Back massage",
+    "alt": "hot stone massage",
+    "url": "https://images.pexels.com/photos/6629530/pexels-photo-6629530.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/body-massage/body-massage/relaxation-body-massage": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Body Massage / Body Massage / Relaxation body massage",
+    "source": "pexels",
+    "photoId": "6634828",
+    "query": "Relaxation body massage",
+    "alt": "luxury spa",
+    "url": "https://images.pexels.com/photos/6634828/pexels-photo-6634828.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/facial-skin-care/facial-skin-care/mens-basic-facial": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Facial & Skin Care / Facial & Skin Care / Men's basic facial",
+    "source": "pexels",
+    "photoId": "13357909",
+    "query": "explicit:13357909",
+    "alt": "Close-up black and white photo of a smiling man taken in Kyiv, Ukraine.",
+    "url": "https://images.pexels.com/photos/13357909/pexels-photo-13357909.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/facial-skin-care/facial-skin-care/mens-cleanup": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Facial & Skin Care / Facial & Skin Care / Men's cleanup",
+    "source": "pexels",
+    "photoId": "39303684",
+    "query": "explicit:39303684",
+    "alt": "Man receiving a relaxing facial treatment at a professional spa center.",
+    "url": "https://images.pexels.com/photos/39303684/pexels-photo-39303684.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/grooming-packages/grooming-packages/basic-grooming-package": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Grooming Packages / Grooming Packages / Basic grooming package",
+    "source": "pexels",
+    "photoId": "7697273",
+    "query": "explicit:7697273",
+    "alt": "African American barber smiling while giving a haircut to a senior man in a modern barbershop.",
+    "url": "https://images.pexels.com/photos/7697273/pexels-photo-7697273.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/grooming-packages/grooming-packages/premium-grooming-package": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Grooming Packages / Grooming Packages / Premium grooming package",
+    "source": "pexels",
+    "photoId": "7518736",
+    "query": "explicit:7518736",
+    "alt": "A skilled barber attending to a client in a stylish barbershop with exposed brick walls.",
+    "url": "https://images.pexels.com/photos/7518736/pexels-photo-7518736.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/hair-beard-combo/hair-beard-combo/haircut-beard-styling": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Hair & Beard Combo / Hair & Beard Combo / Haircut + beard styling",
+    "source": "pexels",
+    "photoId": "3998426",
+    "query": "barber beard styling",
+    "alt": "Free A barber expertly trims a client&#x27;s beard in a stylish salon setting. Close-up shot. Stock Photo",
+    "url": "https://images.pexels.com/photos/3998426/pexels-photo-3998426.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/hair-beard-combo/hair-beard-combo/haircut-beard-trim": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Hair & Beard Combo / Hair & Beard Combo / Haircut + beard trim",
+    "source": "pexels",
+    "photoId": "9992819",
+    "query": "haircut beard barber",
+    "alt": "Free Close-up of a barber styling a bearded man&#x27;s hair indoors. Side view capturing the precise haircut process. Stock Photo",
+    "url": "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/hair-spa/hair-spa/advanced-mens-hair-spa": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Hair Spa / Hair Spa / Advanced men's hair spa",
+    "source": "pexels",
+    "photoId": "17693443",
+    "query": "Advanced men's hair spa",
+    "alt": "man hair",
+    "url": "https://images.pexels.com/photos/17693443/pexels-photo-17693443.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/hair-spa/hair-spa/basic-mens-hair-spa": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Hair Spa / Hair Spa / Basic men's hair spa",
+    "source": "pexels",
+    "photoId": "23349912",
+    "query": "explicit:23349912",
+    "alt": "A hairdresser skillfully combs wet hair, focusing on smooth styling in a salon setting.",
+    "url": "https://images.pexels.com/photos/23349912/pexels-photo-23349912.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/hair-styling/hair-styling/hair-styling": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Hair Styling / Hair Styling / Hair styling",
+    "source": "pexels",
+    "photoId": "7447150",
+    "query": "explicit:7447150",
+    "alt": "Close-up of a professional barber trimming an afro hairstyle with scissors and comb.",
+    "url": "https://images.pexels.com/photos/7447150/pexels-photo-7447150.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/hair-styling/hair-styling/premium-hair-styling": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Hair Styling / Hair Styling / Premium hair styling",
+    "source": "pexels",
+    "photoId": "6270123",
+    "query": "Premium hair styling",
+    "alt": "hair color",
+    "url": "https://images.pexels.com/photos/6270123/pexels-photo-6270123.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/haircut/haircut/basic-mens-haircut": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Haircut / Haircut / Basic men's haircut",
+    "source": "pexels",
+    "photoId": "9208777",
+    "query": "Basic men's haircut",
+    "alt": "indian hairstyle boy",
+    "url": "https://images.pexels.com/photos/9208777/pexels-photo-9208777.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/haircut/haircut/premium-haircut": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Haircut / Haircut / Premium haircut",
+    "source": "pexels",
+    "photoId": "32329615",
+    "query": "Premium haircut",
+    "alt": "men hair",
+    "url": "https://images.pexels.com/photos/32329615/pexels-photo-32329615.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/head-massage/head-massage/head-massage": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Head Massage / Head Massage / Head massage",
+    "source": "pexels",
+    "photoId": "7697439",
+    "query": "explicit:7697439",
+    "alt": "A mature man enjoys a relaxing moment at a barbershop, showcasing calm and comfort.",
+    "url": "https://images.pexels.com/photos/7697439/pexels-photo-7697439.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/mens-salon-massage/head-massage/head-massage/head-massage-hair-wash": {
+    "level": "service",
+    "label": "Men's Salon & Massage / Head Massage / Head Massage / Head massage + hair wash",
+    "source": "pexels",
+    "photoId": "7755473",
+    "query": "explicit:7755473",
+    "alt": "A woman enjoys a relaxing hair wash at a salon. Captured in a cozy indoor setting.",
+    "url": "https://images.pexels.com/photos/7755473/pexels-photo-7755473.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/basic-bridal-makeup": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Bridal & Special Occasion / Bridal & Special Occasion / Basic bridal makeup",
+    "source": "pexels",
+    "photoId": "39538032",
+    "query": "Basic bridal makeup",
+    "alt": "indian bridal",
+    "url": "https://images.pexels.com/photos/39538032/pexels-photo-39538032.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/bridal-hair-styling": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Bridal & Special Occasion / Bridal & Special Occasion / Bridal hair styling",
+    "source": "pexels",
+    "photoId": "31750760",
+    "query": "bride hair",
+    "alt": "bride",
+    "url": "https://images.pexels.com/photos/31750760/pexels-photo-31750760.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/special-occasion-makeup": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Bridal & Special Occasion / Bridal & Special Occasion / Special occasion makeup",
+    "source": "pexels",
+    "photoId": "5149734",
+    "query": "Special occasion makeup",
+    "alt": "makeup artist",
+    "url": "https://images.pexels.com/photos/5149734/pexels-photo-5149734.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/basic-facial": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Facial & Skin Care / Facial & Skin Care / Basic facial",
+    "source": "pexels",
+    "photoId": "3865548",
+    "query": "Basic facial",
+    "alt": "facials",
+    "url": "https://images.pexels.com/photos/3865548/pexels-photo-3865548.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/cleanup-facial": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Facial & Skin Care / Facial & Skin Care / Cleanup facial",
+    "source": "pexels",
+    "photoId": "5240606",
+    "query": "Cleanup facial",
+    "alt": "clean face",
+    "url": "https://images.pexels.com/photos/5240606/pexels-photo-5240606.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/fruit-facial": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Facial & Skin Care / Facial & Skin Care / Fruit facial",
+    "source": "pexels",
+    "photoId": "9335967",
+    "query": "Fruit facial",
+    "alt": "face massage",
+    "url": "https://images.pexels.com/photos/9335967/pexels-photo-9335967.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/skin-cleanup": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Facial & Skin Care / Facial & Skin Care / Skin cleanup",
+    "source": "pexels",
+    "photoId": "14001857",
+    "query": "Skin cleanup",
+    "alt": "clear skin",
+    "url": "https://images.pexels.com/photos/14001857/pexels-photo-14001857.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-care/hair-care/hair-trim": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Care / Hair Care / Hair trim",
+    "source": "pexels",
+    "photoId": "30294767",
+    "query": "haircut scissors",
+    "alt": "scissors",
+    "url": "https://images.pexels.com/photos/30294767/pexels-photo-30294767.png?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-care/hair-care/hair-wash-conditioning": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Care / Hair Care / Hair wash & conditioning",
+    "source": "pexels",
+    "photoId": "7755460",
+    "query": "Hair wash & conditioning",
+    "alt": "hair wash",
+    "url": "https://images.pexels.com/photos/7755460/pexels-photo-7755460.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-care/hair-care/womens-haircut": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Care / Hair Care / Women's haircut",
+    "source": "pexels",
+    "photoId": "15286995",
+    "query": "woman haircut salon",
+    "alt": "beautiful woman face",
+    "url": "https://images.pexels.com/photos/15286995/pexels-photo-15286995.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/full-arms-waxing": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Removal / Hair Removal / Full arms waxing",
+    "source": "pexels",
+    "photoId": "6763618",
+    "query": "Full arms waxing",
+    "alt": "waxing",
+    "url": "https://images.pexels.com/photos/6763618/pexels-photo-6763618.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/full-legs-waxing": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Removal / Hair Removal / Full legs waxing",
+    "source": "pexels",
+    "photoId": "35103884",
+    "query": "explicit:35103884",
+    "alt": "A professional beauty treatment waxing session in a salon setting.",
+    "url": "https://images.pexels.com/photos/35103884/pexels-photo-35103884.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/half-arms-waxing": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Removal / Hair Removal / Half arms waxing",
+    "source": "pexels",
+    "photoId": "3985354",
+    "query": "Half arms waxing",
+    "alt": "laser hair removal",
+    "url": "https://images.pexels.com/photos/3985354/pexels-photo-3985354.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/half-legs-waxing": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Removal / Hair Removal / Half legs waxing",
+    "source": "pexels",
+    "photoId": "9486702",
+    "query": "explicit:9486702",
+    "alt": "Close-up view of a woman's legs and hands sitting cross-legged on the floor, emphasizing skin tone and texture.",
+    "url": "https://images.pexels.com/photos/9486702/pexels-photo-9486702.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/underarms-waxing": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Removal / Hair Removal / Underarms waxing",
+    "source": "pexels",
+    "photoId": "15379198",
+    "query": "Underarms waxing",
+    "alt": "armpit",
+    "url": "https://images.pexels.com/photos/15379198/pexels-photo-15379198.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-spa/hair-spa/advanced-hair-spa": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Spa / Hair Spa / Advanced hair spa",
+    "source": "pexels",
+    "photoId": "36292486",
+    "query": "Advanced hair spa",
+    "alt": "head spa",
+    "url": "https://images.pexels.com/photos/36292486/pexels-photo-36292486.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-spa/hair-spa/basic-hair-spa": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Spa / Hair Spa / Basic hair spa",
+    "source": "pexels",
+    "photoId": "8509197",
+    "query": "Basic hair spa",
+    "alt": "hair mask",
+    "url": "https://images.pexels.com/photos/8509197/pexels-photo-8509197.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-styling/hair-styling/basic-hair-styling": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Styling / Hair Styling / Basic hair styling",
+    "source": "pexels",
+    "photoId": "28994563",
+    "query": "Basic hair styling",
+    "alt": "hair care",
+    "url": "https://images.pexels.com/photos/28994563/pexels-photo-28994563.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-styling/hair-styling/blow-dry-styling": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Styling / Hair Styling / Blow dry styling",
+    "source": "pexels",
+    "photoId": "28743778",
+    "query": "Blow dry styling",
+    "alt": "hair stylist",
+    "url": "https://images.pexels.com/photos/28743778/pexels-photo-28743778.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/hair-styling/hair-styling/party-hair-styling": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Hair Styling / Hair Styling / Party hair styling",
+    "source": "pexels",
+    "photoId": "15507425",
+    "query": "Party hair styling",
+    "alt": "hairstyle",
+    "url": "https://images.pexels.com/photos/15507425/pexels-photo-15507425.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/makeup/makeup/basic-makeup": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Makeup / Makeup / Basic makeup",
+    "source": "pexels",
+    "photoId": "6049347",
+    "query": "Basic makeup",
+    "alt": "makeup application",
+    "url": "https://images.pexels.com/photos/6049347/pexels-photo-6049347.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/makeup/makeup/party-makeup": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Makeup / Makeup / Party makeup",
+    "source": "pexels",
+    "photoId": "30825617",
+    "query": "Party makeup",
+    "alt": "indian bridal makeup",
+    "url": "https://images.pexels.com/photos/30825617/pexels-photo-30825617.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/basic-manicure": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Manicure & Pedicure / Manicure & Pedicure / Basic manicure",
+    "source": "pexels",
+    "photoId": "16041439",
+    "query": "Basic manicure",
+    "alt": "nail care",
+    "url": "https://images.pexels.com/photos/16041439/pexels-photo-16041439.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/basic-pedicure": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Manicure & Pedicure / Manicure & Pedicure / Basic pedicure",
+    "source": "pexels",
+    "photoId": "5793888",
+    "query": "Basic pedicure",
+    "alt": "foot massage",
+    "url": "https://images.pexels.com/photos/5793888/pexels-photo-5793888.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/manicure-pedicure": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Manicure & Pedicure / Manicure & Pedicure / Manicure + pedicure",
+    "source": "pexels",
+    "photoId": "7066298",
+    "query": "Manicure pedicure",
+    "alt": "nail art",
+    "url": "https://images.pexels.com/photos/7066298/pexels-photo-7066298.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/spa-massage/spa-massage/back-massage": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Spa & Massage / Spa & Massage / Back massage",
+    "source": "pexels",
+    "photoId": "38407786",
+    "query": "explicit:38407786",
+    "alt": "Close-up of hands performing a deep tissue massage, emphasizing relaxation and wellness.",
+    "url": "https://images.pexels.com/photos/38407786/pexels-photo-38407786.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/spa-massage/spa-massage/head-massage": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Spa & Massage / Spa & Massage / Head massage",
+    "source": "pexels",
+    "photoId": "9335961",
+    "query": "explicit:9335961",
+    "alt": "Enjoy a calming facial massage promoting wellness and relaxation at a luxurious spa.",
+    "url": "https://images.pexels.com/photos/9335961/pexels-photo-9335961.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/services/womens-salon-spa/spa-massage/spa-massage/relaxation-body-massage": {
+    "level": "service",
+    "label": "Women's Salon & Spa / Spa & Massage / Spa & Massage / Relaxation body massage",
+    "source": "pexels",
+    "photoId": "19641818",
+    "query": "Relaxation body massage",
+    "alt": "massage therapy",
+    "url": "https://images.pexels.com/photos/19641818/pexels-photo-19641818.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/ac-installation/ac-installation": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / AC Installation / AC Installation",
+    "source": "pexels",
+    "photoId": "30962631",
+    "query": "air conditioner installation wall",
+    "alt": "air conditioner",
+    "url": "https://images.pexels.com/photos/30962631/pexels-photo-30962631.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/ac-service-repair/ac-service-repair": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / AC Service & Repair / AC Service & Repair",
+    "source": "pexels",
+    "photoId": "33671149",
+    "query": "air conditioner repair technician",
+    "alt": "air conditioner repair",
+    "url": "https://images.pexels.com/photos/33671149/pexels-photo-33671149.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/chimney/chimney": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / Chimney / Chimney",
+    "source": "pexels",
+    "photoId": "7168012",
+    "query": "explicit:7168012",
+    "alt": "Stylish white kitchen featuring a stainless steel oven, sink, and range hood. Bright and contemporary design.",
+    "url": "https://images.pexels.com/photos/7168012/pexels-photo-7168012.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/dishwasher/dishwasher": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / Dishwasher / Dishwasher",
+    "source": "pexels",
+    "photoId": "3829549",
+    "query": "dishwasher kitchen appliance",
+    "alt": "dishwasher",
+    "url": "https://images.pexels.com/photos/3829549/pexels-photo-3829549.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/geyser/geyser": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / Geyser / Geyser",
+    "source": "pexels",
+    "photoId": "34593293",
+    "query": "water heater geyser",
+    "alt": "water heater",
+    "url": "https://images.pexels.com/photos/34593293/pexels-photo-34593293.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/microwave/microwave": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / Microwave / Microwave",
+    "source": "pexels",
+    "photoId": "29149068",
+    "query": "explicit:29149068",
+    "alt": "Contemporary kitchen space featuring a microwave and a gas stove on a marble countertop in Dubai",
+    "url": "https://images.pexels.com/photos/29149068/pexels-photo-29149068.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/other-home-appliances/other-home-appliances": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / Other Home Appliances / Other Home Appliances",
+    "source": "pexels",
+    "photoId": "18071814",
+    "query": "explicit:18071814",
+    "alt": "Sleek black coffee maker and kettle on a modern kitchen countertop, ideal for brewing.",
+    "url": "https://images.pexels.com/photos/18071814/pexels-photo-18071814.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/refrigerator/refrigerator": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / Refrigerator / Refrigerator",
+    "source": "pexels",
+    "photoId": "18651508",
+    "query": "refrigerator kitchen appliance",
+    "alt": "fridge",
+    "url": "https://images.pexels.com/photos/18651508/pexels-photo-18651508.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/ro-water-purifier/ro-water-purifier": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / RO/Water Purifier / RO/Water Purifier",
+    "source": "pexels",
+    "photoId": "4641430",
+    "query": "explicit:4641430",
+    "alt": "A minimalistic scene capturing water being poured into a wine glass with ice cubes.",
+    "url": "https://images.pexels.com/photos/4641430/pexels-photo-4641430.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/ac-appliance-repair/washing-machine/washing-machine": {
+    "level": "subcategory",
+    "label": "AC & Appliance Repair / Washing Machine / Washing Machine",
+    "source": "pexels",
+    "photoId": "11899611",
+    "query": "washing machine laundry",
+    "alt": "washing machine",
+    "url": "https://images.pexels.com/photos/11899611/pexels-photo-11899611.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/bathroom-cleaning/bathroom-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Bathroom Cleaning / Bathroom Cleaning",
+    "source": "pexels",
+    "photoId": "4239036",
+    "query": "bathroom cleaning scrub",
+    "alt": "bathroom cleaning",
+    "url": "https://images.pexels.com/photos/4239036/pexels-photo-4239036.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/chair-cleaning/chair-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Chair Cleaning / Chair Cleaning",
+    "source": "pexels",
+    "photoId": "4401537",
+    "query": "explicit:4401537",
+    "alt": "Close-up of a person vacuuming a patterned pillow on a dark sofa indoors.",
+    "url": "https://images.pexels.com/photos/4401537/pexels-photo-4401537.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/deep-cleaning/deep-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Deep Cleaning / Deep Cleaning",
+    "source": "pexels",
+    "photoId": "9462302",
+    "query": "deep cleaning house",
+    "alt": "deep cleaning",
+    "url": "https://images.pexels.com/photos/9462302/pexels-photo-9462302.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/floor-cleaning/floor-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Floor Cleaning / Floor Cleaning",
+    "source": "pexels",
+    "photoId": "36715251",
+    "query": "explicit:36715251",
+    "alt": "Cheerful woman vacuuming indoors while listening to music.",
+    "url": "https://images.pexels.com/photos/36715251/pexels-photo-36715251.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/home-cleaning/home-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Home Cleaning / Home Cleaning",
+    "source": "pexels",
+    "photoId": "27176670",
+    "query": "home cleaning living room",
+    "alt": "house cleaning",
+    "url": "https://images.pexels.com/photos/27176670/pexels-photo-27176670.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/kitchen-cleaning/kitchen-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Kitchen Cleaning / Kitchen Cleaning",
+    "source": "pexels",
+    "photoId": "7492922",
+    "query": "kitchen cleaning counter",
+    "alt": "kitchen cleaning",
+    "url": "https://images.pexels.com/photos/7492922/pexels-photo-7492922.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/mattress-cleaning/mattress-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Mattress Cleaning / Mattress Cleaning",
+    "source": "pexels",
+    "photoId": "6489093",
+    "query": "mattress cleaning bed",
+    "alt": "mattress",
+    "url": "https://images.pexels.com/photos/6489093/pexels-photo-6489093.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/pest-control/pest-control": {
+    "level": "subcategory",
+    "label": "Cleaning / Pest Control / Pest Control",
+    "source": "pexels",
+    "photoId": "18087296",
+    "query": "pest control spraying",
+    "alt": "pest control",
+    "url": "https://images.pexels.com/photos/18087296/pexels-photo-18087296.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/sofa-cleaning/sofa-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Sofa Cleaning / Sofa Cleaning",
+    "source": "pexels",
+    "photoId": "4401538",
+    "query": "sofa cleaning vacuum",
+    "alt": "sofa cleaning",
+    "url": "https://images.pexels.com/photos/4401538/pexels-photo-4401538.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/cleaning/window-glass-cleaning/window-glass-cleaning": {
+    "level": "subcategory",
+    "label": "Cleaning / Window & Glass Cleaning / Window & Glass Cleaning",
+    "source": "pexels",
+    "photoId": "17041922",
+    "query": "window glass cleaning squeegee",
+    "alt": "window cleaning",
+    "url": "https://images.pexels.com/photos/17041922/pexels-photo-17041922.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/door-window": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Door & Window",
+    "source": "legacy",
+    "legacyKey": "carpenterDoorWindow",
+    "url": "https://images.pexels.com/photos/5691498/pexels-photo-5691498.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/drilling-installation": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Drilling & Installation",
+    "source": "legacy",
+    "legacyKey": "drillingInstallation",
+    "url": "https://images.pexels.com/photos/7218567/pexels-photo-7218567.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/furniture-assembly": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Assembly",
+    "source": "legacy",
+    "legacyKey": "furnitureAssembly",
+    "url": "https://images.pexels.com/photos/4554417/pexels-photo-4554417.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/furniture-repair": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Carpenter / Furniture Repair",
+    "source": "legacy",
+    "legacyKey": "furnitureRepair",
+    "url": "https://images.pexels.com/photos/31567147/pexels-photo-31567147.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/doorbell": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Doorbell",
+    "source": "legacy",
+    "legacyKey": "doorbell",
+    "url": "https://images.pexels.com/photos/8550100/pexels-photo-8550100.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/electrical-appliances": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Appliances",
+    "source": "legacy",
+    "legacyKey": "electricalAppliances",
+    "url": "https://images.pexels.com/photos/34734504/pexels-photo-34734504.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/electrical-inspection": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Electrical Inspection",
+    "source": "legacy",
+    "legacyKey": "electricalInspection",
+    "url": "https://images.pexels.com/photos/35154098/pexels-photo-35154098.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/fans": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Fans",
+    "source": "legacy",
+    "legacyKey": "ceilingFan",
+    "url": "https://images.pexels.com/photos/38697833/pexels-photo-38697833.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/inverter-stabilizer": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Inverter & Stabilizer",
+    "source": "legacy",
+    "legacyKey": "inverterStabilizer",
+    "url": "https://images.pexels.com/photos/33751638/pexels-photo-33751638/free-photo-of-technician-installing-solar-power-system-in-australia.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/lights": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Lights",
+    "source": "legacy",
+    "legacyKey": "lights",
+    "url": "https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/switches-sockets": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Switches & Sockets",
+    "source": "legacy",
+    "legacyKey": "switchesSockets",
+    "url": "https://images.pexels.com/photos/14681225/pexels-photo-14681225.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/wiring-electrical-repair": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Electrician / Wiring & Electrical Repair",
+    "source": "legacy",
+    "legacyKey": "wiringRepair",
+    "url": "https://images.pexels.com/photos/5767595/pexels-photo-5767595.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/bathroom-plumbing": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Bathroom Plumbing",
+    "source": "legacy",
+    "legacyKey": "bathroomPlumbing",
+    "url": "https://images.pexels.com/photos/8486923/pexels-photo-8486923.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/pipes-leakage": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Pipes & Leakage",
+    "source": "legacy",
+    "legacyKey": "pipesLeakage",
+    "url": "https://images.pexels.com/photos/36571568/pexels-photo-36571568.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/sink": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Sink",
+    "source": "legacy",
+    "legacyKey": "sinkPlumbing",
+    "url": "https://images.pexels.com/photos/35290675/pexels-photo-35290675.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/taps-faucets": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Taps & Faucets",
+    "source": "pexels",
+    "photoId": "36215888",
+    "query": "faucet tap water sink",
+    "alt": "faucet",
+    "url": "https://images.pexels.com/photos/36215888/pexels-photo-36215888.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/toilet": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Toilet",
+    "source": "legacy",
+    "legacyKey": "toilet",
+    "url": "https://images.pexels.com/photos/27924620/pexels-photo-27924620.jpeg"
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/water-supply": {
+    "level": "subcategory",
+    "label": "Electrician, Plumber & Carpenter / Plumber / Water Supply",
+    "source": "legacy",
+    "legacyKey": "waterSupply",
+    "url": "https://images.pexels.com/photos/29248902/pexels-photo-29248902.jpeg"
+  },
+  "odforce/subcategories/mens-salon-massage/beard-shaving/beard-shaving": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Beard & Shaving / Beard & Shaving",
+    "source": "pexels",
+    "photoId": "6007400",
+    "query": "explicit:6007400",
+    "alt": "An adult man receiving a precise beard trim in a barbershop with a warm towel treatment.",
+    "url": "https://images.pexels.com/photos/6007400/pexels-photo-6007400.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/body-massage/body-massage": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Body Massage / Body Massage",
+    "source": "pexels",
+    "photoId": "6628701",
+    "query": "back massage therapy",
+    "alt": "back massage",
+    "url": "https://images.pexels.com/photos/6628701/pexels-photo-6628701.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/facial-skin-care/facial-skin-care": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Facial & Skin Care / Facial & Skin Care",
+    "source": "pexels",
+    "photoId": "7446659",
+    "query": "facial skincare treatment",
+    "alt": "skin treatment",
+    "url": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/grooming-packages/grooming-packages": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Grooming Packages / Grooming Packages",
+    "source": "pexels",
+    "photoId": "7518761",
+    "query": "explicit:7518761",
+    "alt": "An elderly man gets his hair blow-dried by a barber in a modern barbershop setting.",
+    "url": "https://images.pexels.com/photos/7518761/pexels-photo-7518761.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/hair-beard-combo/hair-beard-combo": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Hair & Beard Combo / Hair & Beard Combo",
+    "source": "pexels",
+    "photoId": "7922651",
+    "query": "barber haircut beard",
+    "alt": "barber shop",
+    "url": "https://images.pexels.com/photos/7922651/pexels-photo-7922651.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/hair-spa/hair-spa": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Hair Spa / Hair Spa",
+    "source": "pexels",
+    "photoId": "28994388",
+    "query": "hair spa treatment",
+    "alt": "hair treatment",
+    "url": "https://images.pexels.com/photos/28994388/pexels-photo-28994388.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/hair-styling/hair-styling": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Hair Styling / Hair Styling",
+    "source": "pexels",
+    "photoId": "11169551",
+    "query": "explicit:11169551",
+    "alt": "Barber styling client's hair in a contemporary shop, showcasing grooming and care.",
+    "url": "https://images.pexels.com/photos/11169551/pexels-photo-11169551.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/haircut/haircut": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Haircut / Haircut",
+    "source": "pexels",
+    "photoId": "10593034",
+    "query": "haircut barber scissors",
+    "alt": "haircut",
+    "url": "https://images.pexels.com/photos/10593034/pexels-photo-10593034.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/mens-salon-massage/head-massage/head-massage": {
+    "level": "subcategory",
+    "label": "Men's Salon & Massage / Head Massage / Head Massage",
+    "source": "pexels",
+    "photoId": "6076149",
+    "query": "head massage therapy",
+    "alt": "head massage",
+    "url": "https://images.pexels.com/photos/6076149/pexels-photo-6076149.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/bridal-special-occasion/bridal-special-occasion": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Bridal & Special Occasion / Bridal & Special Occasion",
+    "source": "pexels",
+    "photoId": "34955448",
+    "query": "bride bridal makeup",
+    "alt": "bridal makeup",
+    "url": "https://images.pexels.com/photos/34955448/pexels-photo-34955448.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/facial-skin-care/facial-skin-care": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Facial & Skin Care / Facial & Skin Care",
+    "source": "pexels",
+    "photoId": "38167596",
+    "query": "facial skincare treatment",
+    "alt": "facial treatment",
+    "url": "https://images.pexels.com/photos/38167596/pexels-photo-38167596.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/hair-care/hair-care": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Hair Care / Hair Care",
+    "source": "pexels",
+    "photoId": "8834042",
+    "query": "explicit:8834042",
+    "alt": "A hairdresser provides a relaxing washing service to an elderly woman in a salon.",
+    "url": "https://images.pexels.com/photos/8834042/pexels-photo-8834042.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/hair-removal/hair-removal": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Hair Removal / Hair Removal",
+    "source": "pexels",
+    "photoId": "36930637",
+    "query": "waxing hair removal legs",
+    "alt": "hair removal",
+    "url": "https://images.pexels.com/photos/36930637/pexels-photo-36930637.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/hair-spa/hair-spa": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Hair Spa / Hair Spa",
+    "source": "pexels",
+    "photoId": "7020309",
+    "query": "hair spa treatment",
+    "alt": "hair spa",
+    "url": "https://images.pexels.com/photos/7020309/pexels-photo-7020309.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/hair-styling/hair-styling": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Hair Styling / Hair Styling",
+    "source": "pexels",
+    "photoId": "8867400",
+    "query": "hair styling salon",
+    "alt": "hair salon",
+    "url": "https://images.pexels.com/photos/8867400/pexels-photo-8867400.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/makeup/makeup": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Makeup / Makeup",
+    "source": "pexels",
+    "photoId": "22481931",
+    "query": "makeup brush face",
+    "alt": "makeup brush",
+    "url": "https://images.pexels.com/photos/22481931/pexels-photo-22481931.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/manicure-pedicure/manicure-pedicure": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Manicure & Pedicure / Manicure & Pedicure",
+    "source": "pexels",
+    "photoId": "22668317",
+    "query": "manicure pedicure nails",
+    "alt": "manicure",
+    "url": "https://images.pexels.com/photos/22668317/pexels-photo-22668317.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/subcategories/womens-salon-spa/spa-massage/spa-massage": {
+    "level": "subcategory",
+    "label": "Women's Salon & Spa / Spa & Massage / Spa & Massage",
+    "source": "pexels",
+    "photoId": "9146381",
+    "query": "spa massage candles",
+    "alt": "massage spa",
+    "url": "https://images.pexels.com/photos/9146381/pexels-photo-9146381.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  },
+  "odforce/ui/default": {
+    "level": "ui",
+    "label": "odforce/ui/default",
+    "w": 800,
+    "h": 500,
+    "source": "legacy",
+    "legacyKey": "livingRoom",
+    "url": "https://images.unsplash.com/photo-1607400201515-c2c41c07d307?auto=format&fit=crop&w=1600&q=80"
+  }
+}

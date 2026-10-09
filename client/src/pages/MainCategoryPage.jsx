@@ -79,6 +79,7 @@ const MainCategoryPage = () => {
               <CategoryTile
                 key={cat}
                 name={cat}
+                mainCategory={mainCategory}
                 to={categoryLink(cat, mainCategory)}
                 description="View services & prices"
               />

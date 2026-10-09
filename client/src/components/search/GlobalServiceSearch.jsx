@@ -4,7 +4,7 @@ import { Clock, Loader2, Search, SearchX, X } from 'lucide-react';
 import catalogService from '../../services/catalogService';
 import { useAuth } from '../../context/AuthContext';
 import useDebounce from '../../hooks/useDebounce';
-import { getCategoryImage } from '../../data/serviceImages';
+import { getCategoryImage, getServiceImage } from '../../data/serviceImages';
 import { categoryLink } from '../../utils/catalogLinks';
 
 const RECENT_KEY = 'odf_recent_searches';
@@ -306,7 +306,7 @@ const GlobalServiceSearch = ({ variant = 'navbar' }) => {
                     }`}
                   >
                     <img
-                      src={getCategoryImage(service.category)}
+                      src={getCategoryImage(service.category, service.mainCategory)}
                       alt=""
                       loading="lazy"
                       className="w-9 h-9 rounded-lg object-cover bg-slate-100"
@@ -345,7 +345,7 @@ const GlobalServiceSearch = ({ variant = 'navbar' }) => {
                     }`}
                   >
                     <img
-                      src={getCategoryImage(service.category)}
+                      src={getServiceImage(service)}
                       alt=""
                       loading="lazy"
                       className="w-9 h-9 rounded-lg object-cover bg-slate-100"

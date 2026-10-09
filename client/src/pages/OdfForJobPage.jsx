@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom';
 import {
-  ArrowRight,
-  BadgeCheck,
-  CalendarDays,
   CheckCircle2,
   Clock,
   LogIn,
@@ -10,71 +7,9 @@ import {
   ShieldCheck,
   Star,
   UserPlus,
-  Users,
-  Wallet,
+  CalendarDays,
 } from 'lucide-react';
-import { imageUrl } from '../data/serviceImages';
-
-const WHY_JOIN = [
-  {
-    icon: CalendarDays,
-    title: 'Work on your terms',
-    desc: 'You decide which jobs to accept and when. Pick work that fits your schedule, skills and the areas you cover.',
-  },
-  {
-    icon: MapPin,
-    title: 'Jobs near you',
-    desc: 'Customers in your locality find you through the ODForce catalog. Less travelling, more working.',
-  },
-  {
-    icon: BadgeCheck,
-    title: 'A profile that earns trust',
-    desc: 'Your profile goes live after verification, so customers see a checked professional — not an unknown face.',
-  },
-  {
-    icon: Wallet,
-    title: 'Clear, upfront pricing',
-    desc: 'Service prices are listed before a booking is made. You are paid for the work you complete — cash on service or online.',
-  },
-  {
-    icon: Users,
-    title: 'Direct to customers',
-    desc: 'No auctions, no bidding loops. Customers book the service you offer and you take it from there.',
-  },
-  {
-    icon: Star,
-    title: 'Reviews that build your name',
-    desc: 'Every completed job can earn you a customer review — good work makes your profile easier to choose.',
-  },
-];
-
-const WORK_STEPS = [
-  {
-    title: 'Register your account',
-    desc: 'Sign up with your basic details using the existing ODForce worker registration.',
-    cta: true,
-  },
-  {
-    title: 'Complete verification',
-    desc: 'Submit your details for review. Your profile goes live once the platform verifies it.',
-  },
-  {
-    title: 'Set up your profile',
-    desc: 'Add your skills, experience and the areas you serve so the right jobs reach you.',
-  },
-  {
-    title: 'Receive bookings',
-    desc: 'Customers book your services from the catalog. You see what is requested before accepting.',
-  },
-  {
-    title: 'Do the work',
-    desc: 'Confirm a time, arrive prepared and complete the service to the listed scope.',
-  },
-  {
-    title: 'Get paid',
-    desc: 'Collect payment on completion — cash on service or the online payment flow, as chosen by the customer.',
-  },
-];
+import { ODF_FOR_JOB_IMAGES } from '../data/serviceImages';
 
 const GUIDELINES = [
   'Reach on time or message the customer if you are running late.',
@@ -110,27 +45,35 @@ const STANDARDS = [
 
 const JoinCta = () => (
   <section className="bg-secondary py-16">
-    <div className="container-custom text-center">
-      <h2 className="text-3xl font-bold text-white sm:text-4xl">
-        Ready to put your skills to work?
-      </h2>
-      <p className="mx-auto mt-3 max-w-xl text-slate-400">
-        Create your worker account, complete verification and start taking jobs from customers
-        near you.
-      </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <Link
-          to="/worker-portal?mode=register"
-          className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 text-base"
-        >
-          <UserPlus className="h-5 w-5" /> Register as a professional
-        </Link>
-        <Link
-          to="/worker-portal"
-          className="inline-flex items-center gap-2 rounded-xl border border-slate-500 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
-        >
-          <LogIn className="h-5 w-5" /> Login
-        </Link>
+    <div className="container-custom grid items-center gap-10 lg:grid-cols-2">
+      <img
+        src={ODF_FOR_JOB_IMAGES.team}
+        alt="ODForce professionals at work in the office"
+        loading="lazy"
+        className="h-64 w-full rounded-[2rem] object-cover shadow-2xl shadow-black/20 sm:h-72"
+      />
+      <div className="text-center lg:text-left">
+        <h2 className="text-3xl font-bold text-white sm:text-4xl">
+          Ready to put your skills to work?
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-slate-400 lg:mx-0">
+          Create your worker account, complete verification and start taking jobs from customers
+          near you.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+          <Link
+            to="/worker-portal?mode=register"
+            className="btn-primary inline-flex items-center gap-2 px-7 py-3.5 text-base"
+          >
+            <UserPlus className="h-5 w-5" /> Register as a professional
+          </Link>
+          <Link
+            to="/worker-portal"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-500 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+          >
+            <LogIn className="h-5 w-5" /> Login
+          </Link>
+        </div>
       </div>
     </div>
   </section>
@@ -188,7 +131,7 @@ const OdfForJobPage = () => (
         <div className="relative hidden lg:block">
           <div className="relative">
             <img
-              src={imageUrl('odfHero', 1200, 800)}
+              src={ODF_FOR_JOB_IMAGES.hero}
               alt="Uniformed professional ready for a service job"
               className="h-[26rem] w-full rounded-[2rem] object-cover shadow-2xl shadow-slate-900/15"
             />
@@ -216,98 +159,27 @@ const OdfForJobPage = () => (
       </div>
     </section>
 
-    {/* Why join us */}
-    <section className="bg-white py-16">
+    {/* Professional opportunity / standards */}
+    <section className="bg-slate-50 py-16">
       <div className="container-custom">
         <div className="mb-12 max-w-2xl">
           <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-primary">
-            Why join us
+            Professional standards
           </p>
           <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
-            Built for professionals who want steady work
+            The bar every ODForce professional is held to
           </h2>
-          <p className="mt-2 text-sm text-slate-500 sm:text-base">
-            ODForce is a booking platform, not a job board you have to fight over. Customers come
-            with a clear service request — you decide what to take.
-          </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {WHY_JOIN.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-2xl border border-slate-100 bg-slate-50 p-6">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        <div className="grid gap-6 sm:grid-cols-2">
+          {STANDARDS.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="rounded-2xl border border-slate-100 bg-white p-6">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/5 text-secondary">
                 <Icon className="h-6 w-6" />
               </div>
               <h3 className="mb-2 text-lg font-bold text-secondary">{title}</h3>
               <p className="text-sm text-slate-600">{desc}</p>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-
-    {/* How professionals work */}
-    <section className="bg-slate-50 py-16">
-      <div className="container-custom">
-        <div className="mb-12 max-w-2xl">
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-primary">
-            How professionals work
-          </p>
-          <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
-            From registration to payout in six steps
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {WORK_STEPS.map((step, index) => (
-            <div
-              key={step.title}
-              className="relative rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
-            >
-              <span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white">
-                {index + 1}
-              </span>
-              <h3 className="mb-2 text-lg font-bold text-secondary">{step.title}</h3>
-              <p className="text-sm text-slate-600">{step.desc}</p>
-              {step.cta && (
-                <Link
-                  to="/worker-portal?mode=register"
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-hover"
-                >
-                  Register now <ArrowRight className="h-4 w-4" />
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="mt-10 grid items-center gap-8 rounded-[2rem] border border-slate-100 bg-white p-6 sm:p-8 lg:grid-cols-2">
-          <img
-            src={imageUrl('odfTeam', 800, 500)}
-            alt="Professionals collaborating in an office"
-            className="h-64 w-full rounded-2xl object-cover"
-          />
-          <div>
-            <h3 className="text-xl font-bold text-secondary">
-              One account — the whole flow you already know
-            </h3>
-            <p className="mt-3 text-sm text-slate-600">
-              Registration, verification and your worker dashboard all run on ODForce&apos;s existing
-              worker portal. There is no second system to learn: register, finish your profile
-              setup, clear verification and work from your dashboard.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Link
-                to="/worker-portal?mode=register"
-                className="btn-primary inline-flex items-center gap-2 px-5 py-2.5 text-sm"
-              >
-                <UserPlus className="h-4 w-4" /> Start registration
-              </Link>
-              <Link
-                to="/worker-portal"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-semibold text-secondary transition-colors hover:border-primary hover:text-primary"
-              >
-                I already have an account
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -335,38 +207,15 @@ const OdfForJobPage = () => (
           </ul>
         </div>
         <img
-          src={imageUrl('odfWorker', 800, 500)}
+          src={ODF_FOR_JOB_IMAGES.worker}
           alt="Professional in work gear holding tools on site"
+          loading="lazy"
           className="h-80 w-full rounded-[2rem] object-cover shadow-xl"
         />
       </div>
     </section>
 
-    {/* Professional standards */}
-    <section className="bg-slate-50 py-16">
-      <div className="container-custom">
-        <div className="mb-12 max-w-2xl">
-          <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-primary">
-            Professional standards
-          </p>
-          <h2 className="text-2xl font-bold text-secondary sm:text-3xl">
-            The bar every ODForce professional is held to
-          </h2>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {STANDARDS.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-2xl border border-slate-100 bg-white p-6">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/5 text-secondary">
-                <Icon className="h-6 w-6" />
-              </div>
-              <h3 className="mb-2 text-lg font-bold text-secondary">{title}</h3>
-              <p className="text-sm text-slate-600">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
+    {/* Office image + Worker Portal CTA */}
     <JoinCta />
   </div>
 );

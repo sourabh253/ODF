@@ -1,73 +1,1969 @@
 {
-  "windowCleaning": "odforce/catalog/windowCleaning",
-  "windowCleanerSilhouette": "odforce/catalog/windowCleanerSilhouette",
-  "electricianPanel": "odforce/catalog/electricianPanel",
-  "electricianHelmet": "odforce/catalog/electricianHelmet",
-  "barbershop": "odforce/catalog/barbershop",
-  "massage": "odforce/catalog/massage",
-  "manicure": "odforce/catalog/manicure",
-  "makeup": "odforce/catalog/makeup",
-  "carpenterDrill": "odforce/catalog/carpenterDrill",
-  "craftsmanTools": "odforce/catalog/craftsmanTools",
-  "kitchen": "odforce/catalog/kitchen",
-  "bathroom": "odforce/catalog/bathroom",
-  "gloves": "odforce/catalog/gloves",
-  "sprayBottle": "odforce/catalog/sprayBottle",
-  "bedroom": "odforce/catalog/bedroom",
-  "livingRoom": "odforce/catalog/livingRoom",
-  "sofaRoom": "odforce/catalog/sofaRoom",
-  "vacuumCarpet": "odforce/catalog/vacuumCarpet",
-  "bedLinen": "odforce/catalog/bedLinen",
-  "washingMachineRoom": "odforce/catalog/washingMachineRoom",
-  "washerDrum": "odforce/catalog/washerDrum",
-  "faucet": "odforce/catalog/faucet",
-  "refrigerator": "odforce/catalog/refrigerator",
-  "longHair": "odforce/catalog/longHair",
-  "hairWash": "odforce/catalog/hairWash",
-  "facialMask": "odforce/catalog/facialMask",
-  "facialTreatment": "odforce/catalog/facialTreatment",
-  "waterGlass": "odforce/catalog/waterGlass",
-  "microwave": "odforce/catalog/microwave",
-  "dishwasher": "odforce/catalog/dishwasher",
-  "houseExterior": "odforce/catalog/houseExterior",
-  "acUnits": "odforce/catalog/acUnits",
-  "pestControl": "odforce/catalog/pestControl",
-  "acServiceRepair": "odforce/catalog/acServiceRepair",
   "acInstallation": "odforce/catalog/acInstallation",
-  "chimney": "odforce/catalog/chimney",
-  "geyser": "odforce/catalog/geyser",
-  "chairCleaning": "odforce/catalog/chairCleaning",
+  "acServiceRepair": "odforce/catalog/acServiceRepair",
+  "acUnits": "odforce/catalog/acUnits",
+  "applianceRepair": "odforce/catalog/applianceRepair",
+  "barbershop": "odforce/catalog/barbershop",
+  "bathroom": "odforce/catalog/bathroom",
+  "bathroomPlumbing": "odforce/catalog/bathroomPlumbing",
   "beardShaving": "odforce/catalog/beardShaving",
-  "groomingPackages": "odforce/catalog/groomingPackages",
-  "hairBeardCombo": "odforce/catalog/hairBeardCombo",
-  "haircut": "odforce/catalog/haircut",
-  "headMassage": "odforce/catalog/headMassage",
-  "hairStyling": "odforce/catalog/hairStyling",
+  "bedLinen": "odforce/catalog/bedLinen",
+  "bedroom": "odforce/catalog/bedroom",
   "bridal": "odforce/catalog/bridal",
-  "hairRemoval": "odforce/catalog/hairRemoval",
-  "spaMassage": "odforce/catalog/spaMassage",
   "carpenterDoorWindow": "odforce/catalog/carpenterDoorWindow",
-  "drillingInstallation": "odforce/catalog/drillingInstallation",
-  "furnitureAssembly": "odforce/catalog/furnitureAssembly",
-  "furnitureRepair": "odforce/catalog/furnitureRepair",
+  "carpenterDrill": "odforce/catalog/carpenterDrill",
+  "ceilingFan": "odforce/catalog/ceilingFan",
+  "chairCleaning": "odforce/catalog/chairCleaning",
+  "chimney": "odforce/catalog/chimney",
+  "cleaningTeam": "odforce/catalog/cleaningTeam",
+  "craftsmanTools": "odforce/catalog/craftsmanTools",
+  "dishwasher": "odforce/catalog/dishwasher",
   "doorbell": "odforce/catalog/doorbell",
+  "drillingInstallation": "odforce/catalog/drillingInstallation",
   "electricalAppliances": "odforce/catalog/electricalAppliances",
   "electricalInspection": "odforce/catalog/electricalInspection",
-  "ceilingFan": "odforce/catalog/ceilingFan",
-  "inverterStabilizer": "odforce/catalog/inverterStabilizer",
-  "lights": "odforce/catalog/lights",
-  "switchesSockets": "odforce/catalog/switchesSockets",
-  "wiringRepair": "odforce/catalog/wiringRepair",
-  "bathroomPlumbing": "odforce/catalog/bathroomPlumbing",
-  "pipesLeakage": "odforce/catalog/pipesLeakage",
-  "sinkPlumbing": "odforce/catalog/sinkPlumbing",
-  "toilet": "odforce/catalog/toilet",
-  "waterSupply": "odforce/catalog/waterSupply",
-  "cleaningTeam": "odforce/catalog/cleaningTeam",
+  "electricianHelmet": "odforce/catalog/electricianHelmet",
+  "electricianPanel": "odforce/catalog/electricianPanel",
+  "facialMask": "odforce/catalog/facialMask",
+  "facialTreatment": "odforce/catalog/facialTreatment",
+  "faucet": "odforce/catalog/faucet",
+  "furnitureAssembly": "odforce/catalog/furnitureAssembly",
+  "furnitureRepair": "odforce/catalog/furnitureRepair",
+  "geyser": "odforce/catalog/geyser",
+  "gloves": "odforce/catalog/gloves",
+  "groomingPackages": "odforce/catalog/groomingPackages",
+  "hairBeardCombo": "odforce/catalog/hairBeardCombo",
   "hairBlowDry": "odforce/catalog/hairBlowDry",
-  "plumberRadiator": "odforce/catalog/plumberRadiator",
-  "applianceRepair": "odforce/catalog/applianceRepair",
+  "haircut": "odforce/catalog/haircut",
+  "hairRemoval": "odforce/catalog/hairRemoval",
+  "hairStyling": "odforce/catalog/hairStyling",
+  "hairWash": "odforce/catalog/hairWash",
+  "headMassage": "odforce/catalog/headMassage",
+  "houseExterior": "odforce/catalog/houseExterior",
+  "inverterStabilizer": "odforce/catalog/inverterStabilizer",
+  "kitchen": "odforce/catalog/kitchen",
+  "lights": "odforce/catalog/lights",
+  "livingRoom": "odforce/catalog/livingRoom",
+  "longHair": "odforce/catalog/longHair",
+  "makeup": "odforce/catalog/makeup",
+  "manicure": "odforce/catalog/manicure",
+  "massage": "odforce/catalog/massage",
+  "microwave": "odforce/catalog/microwave",
   "odfHero": "odforce/catalog/odfHero",
+  "odforce/categories/ac-appliance-repair/ac-installation": {
+    "public_id": "odforce/categories/ac-appliance-repair/ac-installation",
+    "source": "https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/ac-appliance-repair/ac-service-repair": {
+    "public_id": "odforce/categories/ac-appliance-repair/ac-service-repair",
+    "source": "https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg",
+    "width": 1600,
+    "height": 1137
+  },
+  "odforce/categories/ac-appliance-repair/chimney": {
+    "public_id": "odforce/categories/ac-appliance-repair/chimney",
+    "source": "https://images.pexels.com/photos/12119355/pexels-photo-12119355.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/ac-appliance-repair/dishwasher": {
+    "public_id": "odforce/categories/ac-appliance-repair/dishwasher",
+    "source": "https://images.unsplash.com/photo-1581622558663-b2e33377dfb2?auto=format&fit=crop&w=1600&q=80",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/ac-appliance-repair/geyser": {
+    "public_id": "odforce/categories/ac-appliance-repair/geyser",
+    "source": "https://images.pexels.com/photos/8142983/pexels-photo-8142983.jpeg",
+    "width": 1068,
+    "height": 1600
+  },
+  "odforce/categories/ac-appliance-repair/microwave": {
+    "public_id": "odforce/categories/ac-appliance-repair/microwave",
+    "source": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/ac-appliance-repair/other-home-appliances": {
+    "public_id": "odforce/categories/ac-appliance-repair/other-home-appliances",
+    "source": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/ac-appliance-repair/refrigerator": {
+    "public_id": "odforce/categories/ac-appliance-repair/refrigerator",
+    "source": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=1600&q=80",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/ac-appliance-repair/ro-water-purifier": {
+    "public_id": "odforce/categories/ac-appliance-repair/ro-water-purifier",
+    "source": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=80",
+    "width": 1069,
+    "height": 1600
+  },
+  "odforce/categories/ac-appliance-repair/washing-machine": {
+    "public_id": "odforce/categories/ac-appliance-repair/washing-machine",
+    "source": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/cleaning/bathroom-cleaning": {
+    "public_id": "odforce/categories/cleaning/bathroom-cleaning",
+    "source": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/cleaning/chair-cleaning": {
+    "public_id": "odforce/categories/cleaning/chair-cleaning",
+    "source": "https://images.pexels.com/photos/27176673/pexels-photo-27176673.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/cleaning/deep-cleaning": {
+    "public_id": "odforce/categories/cleaning/deep-cleaning",
+    "source": "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/cleaning/floor-cleaning": {
+    "public_id": "odforce/categories/cleaning/floor-cleaning",
+    "source": "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/categories/cleaning/home-cleaning": {
+    "public_id": "odforce/categories/cleaning/home-cleaning",
+    "source": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1600
+  },
+  "odforce/categories/cleaning/kitchen-cleaning": {
+    "public_id": "odforce/categories/cleaning/kitchen-cleaning",
+    "source": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 959
+  },
+  "odforce/categories/cleaning/mattress-cleaning": {
+    "public_id": "odforce/categories/cleaning/mattress-cleaning",
+    "source": "https://images.unsplash.com/photo-1616627561950-9f746e330187?auto=format&fit=crop&w=1600&q=80",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/cleaning/pest-control": {
+    "public_id": "odforce/categories/cleaning/pest-control",
+    "source": "https://images.pexels.com/photos/19789841/pexels-photo-19789841/free-photo-of-smoke-used-for-pest-control.jpeg",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/categories/cleaning/sofa-cleaning": {
+    "public_id": "odforce/categories/cleaning/sofa-cleaning",
+    "source": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/cleaning/window-glass-cleaning": {
+    "public_id": "odforce/categories/cleaning/window-glass-cleaning",
+    "source": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/electrician-plumber-carpenter/carpenter": {
+    "public_id": "odforce/categories/electrician-plumber-carpenter/carpenter",
+    "source": "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 949
+  },
+  "odforce/categories/electrician-plumber-carpenter/electrician": {
+    "public_id": "odforce/categories/electrician-plumber-carpenter/electrician",
+    "source": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/categories/electrician-plumber-carpenter/plumber": {
+    "public_id": "odforce/categories/electrician-plumber-carpenter/plumber",
+    "source": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/mens-salon-massage/beard-shaving": {
+    "public_id": "odforce/categories/mens-salon-massage/beard-shaving",
+    "source": "https://images.pexels.com/photos/2521978/pexels-photo-2521978.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/mens-salon-massage/body-massage": {
+    "public_id": "odforce/categories/mens-salon-massage/body-massage",
+    "source": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/mens-salon-massage/facial-skin-care": {
+    "public_id": "odforce/categories/mens-salon-massage/facial-skin-care",
+    "source": "https://images.pexels.com/photos/5912287/pexels-photo-5912287.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/mens-salon-massage/grooming-packages": {
+    "public_id": "odforce/categories/mens-salon-massage/grooming-packages",
+    "source": "https://images.pexels.com/photos/7781844/pexels-photo-7781844.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/mens-salon-massage/hair-beard-combo": {
+    "public_id": "odforce/categories/mens-salon-massage/hair-beard-combo",
+    "source": "https://images.pexels.com/photos/7518707/pexels-photo-7518707.jpeg",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/categories/mens-salon-massage/hair-spa": {
+    "public_id": "odforce/categories/mens-salon-massage/hair-spa",
+    "source": "https://images.pexels.com/photos/23349900/pexels-photo-23349900.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1133,
+    "height": 1600
+  },
+  "odforce/categories/mens-salon-massage/hair-styling": {
+    "public_id": "odforce/categories/mens-salon-massage/hair-styling",
+    "source": "https://images.pexels.com/photos/5368632/pexels-photo-5368632.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/mens-salon-massage/haircut": {
+    "public_id": "odforce/categories/mens-salon-massage/haircut",
+    "source": "https://images.pexels.com/photos/19664889/pexels-photo-19664889.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/mens-salon-massage/head-massage": {
+    "public_id": "odforce/categories/mens-salon-massage/head-massage",
+    "source": "https://images.pexels.com/photos/6628689/pexels-photo-6628689.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/womens-salon-spa/bridal-special-occasion": {
+    "public_id": "odforce/categories/womens-salon-spa/bridal-special-occasion",
+    "source": "https://images.pexels.com/photos/37710473/pexels-photo-37710473.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/womens-salon-spa/facial-skin-care": {
+    "public_id": "odforce/categories/womens-salon-spa/facial-skin-care",
+    "source": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/womens-salon-spa/hair-care": {
+    "public_id": "odforce/categories/womens-salon-spa/hair-care",
+    "source": "https://images.pexels.com/photos/7943231/pexels-photo-7943231.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/womens-salon-spa/hair-removal": {
+    "public_id": "odforce/categories/womens-salon-spa/hair-removal",
+    "source": "https://images.pexels.com/photos/6763621/pexels-photo-6763621.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/womens-salon-spa/hair-spa": {
+    "public_id": "odforce/categories/womens-salon-spa/hair-spa",
+    "source": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1600&q=80",
+    "width": 1068,
+    "height": 1600
+  },
+  "odforce/categories/womens-salon-spa/hair-styling": {
+    "public_id": "odforce/categories/womens-salon-spa/hair-styling",
+    "source": "https://images.pexels.com/photos/3993290/pexels-photo-3993290.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/womens-salon-spa/makeup": {
+    "public_id": "odforce/categories/womens-salon-spa/makeup",
+    "source": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/categories/womens-salon-spa/manicure-pedicure": {
+    "public_id": "odforce/categories/womens-salon-spa/manicure-pedicure",
+    "source": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1600&q=80",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/categories/womens-salon-spa/spa-massage": {
+    "public_id": "odforce/categories/womens-salon-spa/spa-massage",
+    "source": "https://images.pexels.com/photos/6187652/pexels-photo-6187652.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/hero/main": {
+    "public_id": "odforce/hero/main",
+    "source": "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 900
+  },
+  "odforce/hero/thumb-electrician": {
+    "public_id": "odforce/hero/thumb-electrician",
+    "source": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/hero/thumb-facial": {
+    "public_id": "odforce/hero/thumb-facial",
+    "source": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/main-categories/ac-appliance-repair": {
+    "public_id": "odforce/main-categories/ac-appliance-repair",
+    "source": "https://images.pexels.com/photos/38190070/pexels-photo-38190070.jpeg",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/main-categories/cleaning": {
+    "public_id": "odforce/main-categories/cleaning",
+    "source": "https://images.pexels.com/photos/6195274/pexels-photo-6195274.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/main-categories/electrician-plumber-carpenter": {
+    "public_id": "odforce/main-categories/electrician-plumber-carpenter",
+    "source": "https://images.pexels.com/photos/32497160/pexels-photo-32497160/free-photo-of-electrician-inspecting-residential-fuse-box-area.jpeg",
+    "width": 1600,
+    "height": 1064
+  },
+  "odforce/main-categories/mens-salon-massage": {
+    "public_id": "odforce/main-categories/mens-salon-massage",
+    "source": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/main-categories/womens-salon-spa": {
+    "public_id": "odforce/main-categories/womens-salon-spa",
+    "source": "https://images.pexels.com/photos/8834113/pexels-photo-8834113.jpeg",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/odf-for-job/odf-hero": {
+    "public_id": "odforce/odf-for-job/odf-hero",
+    "source": "https://images.pexels.com/photos/36712860/pexels-photo-36712860.jpeg",
+    "width": 1600,
+    "height": 900
+  },
+  "odforce/odf-for-job/odf-team": {
+    "public_id": "odforce/odf-for-job/odf-team",
+    "source": "https://images.pexels.com/photos/1181738/pexels-photo-1181738.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/odf-for-job/odf-worker": {
+    "public_id": "odforce/odf-for-job/odf-worker",
+    "source": "https://images.pexels.com/photos/6050244/pexels-photo-6050244.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/split-ac-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-installation/ac-installation/split-ac-installation",
+    "source": "https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1274
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/split-ac-removal": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-installation/ac-installation/split-ac-removal",
+    "source": "https://images.pexels.com/photos/5463576/pexels-photo-5463576.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/window-ac-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-installation/ac-installation/window-ac-installation",
+    "source": "https://images.pexels.com/photos/38788452/pexels-photo-38788452.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/ac-installation/ac-installation/window-ac-removal": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-installation/ac-installation/window-ac-removal",
+    "source": "https://images.pexels.com/photos/18725613/pexels-photo-18725613.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 899,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-cooling-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-cooling-inspection",
+    "source": "https://images.pexels.com/photos/6471913/pexels-photo-6471913.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-electrical-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-electrical-inspection",
+    "source": "https://images.pexels.com/photos/34526423/pexels-photo-34526423.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-gas-leakage-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/ac-gas-leakage-inspection",
+    "source": "https://images.pexels.com/photos/20046692/pexels-photo-20046692.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/split-ac-basic-service": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/split-ac-basic-service",
+    "source": "https://images.pexels.com/photos/37913513/pexels-photo-37913513.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/split-ac-deep-cleaning": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/split-ac-deep-cleaning",
+    "source": "https://images.pexels.com/photos/3964617/pexels-photo-3964617.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1069
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/window-ac-basic-service": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/window-ac-basic-service",
+    "source": "https://images.pexels.com/photos/31725399/pexels-photo-31725399.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/window-ac-deep-cleaning": {
+    "public_id": "odforce/services/ac-appliance-repair/ac-service-repair/ac-service-repair/window-ac-deep-cleaning",
+    "source": "https://images.pexels.com/photos/12186828/pexels-photo-12186828.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/chimney/chimney/chimney-exterior-cleaning": {
+    "public_id": "odforce/services/ac-appliance-repair/chimney/chimney/chimney-exterior-cleaning",
+    "source": "https://images.pexels.com/photos/7515855/pexels-photo-7515855.png?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1060
+  },
+  "odforce/services/ac-appliance-repair/chimney/chimney/chimney-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/chimney/chimney/chimney-installation",
+    "source": "https://images.pexels.com/photos/13422435/pexels-photo-13422435.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/dishwasher/dishwasher/dishwasher-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/dishwasher/dishwasher/dishwasher-installation",
+    "source": "https://images.pexels.com/photos/5904038/pexels-photo-5904038.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/geyser/geyser/geyser-electrical-connection": {
+    "public_id": "odforce/services/ac-appliance-repair/geyser/geyser/geyser-electrical-connection",
+    "source": "https://images.pexels.com/photos/12644994/pexels-photo-12644994.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1063
+  },
+  "odforce/services/ac-appliance-repair/geyser/geyser/geyser-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/geyser/geyser/geyser-installation",
+    "source": "https://images.pexels.com/photos/14724663/pexels-photo-14724663.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/geyser/geyser/geyser-removal": {
+    "public_id": "odforce/services/ac-appliance-repair/geyser/geyser/geyser-removal",
+    "source": "https://images.pexels.com/photos/4819052/pexels-photo-4819052.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/microwave/microwave/microwave-electrical-connection": {
+    "public_id": "odforce/services/ac-appliance-repair/microwave/microwave/microwave-electrical-connection",
+    "source": "https://images.pexels.com/photos/32168944/pexels-photo-32168944.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/microwave/microwave/microwave-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/microwave/microwave/microwave-installation",
+    "source": "https://images.pexels.com/photos/4686822/pexels-photo-4686822.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/other-home-appliances/other-home-appliances/air-cooler-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/other-home-appliances/other-home-appliances/air-cooler-installation",
+    "source": "https://images.pexels.com/photos/17301209/pexels-photo-17301209/free-photo-of-blow-fan.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/other-home-appliances/other-home-appliances/air-cooler-removal": {
+    "public_id": "odforce/services/ac-appliance-repair/other-home-appliances/other-home-appliances/air-cooler-removal",
+    "source": "https://images.pexels.com/photos/11256510/pexels-photo-11256510.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1066
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/door-gasket-replacement": {
+    "public_id": "odforce/services/ac-appliance-repair/refrigerator/refrigerator/door-gasket-replacement",
+    "source": "https://images.pexels.com/photos/9031968/pexels-photo-9031968.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-basic-service": {
+    "public_id": "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-basic-service",
+    "source": "https://images.pexels.com/photos/8146322/pexels-photo-8146322.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-deep-cleaning": {
+    "public_id": "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-deep-cleaning",
+    "source": "https://images.pexels.com/photos/5591933/pexels-photo-5591933.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-electrical-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-electrical-inspection",
+    "source": "https://images.pexels.com/photos/34872423/pexels-photo-34872423.png?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/refrigerator/refrigerator/refrigerator-inspection",
+    "source": "https://images.pexels.com/photos/38853682/pexels-photo-38853682.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/filter-replacement": {
+    "public_id": "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/filter-replacement",
+    "source": "https://images.pexels.com/photos/2226387/pexels-photo-2226387.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/pipe-replacement": {
+    "public_id": "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/pipe-replacement",
+    "source": "https://images.pexels.com/photos/8488035/pexels-photo-8488035.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-basic-service": {
+    "public_id": "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-basic-service",
+    "source": "https://images.pexels.com/photos/15247826/pexels-photo-15247826.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 979,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-deep-cleaning": {
+    "public_id": "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-deep-cleaning",
+    "source": "https://images.pexels.com/photos/28576625/pexels-photo-28576625/free-photo-of-cleaning-with-yellow-rubber-gloves-and-spray-bottle.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-inspection",
+    "source": "https://images.pexels.com/photos/3500006/pexels-photo-3500006.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-installation",
+    "source": "https://images.pexels.com/photos/7166645/pexels-photo-7166645.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-removal": {
+    "public_id": "odforce/services/ac-appliance-repair/ro-water-purifier/ro-water-purifier/ro-removal",
+    "source": "https://images.pexels.com/photos/11612595/pexels-photo-11612595.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/drain-pipe-replacement": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/drain-pipe-replacement",
+    "source": "https://images.pexels.com/photos/6240578/pexels-photo-6240578.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/inlet-pipe-replacement": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/inlet-pipe-replacement",
+    "source": "https://images.pexels.com/photos/38893871/pexels-photo-38893871.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-basic-service": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-basic-service",
+    "source": "https://images.pexels.com/photos/17181948/pexels-photo-17181948.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-deep-cleaning": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-deep-cleaning",
+    "source": "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1107
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-electrical-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-electrical-inspection",
+    "source": "https://images.pexels.com/photos/4386143/pexels-photo-4386143.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-inspection": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-inspection",
+    "source": "https://images.pexels.com/photos/4700400/pexels-photo-4700400.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1066
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-installation": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-installation",
+    "source": "https://images.pexels.com/photos/6045788/pexels-photo-6045788.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-removal": {
+    "public_id": "odforce/services/ac-appliance-repair/washing-machine/washing-machine/washing-machine-removal",
+    "source": "https://images.pexels.com/photos/8774364/pexels-photo-8774364.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/bathroom-basic-cleaning": {
+    "public_id": "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/bathroom-basic-cleaning",
+    "source": "https://images.pexels.com/photos/4239131/pexels-photo-4239131.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/bathroom-deep-cleaning": {
+    "public_id": "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/bathroom-deep-cleaning",
+    "source": "https://images.pexels.com/photos/5217889/pexels-photo-5217889.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/toilet-deep-cleaning": {
+    "public_id": "odforce/services/cleaning/bathroom-cleaning/bathroom-cleaning/toilet-deep-cleaning",
+    "source": "https://images.pexels.com/photos/13885861/pexels-photo-13885861.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1066,
+    "height": 1600
+  },
+  "odforce/services/cleaning/chair-cleaning/chair-cleaning/dining-chair-cleaning": {
+    "public_id": "odforce/services/cleaning/chair-cleaning/chair-cleaning/dining-chair-cleaning",
+    "source": "https://images.pexels.com/photos/33646085/pexels-photo-33646085.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1205
+  },
+  "odforce/services/cleaning/chair-cleaning/chair-cleaning/office-chair-cleaning": {
+    "public_id": "odforce/services/cleaning/chair-cleaning/chair-cleaning/office-chair-cleaning",
+    "source": "https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/deep-cleaning/deep-cleaning/1-bhk-deep-cleaning": {
+    "public_id": "odforce/services/cleaning/deep-cleaning/deep-cleaning/1-bhk-deep-cleaning",
+    "source": "https://images.pexels.com/photos/36715248/pexels-photo-36715248.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 900
+  },
+  "odforce/services/cleaning/deep-cleaning/deep-cleaning/2-bhk-deep-cleaning": {
+    "public_id": "odforce/services/cleaning/deep-cleaning/deep-cleaning/2-bhk-deep-cleaning",
+    "source": "https://images.pexels.com/photos/5591852/pexels-photo-5591852.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/deep-cleaning/deep-cleaning/3-bhk-deep-cleaning": {
+    "public_id": "odforce/services/cleaning/deep-cleaning/deep-cleaning/3-bhk-deep-cleaning",
+    "source": "https://images.pexels.com/photos/28576635/pexels-photo-28576635/free-photo-of-cleaning-walls-with-sponge-and-spray-bottle.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/floor-cleaning/floor-cleaning/balcony-cleaning": {
+    "public_id": "odforce/services/cleaning/floor-cleaning/floor-cleaning/balcony-cleaning",
+    "source": "https://images.pexels.com/photos/14788843/pexels-photo-14788843.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/services/cleaning/floor-cleaning/floor-cleaning/floor-deep-cleaning": {
+    "public_id": "odforce/services/cleaning/floor-cleaning/floor-cleaning/floor-deep-cleaning",
+    "source": "https://images.pexels.com/photos/15336533/pexels-photo-15336533.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/floor-cleaning/floor-cleaning/terrace-basic-cleaning": {
+    "public_id": "odforce/services/cleaning/floor-cleaning/floor-cleaning/terrace-basic-cleaning",
+    "source": "https://images.pexels.com/photos/9653888/pexels-photo-9653888.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/home-cleaning/home-cleaning/1-bhk-basic-cleaning": {
+    "public_id": "odforce/services/cleaning/home-cleaning/home-cleaning/1-bhk-basic-cleaning",
+    "source": "https://images.pexels.com/photos/9462162/pexels-photo-9462162.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/home-cleaning/home-cleaning/2-bhk-basic-cleaning": {
+    "public_id": "odforce/services/cleaning/home-cleaning/home-cleaning/2-bhk-basic-cleaning",
+    "source": "https://images.pexels.com/photos/9462749/pexels-photo-9462749.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/home-cleaning/home-cleaning/3-bhk-basic-cleaning": {
+    "public_id": "odforce/services/cleaning/home-cleaning/home-cleaning/3-bhk-basic-cleaning",
+    "source": "https://images.pexels.com/photos/3890165/pexels-photo-3890165.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/chimney-exterior-cleaning": {
+    "public_id": "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/chimney-exterior-cleaning",
+    "source": "https://images.pexels.com/photos/36035073/pexels-photo-36035073.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-basic-cleaning": {
+    "public_id": "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-basic-cleaning",
+    "source": "https://images.pexels.com/photos/5904036/pexels-photo-5904036.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-cabinet-cleaning": {
+    "public_id": "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-cabinet-cleaning",
+    "source": "https://images.pexels.com/photos/4030055/pexels-photo-4030055.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-deep-cleaning": {
+    "public_id": "odforce/services/cleaning/kitchen-cleaning/kitchen-cleaning/kitchen-deep-cleaning",
+    "source": "https://images.pexels.com/photos/10566507/pexels-photo-10566507.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/double-mattress-cleaning": {
+    "public_id": "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/double-mattress-cleaning",
+    "source": "https://images.pexels.com/photos/18492337/pexels-photo-18492337.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/king-mattress-cleaning": {
+    "public_id": "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/king-mattress-cleaning",
+    "source": "https://images.pexels.com/photos/14675103/pexels-photo-14675103.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/single-mattress-cleaning": {
+    "public_id": "odforce/services/cleaning/mattress-cleaning/mattress-cleaning/single-mattress-cleaning",
+    "source": "https://images.pexels.com/photos/28513849/pexels-photo-28513849.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1065
+  },
+  "odforce/services/cleaning/pest-control/pest-control/1-bhk-pest-control": {
+    "public_id": "odforce/services/cleaning/pest-control/pest-control/1-bhk-pest-control",
+    "source": "https://images.pexels.com/photos/32391776/pexels-photo-32391776.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/pest-control/pest-control/2-bhk-pest-control": {
+    "public_id": "odforce/services/cleaning/pest-control/pest-control/2-bhk-pest-control",
+    "source": "https://images.pexels.com/photos/4176550/pexels-photo-4176550.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1068,
+    "height": 1600
+  },
+  "odforce/services/cleaning/pest-control/pest-control/3-bhk-pest-control": {
+    "public_id": "odforce/services/cleaning/pest-control/pest-control/3-bhk-pest-control",
+    "source": "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/services/cleaning/pest-control/pest-control/ant-control": {
+    "public_id": "odforce/services/cleaning/pest-control/pest-control/ant-control",
+    "source": "https://images.pexels.com/photos/37273378/pexels-photo-37273378.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1280
+  },
+  "odforce/services/cleaning/pest-control/pest-control/bed-bug-control": {
+    "public_id": "odforce/services/cleaning/pest-control/pest-control/bed-bug-control",
+    "source": "https://images.pexels.com/photos/4894608/pexels-photo-4894608.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/pest-control/pest-control/cockroach-control": {
+    "public_id": "odforce/services/cleaning/pest-control/pest-control/cockroach-control",
+    "source": "https://images.pexels.com/photos/17177368/pexels-photo-17177368.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1064
+  },
+  "odforce/services/cleaning/pest-control/pest-control/mosquito-control": {
+    "public_id": "odforce/services/cleaning/pest-control/pest-control/mosquito-control",
+    "source": "https://images.pexels.com/photos/27178285/pexels-photo-27178285.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1517
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/1-seat-sofa-cleaning": {
+    "public_id": "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/1-seat-sofa-cleaning",
+    "source": "https://images.pexels.com/photos/7601374/pexels-photo-7601374.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/2-seat-sofa-cleaning": {
+    "public_id": "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/2-seat-sofa-cleaning",
+    "source": "https://images.pexels.com/photos/6758245/pexels-photo-6758245.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/3-seat-sofa-cleaning": {
+    "public_id": "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/3-seat-sofa-cleaning",
+    "source": "https://images.pexels.com/photos/1239298/pexels-photo-1239298.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/4-seat-sofa-cleaning": {
+    "public_id": "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/4-seat-sofa-cleaning",
+    "source": "https://images.pexels.com/photos/6480707/pexels-photo-6480707.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/5-seat-sofa-cleaning": {
+    "public_id": "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/5-seat-sofa-cleaning",
+    "source": "https://images.pexels.com/photos/4401535/pexels-photo-4401535.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/6-seat-sofa-cleaning": {
+    "public_id": "odforce/services/cleaning/sofa-cleaning/sofa-cleaning/6-seat-sofa-cleaning",
+    "source": "https://images.pexels.com/photos/4846459/pexels-photo-4846459.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/glass-door-cleaning": {
+    "public_id": "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/glass-door-cleaning",
+    "source": "https://images.pexels.com/photos/19368755/pexels-photo-19368755/free-photo-of-glass-building-entrance.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/glass-partition-cleaning": {
+    "public_id": "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/glass-partition-cleaning",
+    "source": "https://images.pexels.com/photos/6650984/pexels-photo-6650984.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1280,
+    "height": 1600
+  },
+  "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/window-cleaning": {
+    "public_id": "odforce/services/cleaning/window-glass-cleaning/window-glass-cleaning/window-cleaning",
+    "source": "https://images.pexels.com/photos/38921234/pexels-photo-38921234/free-photo-of-window-cleaners-hanging-on-skyscraper-facade.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/door-window-alignment-adjustment": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/door-window/door-window-alignment-adjustment",
+    "source": "https://images.pexels.com/photos/13009039/pexels-photo-13009039.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/handle-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/door-window/handle-replacement",
+    "source": "https://images.pexels.com/photos/30281096/pexels-photo-30281096.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/hinge-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/door-window/hinge-replacement",
+    "source": "https://images.pexels.com/photos/11231039/pexels-photo-11231039.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1003,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/lock-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/door-window/lock-installation",
+    "source": "https://images.pexels.com/photos/37095097/pexels-photo-37095097.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1143,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/door-window/window-latch-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/door-window/window-latch-replacement",
+    "source": "https://images.pexels.com/photos/9361627/pexels-photo-9361627.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/curtain-rod-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/curtain-rod-installation",
+    "source": "https://images.pexels.com/photos/5835536/pexels-photo-5835536.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/mirror-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/mirror-installation",
+    "source": "https://images.pexels.com/photos/39240990/pexels-photo-39240990.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/wall-mounted-tv-unit-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/wall-mounted-tv-unit-installation",
+    "source": "https://images.pexels.com/photos/3423817/pexels-photo-3423817.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 942
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/wall-shelf-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/drilling-installation/wall-shelf-installation",
+    "source": "https://images.pexels.com/photos/6851831/pexels-photo-6851831.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/bed-assembly": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/bed-assembly",
+    "source": "https://images.pexels.com/photos/10554461/pexels-photo-10554461.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/bookshelf-assembly": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/bookshelf-assembly",
+    "source": "https://images.pexels.com/photos/8045884/pexels-photo-8045884.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/chair-assembly": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/chair-assembly",
+    "source": "https://images.pexels.com/photos/30767131/pexels-photo-30767131.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/table-assembly": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/table-assembly",
+    "source": "https://images.pexels.com/photos/18823960/pexels-photo-18823960.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/wardrobe-assembly": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-assembly/wardrobe-assembly",
+    "source": "https://images.pexels.com/photos/7587809/pexels-photo-7587809.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/bed-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/bed-repair",
+    "source": "https://images.pexels.com/photos/5644286/pexels-photo-5644286.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/cabinet-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/cabinet-repair",
+    "source": "https://images.pexels.com/photos/37030080/pexels-photo-37030080.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/chair-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/chair-repair",
+    "source": "https://images.pexels.com/photos/13813929/pexels-photo-13813929.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/drawer-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/drawer-repair",
+    "source": "https://images.pexels.com/photos/5974285/pexels-photo-5974285.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/table-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/table-repair",
+    "source": "https://images.pexels.com/photos/2995012/pexels-photo-2995012.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/wardrobe-door-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/carpenter/furniture-repair/wardrobe-door-repair",
+    "source": "https://images.pexels.com/photos/37663438/pexels-photo-37663438.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/doorbell/doorbell-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/doorbell/doorbell-installation",
+    "source": "https://images.pexels.com/photos/12508073/pexels-photo-12508073.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1064,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/doorbell/doorbell-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/doorbell/doorbell-replacement",
+    "source": "https://images.pexels.com/photos/9461215/pexels-photo-9461215.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/geyser-electrical-connection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/geyser-electrical-connection",
+    "source": "https://images.pexels.com/photos/38215862/pexels-photo-38215862/free-photo-of-solar-heater-on-rooftop-under-clear-sky.png?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/microwave-electrical-connection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/microwave-electrical-connection",
+    "source": "https://images.pexels.com/photos/32831269/pexels-photo-32831269.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 986,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/refrigerator-electrical-connection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/refrigerator-electrical-connection",
+    "source": "https://images.pexels.com/photos/21071800/pexels-photo-21071800.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1066
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/washing-machine-electrical-connection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/electrical-appliances/washing-machine-electrical-connection",
+    "source": "https://images.pexels.com/photos/2927523/pexels-photo-2927523.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1061
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-inspection/fault-diagnosis": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/electrical-inspection/fault-diagnosis",
+    "source": "https://images.pexels.com/photos/8460227/pexels-photo-8460227.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/electrical-inspection/safety-inspection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/electrical-inspection/safety-inspection",
+    "source": "https://images.pexels.com/photos/31161593/pexels-photo-31161593.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 898,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/ceiling-fan-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/fans/ceiling-fan-installation",
+    "source": "https://images.pexels.com/photos/39558345/pexels-photo-39558345.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/ceiling-fan-removal": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/fans/ceiling-fan-removal",
+    "source": "https://images.pexels.com/photos/3990590/pexels-photo-3990590.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/exhaust-fan-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/fans/exhaust-fan-installation",
+    "source": "https://images.pexels.com/photos/5502720/pexels-photo-5502720.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/fan-capacitor-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/fans/fan-capacitor-replacement",
+    "source": "https://images.pexels.com/photos/28054343/pexels-photo-28054343.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/fans/fan-regulator-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/fans/fan-regulator-replacement",
+    "source": "https://images.pexels.com/photos/10117712/pexels-photo-10117712.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/inverter-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/inverter-installation",
+    "source": "https://images.pexels.com/photos/38040020/pexels-photo-38040020.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1285,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/inverter-removal": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/inverter-removal",
+    "source": "https://images.pexels.com/photos/37929911/pexels-photo-37929911.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1114,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/stabilizer-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/stabilizer-installation",
+    "source": "https://images.pexels.com/photos/11032801/pexels-photo-11032801.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/stabilizer-removal": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/inverter-stabilizer/stabilizer-removal",
+    "source": "https://images.pexels.com/photos/11924298/pexels-photo-11924298.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/bulb-install-replace": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/lights/bulb-install-replace",
+    "source": "https://images.pexels.com/photos/1025410/pexels-photo-1025410.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/ceiling-light-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/lights/ceiling-light-installation",
+    "source": "https://images.pexels.com/photos/15082877/pexels-photo-15082877.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/decorative-light-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/lights/decorative-light-installation",
+    "source": "https://images.pexels.com/photos/1955549/pexels-photo-1955549.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/led-light-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/lights/led-light-installation",
+    "source": "https://images.pexels.com/photos/30673703/pexels-photo-30673703.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/led-panel-light-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/lights/led-panel-light-installation",
+    "source": "https://images.pexels.com/photos/7640978/pexels-photo-7640978.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/tube-light-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/lights/tube-light-installation",
+    "source": "https://images.pexels.com/photos/988888/pexels-photo-988888.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/lights/wall-light-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/lights/wall-light-installation",
+    "source": "https://images.pexels.com/photos/11440223/pexels-photo-11440223.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1115
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/modular-socket-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/modular-socket-replacement",
+    "source": "https://images.pexels.com/photos/8101107/pexels-photo-8101107.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1070,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/modular-switch-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/modular-switch-replacement",
+    "source": "https://images.pexels.com/photos/12996907/pexels-photo-12996907.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1064
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/socket-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/socket-replacement",
+    "source": "https://images.pexels.com/photos/11039733/pexels-photo-11039733.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1395,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switch-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switch-replacement",
+    "source": "https://images.pexels.com/photos/9871834/pexels-photo-9871834.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switch-socket-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switch-socket-replacement",
+    "source": "https://images.pexels.com/photos/3615711/pexels-photo-3615711.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switchboard-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/switches-sockets/switchboard-replacement",
+    "source": "https://images.pexels.com/photos/6000686/pexels-photo-6000686.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/distribution-board-inspection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/distribution-board-inspection",
+    "source": "https://images.pexels.com/photos/12207608/pexels-photo-12207608.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/fuse-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/fuse-replacement",
+    "source": "https://images.pexels.com/photos/12380719/pexels-photo-12380719.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/loose-wire-connection-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/loose-wire-connection-repair",
+    "source": "https://images.pexels.com/photos/20604375/pexels-photo-20604375.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/mcb-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/mcb-replacement",
+    "source": "https://images.pexels.com/photos/3520692/pexels-photo-3520692.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1064
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/minor-wiring-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/minor-wiring-repair",
+    "source": "https://images.pexels.com/photos/11837451/pexels-photo-11837451.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1280,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/short-circuit-inspection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/electrician/wiring-electrical-repair/short-circuit-inspection",
+    "source": "https://images.pexels.com/photos/6817477/pexels-photo-6817477.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/bathroom-accessory-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/bathroom-accessory-installation",
+    "source": "https://images.pexels.com/photos/4300078/pexels-photo-4300078.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/bathroom-plumbing-inspection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/bathroom-plumbing-inspection",
+    "source": "https://images.pexels.com/photos/29462819/pexels-photo-29462819.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/health-faucet-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/health-faucet-installation",
+    "source": "https://images.pexels.com/photos/19666087/pexels-photo-19666087.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/shower-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/bathroom-plumbing/shower-installation",
+    "source": "https://images.pexels.com/photos/13306717/pexels-photo-13306717.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1234,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/drain-pipe-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/drain-pipe-repair",
+    "source": "https://images.pexels.com/photos/10372434/pexels-photo-10372434.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/minor-pipe-leakage-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/minor-pipe-leakage-repair",
+    "source": "https://images.pexels.com/photos/158268/water-bach-river-stones-158268.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 863
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/pipe-joint-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/pipe-joint-repair",
+    "source": "https://images.pexels.com/photos/18784617/pexels-photo-18784617.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/water-leakage-inspection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/water-leakage-inspection",
+    "source": "https://images.pexels.com/photos/35302178/pexels-photo-35302178.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1066,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/water-pipe-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/pipes-leakage/water-pipe-replacement",
+    "source": "https://images.pexels.com/photos/13726337/pexels-photo-13726337.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-blockage-removal": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-blockage-removal",
+    "source": "https://images.pexels.com/photos/9462652/pexels-photo-9462652.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-installation",
+    "source": "https://images.pexels.com/photos/7535016/pexels-photo-7535016.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-pipe-leakage-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-pipe-leakage-repair",
+    "source": "https://images.pexels.com/photos/2339722/pexels-photo-2339722.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-removal": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/sink/sink-removal",
+    "source": "https://images.pexels.com/photos/8647068/pexels-photo-8647068.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/faucet-leakage-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/faucet-leakage-repair",
+    "source": "https://images.pexels.com/photos/33388390/pexels-photo-33388390.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/faucet-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/faucet-replacement",
+    "source": "https://images.pexels.com/photos/17461785/pexels-photo-17461785.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/mixer-tap-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/mixer-tap-installation",
+    "source": "https://images.pexels.com/photos/15667601/pexels-photo-15667601.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/tap-leakage-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/tap-leakage-repair",
+    "source": "https://images.pexels.com/photos/15206136/pexels-photo-15206136.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/tap-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/taps-faucets/tap-replacement",
+    "source": "https://images.pexels.com/photos/5294114/pexels-photo-5294114.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/flush-repair": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/toilet/flush-repair",
+    "source": "https://images.pexels.com/photos/7622581/pexels-photo-7622581.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/flush-tank-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/toilet/flush-tank-replacement",
+    "source": "https://images.pexels.com/photos/17854867/pexels-photo-17854867.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/seat-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/toilet/seat-replacement",
+    "source": "https://images.pexels.com/photos/10900758/pexels-photo-10900758.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1025,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/toilet-blockage-removal": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/toilet/toilet-blockage-removal",
+    "source": "https://images.pexels.com/photos/4239090/pexels-photo-4239090.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/toilet/toilet-installation": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/toilet/toilet-installation",
+    "source": "https://images.pexels.com/photos/3867603/pexels-photo-3867603.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-inlet-pipe-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-inlet-pipe-replacement",
+    "source": "https://images.pexels.com/photos/12142829/pexels-photo-12142829.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-outlet-pipe-replacement": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-outlet-pipe-replacement",
+    "source": "https://images.pexels.com/photos/31355851/pexels-photo-31355851.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1010
+  },
+  "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-tank-pipe-connection": {
+    "public_id": "odforce/services/electrician-plumber-carpenter/plumber/water-supply/water-tank-pipe-connection",
+    "source": "https://images.pexels.com/photos/32200999/pexels-photo-32200999.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1280,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/beard-styling": {
+    "public_id": "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/beard-styling",
+    "source": "https://images.pexels.com/photos/10586305/pexels-photo-10586305.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/beard-trimming": {
+    "public_id": "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/beard-trimming",
+    "source": "https://images.pexels.com/photos/11800909/pexels-photo-11800909.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/clean-shave": {
+    "public_id": "odforce/services/mens-salon-massage/beard-shaving/beard-shaving/clean-shave",
+    "source": "https://images.pexels.com/photos/7253884/pexels-photo-7253884.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/mens-salon-massage/body-massage/body-massage/back-massage": {
+    "public_id": "odforce/services/mens-salon-massage/body-massage/body-massage/back-massage",
+    "source": "https://images.pexels.com/photos/6629530/pexels-photo-6629530.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/mens-salon-massage/body-massage/body-massage/relaxation-body-massage": {
+    "public_id": "odforce/services/mens-salon-massage/body-massage/body-massage/relaxation-body-massage",
+    "source": "https://images.pexels.com/photos/6634828/pexels-photo-6634828.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/mens-salon-massage/facial-skin-care/facial-skin-care/mens-basic-facial": {
+    "public_id": "odforce/services/mens-salon-massage/facial-skin-care/facial-skin-care/mens-basic-facial",
+    "source": "https://images.pexels.com/photos/13357909/pexels-photo-13357909.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1139,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/facial-skin-care/facial-skin-care/mens-cleanup": {
+    "public_id": "odforce/services/mens-salon-massage/facial-skin-care/facial-skin-care/mens-cleanup",
+    "source": "https://images.pexels.com/photos/39303684/pexels-photo-39303684.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/grooming-packages/grooming-packages/basic-grooming-package": {
+    "public_id": "odforce/services/mens-salon-massage/grooming-packages/grooming-packages/basic-grooming-package",
+    "source": "https://images.pexels.com/photos/7697273/pexels-photo-7697273.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/grooming-packages/grooming-packages/premium-grooming-package": {
+    "public_id": "odforce/services/mens-salon-massage/grooming-packages/grooming-packages/premium-grooming-package",
+    "source": "https://images.pexels.com/photos/7518736/pexels-photo-7518736.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/mens-salon-massage/hair-beard-combo/hair-beard-combo/haircut-beard-styling": {
+    "public_id": "odforce/services/mens-salon-massage/hair-beard-combo/hair-beard-combo/haircut-beard-styling",
+    "source": "https://images.pexels.com/photos/3998426/pexels-photo-3998426.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/hair-beard-combo/hair-beard-combo/haircut-beard-trim": {
+    "public_id": "odforce/services/mens-salon-massage/hair-beard-combo/hair-beard-combo/haircut-beard-trim",
+    "source": "https://images.pexels.com/photos/9992819/pexels-photo-9992819.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/hair-spa/hair-spa/advanced-mens-hair-spa": {
+    "public_id": "odforce/services/mens-salon-massage/hair-spa/hair-spa/advanced-mens-hair-spa",
+    "source": "https://images.pexels.com/photos/17693443/pexels-photo-17693443.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/mens-salon-massage/hair-spa/hair-spa/basic-mens-hair-spa": {
+    "public_id": "odforce/services/mens-salon-massage/hair-spa/hair-spa/basic-mens-hair-spa",
+    "source": "https://images.pexels.com/photos/23349912/pexels-photo-23349912.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/hair-styling/hair-styling/hair-styling": {
+    "public_id": "odforce/services/mens-salon-massage/hair-styling/hair-styling/hair-styling",
+    "source": "https://images.pexels.com/photos/7447150/pexels-photo-7447150.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/mens-salon-massage/hair-styling/hair-styling/premium-hair-styling": {
+    "public_id": "odforce/services/mens-salon-massage/hair-styling/hair-styling/premium-hair-styling",
+    "source": "https://images.pexels.com/photos/6270123/pexels-photo-6270123.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/haircut/haircut/basic-mens-haircut": {
+    "public_id": "odforce/services/mens-salon-massage/haircut/haircut/basic-mens-haircut",
+    "source": "https://images.pexels.com/photos/9208777/pexels-photo-9208777.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1164,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/haircut/haircut/premium-haircut": {
+    "public_id": "odforce/services/mens-salon-massage/haircut/haircut/premium-haircut",
+    "source": "https://images.pexels.com/photos/32329615/pexels-photo-32329615.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/services/mens-salon-massage/head-massage/head-massage/head-massage": {
+    "public_id": "odforce/services/mens-salon-massage/head-massage/head-massage/head-massage",
+    "source": "https://images.pexels.com/photos/7697439/pexels-photo-7697439.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/mens-salon-massage/head-massage/head-massage/head-massage-hair-wash": {
+    "public_id": "odforce/services/mens-salon-massage/head-massage/head-massage/head-massage-hair-wash",
+    "source": "https://images.pexels.com/photos/7755473/pexels-photo-7755473.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/basic-bridal-makeup": {
+    "public_id": "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/basic-bridal-makeup",
+    "source": "https://images.pexels.com/photos/39538032/pexels-photo-39538032.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/bridal-hair-styling": {
+    "public_id": "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/bridal-hair-styling",
+    "source": "https://images.pexels.com/photos/31750760/pexels-photo-31750760.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/special-occasion-makeup": {
+    "public_id": "odforce/services/womens-salon-spa/bridal-special-occasion/bridal-special-occasion/special-occasion-makeup",
+    "source": "https://images.pexels.com/photos/5149734/pexels-photo-5149734.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/basic-facial": {
+    "public_id": "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/basic-facial",
+    "source": "https://images.pexels.com/photos/3865548/pexels-photo-3865548.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/cleanup-facial": {
+    "public_id": "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/cleanup-facial",
+    "source": "https://images.pexels.com/photos/5240606/pexels-photo-5240606.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/fruit-facial": {
+    "public_id": "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/fruit-facial",
+    "source": "https://images.pexels.com/photos/9335967/pexels-photo-9335967.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/skin-cleanup": {
+    "public_id": "odforce/services/womens-salon-spa/facial-skin-care/facial-skin-care/skin-cleanup",
+    "source": "https://images.pexels.com/photos/14001857/pexels-photo-14001857.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-care/hair-care/hair-trim": {
+    "public_id": "odforce/services/womens-salon-spa/hair-care/hair-care/hair-trim",
+    "source": "https://images.pexels.com/photos/30294767/pexels-photo-30294767.png?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1068,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-care/hair-care/hair-wash-conditioning": {
+    "public_id": "odforce/services/womens-salon-spa/hair-care/hair-care/hair-wash-conditioning",
+    "source": "https://images.pexels.com/photos/7755460/pexels-photo-7755460.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-care/hair-care/womens-haircut": {
+    "public_id": "odforce/services/womens-salon-spa/hair-care/hair-care/womens-haircut",
+    "source": "https://images.pexels.com/photos/15286995/pexels-photo-15286995.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/full-arms-waxing": {
+    "public_id": "odforce/services/womens-salon-spa/hair-removal/hair-removal/full-arms-waxing",
+    "source": "https://images.pexels.com/photos/6763618/pexels-photo-6763618.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/full-legs-waxing": {
+    "public_id": "odforce/services/womens-salon-spa/hair-removal/hair-removal/full-legs-waxing",
+    "source": "https://images.pexels.com/photos/35103884/pexels-photo-35103884.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1205,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/half-arms-waxing": {
+    "public_id": "odforce/services/womens-salon-spa/hair-removal/hair-removal/half-arms-waxing",
+    "source": "https://images.pexels.com/photos/3985354/pexels-photo-3985354.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/half-legs-waxing": {
+    "public_id": "odforce/services/womens-salon-spa/hair-removal/hair-removal/half-legs-waxing",
+    "source": "https://images.pexels.com/photos/9486702/pexels-photo-9486702.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/womens-salon-spa/hair-removal/hair-removal/underarms-waxing": {
+    "public_id": "odforce/services/womens-salon-spa/hair-removal/hair-removal/underarms-waxing",
+    "source": "https://images.pexels.com/photos/15379198/pexels-photo-15379198.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-spa/hair-spa/advanced-hair-spa": {
+    "public_id": "odforce/services/womens-salon-spa/hair-spa/hair-spa/advanced-hair-spa",
+    "source": "https://images.pexels.com/photos/36292486/pexels-photo-36292486.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1081
+  },
+  "odforce/services/womens-salon-spa/hair-spa/hair-spa/basic-hair-spa": {
+    "public_id": "odforce/services/womens-salon-spa/hair-spa/hair-spa/basic-hair-spa",
+    "source": "https://images.pexels.com/photos/8509197/pexels-photo-8509197.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/services/womens-salon-spa/hair-styling/hair-styling/basic-hair-styling": {
+    "public_id": "odforce/services/womens-salon-spa/hair-styling/hair-styling/basic-hair-styling",
+    "source": "https://images.pexels.com/photos/28994563/pexels-photo-28994563.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/womens-salon-spa/hair-styling/hair-styling/blow-dry-styling": {
+    "public_id": "odforce/services/womens-salon-spa/hair-styling/hair-styling/blow-dry-styling",
+    "source": "https://images.pexels.com/photos/28743778/pexels-photo-28743778.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1070,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/hair-styling/hair-styling/party-hair-styling": {
+    "public_id": "odforce/services/womens-salon-spa/hair-styling/hair-styling/party-hair-styling",
+    "source": "https://images.pexels.com/photos/15507425/pexels-photo-15507425.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1065
+  },
+  "odforce/services/womens-salon-spa/makeup/makeup/basic-makeup": {
+    "public_id": "odforce/services/womens-salon-spa/makeup/makeup/basic-makeup",
+    "source": "https://images.pexels.com/photos/6049347/pexels-photo-6049347.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1063
+  },
+  "odforce/services/womens-salon-spa/makeup/makeup/party-makeup": {
+    "public_id": "odforce/services/womens-salon-spa/makeup/makeup/party-makeup",
+    "source": "https://images.pexels.com/photos/30825617/pexels-photo-30825617.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/basic-manicure": {
+    "public_id": "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/basic-manicure",
+    "source": "https://images.pexels.com/photos/16041439/pexels-photo-16041439.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/basic-pedicure": {
+    "public_id": "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/basic-pedicure",
+    "source": "https://images.pexels.com/photos/5793888/pexels-photo-5793888.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/manicure-pedicure": {
+    "public_id": "odforce/services/womens-salon-spa/manicure-pedicure/manicure-pedicure/manicure-pedicure",
+    "source": "https://images.pexels.com/photos/7066298/pexels-photo-7066298.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/womens-salon-spa/spa-massage/spa-massage/back-massage": {
+    "public_id": "odforce/services/womens-salon-spa/spa-massage/spa-massage/back-massage",
+    "source": "https://images.pexels.com/photos/38407786/pexels-photo-38407786.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/womens-salon-spa/spa-massage/spa-massage/head-massage": {
+    "public_id": "odforce/services/womens-salon-spa/spa-massage/spa-massage/head-massage",
+    "source": "https://images.pexels.com/photos/9335961/pexels-photo-9335961.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/services/womens-salon-spa/spa-massage/spa-massage/relaxation-body-massage": {
+    "public_id": "odforce/services/womens-salon-spa/spa-massage/spa-massage/relaxation-body-massage",
+    "source": "https://images.pexels.com/photos/19641818/pexels-photo-19641818.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/ac-appliance-repair/ac-installation/ac-installation": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/ac-installation/ac-installation",
+    "source": "https://images.pexels.com/photos/30962631/pexels-photo-30962631.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1000
+  },
+  "odforce/subcategories/ac-appliance-repair/ac-service-repair/ac-service-repair": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/ac-service-repair/ac-service-repair",
+    "source": "https://images.pexels.com/photos/33671149/pexels-photo-33671149.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/ac-appliance-repair/chimney/chimney": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/chimney/chimney",
+    "source": "https://images.pexels.com/photos/7168012/pexels-photo-7168012.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/ac-appliance-repair/dishwasher/dishwasher": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/dishwasher/dishwasher",
+    "source": "https://images.pexels.com/photos/3829549/pexels-photo-3829549.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/ac-appliance-repair/geyser/geyser": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/geyser/geyser",
+    "source": "https://images.pexels.com/photos/34593293/pexels-photo-34593293.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1201,
+    "height": 1600
+  },
+  "odforce/subcategories/ac-appliance-repair/microwave/microwave": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/microwave/microwave",
+    "source": "https://images.pexels.com/photos/29149068/pexels-photo-29149068.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/ac-appliance-repair/other-home-appliances/other-home-appliances": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/other-home-appliances/other-home-appliances",
+    "source": "https://images.pexels.com/photos/18071814/pexels-photo-18071814.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/ac-appliance-repair/refrigerator/refrigerator": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/refrigerator/refrigerator",
+    "source": "https://images.pexels.com/photos/18651508/pexels-photo-18651508.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/subcategories/ac-appliance-repair/ro-water-purifier/ro-water-purifier": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/ro-water-purifier/ro-water-purifier",
+    "source": "https://images.pexels.com/photos/4641430/pexels-photo-4641430.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/ac-appliance-repair/washing-machine/washing-machine": {
+    "public_id": "odforce/subcategories/ac-appliance-repair/washing-machine/washing-machine",
+    "source": "https://images.pexels.com/photos/11899611/pexels-photo-11899611.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/subcategories/cleaning/bathroom-cleaning/bathroom-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/bathroom-cleaning/bathroom-cleaning",
+    "source": "https://images.pexels.com/photos/4239036/pexels-photo-4239036.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/cleaning/chair-cleaning/chair-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/chair-cleaning/chair-cleaning",
+    "source": "https://images.pexels.com/photos/4401537/pexels-photo-4401537.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/cleaning/deep-cleaning/deep-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/deep-cleaning/deep-cleaning",
+    "source": "https://images.pexels.com/photos/9462302/pexels-photo-9462302.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/cleaning/floor-cleaning/floor-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/floor-cleaning/floor-cleaning",
+    "source": "https://images.pexels.com/photos/36715251/pexels-photo-36715251.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 900
+  },
+  "odforce/subcategories/cleaning/home-cleaning/home-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/home-cleaning/home-cleaning",
+    "source": "https://images.pexels.com/photos/27176670/pexels-photo-27176670.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/cleaning/kitchen-cleaning/kitchen-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/kitchen-cleaning/kitchen-cleaning",
+    "source": "https://images.pexels.com/photos/7492922/pexels-photo-7492922.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/subcategories/cleaning/mattress-cleaning/mattress-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/mattress-cleaning/mattress-cleaning",
+    "source": "https://images.pexels.com/photos/6489093/pexels-photo-6489093.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/subcategories/cleaning/pest-control/pest-control": {
+    "public_id": "odforce/subcategories/cleaning/pest-control/pest-control",
+    "source": "https://images.pexels.com/photos/18087296/pexels-photo-18087296.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 834
+  },
+  "odforce/subcategories/cleaning/sofa-cleaning/sofa-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/sofa-cleaning/sofa-cleaning",
+    "source": "https://images.pexels.com/photos/4401538/pexels-photo-4401538.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/cleaning/window-glass-cleaning/window-glass-cleaning": {
+    "public_id": "odforce/subcategories/cleaning/window-glass-cleaning/window-glass-cleaning",
+    "source": "https://images.pexels.com/photos/17041922/pexels-photo-17041922.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1069
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/door-window": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/carpenter/door-window",
+    "source": "https://images.pexels.com/photos/5691498/pexels-photo-5691498.jpeg",
+    "width": 1068,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/drilling-installation": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/carpenter/drilling-installation",
+    "source": "https://images.pexels.com/photos/7218567/pexels-photo-7218567.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/furniture-assembly": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/carpenter/furniture-assembly",
+    "source": "https://images.pexels.com/photos/4554417/pexels-photo-4554417.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/carpenter/furniture-repair": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/carpenter/furniture-repair",
+    "source": "https://images.pexels.com/photos/31567147/pexels-photo-31567147.jpeg",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/doorbell": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/doorbell",
+    "source": "https://images.pexels.com/photos/8550100/pexels-photo-8550100.jpeg",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/electrical-appliances": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/electrical-appliances",
+    "source": "https://images.pexels.com/photos/34734504/pexels-photo-34734504.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/electrical-inspection": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/electrical-inspection",
+    "source": "https://images.pexels.com/photos/35154098/pexels-photo-35154098.jpeg",
+    "width": 1414,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/fans": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/fans",
+    "source": "https://images.pexels.com/photos/38697833/pexels-photo-38697833.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/inverter-stabilizer": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/inverter-stabilizer",
+    "source": "https://images.pexels.com/photos/33751638/pexels-photo-33751638/free-photo-of-technician-installing-solar-power-system-in-australia.jpeg",
+    "width": 1280,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/lights": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/lights",
+    "source": "https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/switches-sockets": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/switches-sockets",
+    "source": "https://images.pexels.com/photos/14681225/pexels-photo-14681225.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/electrician/wiring-electrical-repair": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/electrician/wiring-electrical-repair",
+    "source": "https://images.pexels.com/photos/5767595/pexels-photo-5767595.jpeg",
+    "width": 1068,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/bathroom-plumbing": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/plumber/bathroom-plumbing",
+    "source": "https://images.pexels.com/photos/8486923/pexels-photo-8486923.jpeg",
+    "width": 1200,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/pipes-leakage": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/plumber/pipes-leakage",
+    "source": "https://images.pexels.com/photos/36571568/pexels-photo-36571568.jpeg",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/sink": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/plumber/sink",
+    "source": "https://images.pexels.com/photos/35290675/pexels-photo-35290675.jpeg",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/taps-faucets": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/plumber/taps-faucets",
+    "source": "https://images.pexels.com/photos/36215888/pexels-photo-36215888.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/toilet": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/plumber/toilet",
+    "source": "https://images.pexels.com/photos/27924620/pexels-photo-27924620.jpeg",
+    "width": 1600,
+    "height": 1600
+  },
+  "odforce/subcategories/electrician-plumber-carpenter/plumber/water-supply": {
+    "public_id": "odforce/subcategories/electrician-plumber-carpenter/plumber/water-supply",
+    "source": "https://images.pexels.com/photos/29248902/pexels-photo-29248902.jpeg",
+    "width": 1600,
+    "height": 1200
+  },
+  "odforce/subcategories/mens-salon-massage/beard-shaving/beard-shaving": {
+    "public_id": "odforce/subcategories/mens-salon-massage/beard-shaving/beard-shaving",
+    "source": "https://images.pexels.com/photos/6007400/pexels-photo-6007400.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/mens-salon-massage/body-massage/body-massage": {
+    "public_id": "odforce/subcategories/mens-salon-massage/body-massage/body-massage",
+    "source": "https://images.pexels.com/photos/6628701/pexels-photo-6628701.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/mens-salon-massage/facial-skin-care/facial-skin-care": {
+    "public_id": "odforce/subcategories/mens-salon-massage/facial-skin-care/facial-skin-care",
+    "source": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/mens-salon-massage/grooming-packages/grooming-packages": {
+    "public_id": "odforce/subcategories/mens-salon-massage/grooming-packages/grooming-packages",
+    "source": "https://images.pexels.com/photos/7518761/pexels-photo-7518761.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/subcategories/mens-salon-massage/hair-beard-combo/hair-beard-combo": {
+    "public_id": "odforce/subcategories/mens-salon-massage/hair-beard-combo/hair-beard-combo",
+    "source": "https://images.pexels.com/photos/7922651/pexels-photo-7922651.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1280,
+    "height": 1600
+  },
+  "odforce/subcategories/mens-salon-massage/hair-spa/hair-spa": {
+    "public_id": "odforce/subcategories/mens-salon-massage/hair-spa/hair-spa",
+    "source": "https://images.pexels.com/photos/28994388/pexels-photo-28994388.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/mens-salon-massage/hair-styling/hair-styling": {
+    "public_id": "odforce/subcategories/mens-salon-massage/hair-styling/hair-styling",
+    "source": "https://images.pexels.com/photos/11169551/pexels-photo-11169551.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1069,
+    "height": 1600
+  },
+  "odforce/subcategories/mens-salon-massage/haircut/haircut": {
+    "public_id": "odforce/subcategories/mens-salon-massage/haircut/haircut",
+    "source": "https://images.pexels.com/photos/10593034/pexels-photo-10593034.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/subcategories/mens-salon-massage/head-massage/head-massage": {
+    "public_id": "odforce/subcategories/mens-salon-massage/head-massage/head-massage",
+    "source": "https://images.pexels.com/photos/6076149/pexels-photo-6076149.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/bridal-special-occasion/bridal-special-occasion": {
+    "public_id": "odforce/subcategories/womens-salon-spa/bridal-special-occasion/bridal-special-occasion",
+    "source": "https://images.pexels.com/photos/34955448/pexels-photo-34955448.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1068,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/facial-skin-care/facial-skin-care": {
+    "public_id": "odforce/subcategories/womens-salon-spa/facial-skin-care/facial-skin-care",
+    "source": "https://images.pexels.com/photos/38167596/pexels-photo-38167596.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/hair-care/hair-care": {
+    "public_id": "odforce/subcategories/womens-salon-spa/hair-care/hair-care",
+    "source": "https://images.pexels.com/photos/8834042/pexels-photo-8834042.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1068
+  },
+  "odforce/subcategories/womens-salon-spa/hair-removal/hair-removal": {
+    "public_id": "odforce/subcategories/womens-salon-spa/hair-removal/hair-removal",
+    "source": "https://images.pexels.com/photos/36930637/pexels-photo-36930637.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/hair-spa/hair-spa": {
+    "public_id": "odforce/subcategories/womens-salon-spa/hair-spa/hair-spa",
+    "source": "https://images.pexels.com/photos/7020309/pexels-photo-7020309.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1067,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/hair-styling/hair-styling": {
+    "public_id": "odforce/subcategories/womens-salon-spa/hair-styling/hair-styling",
+    "source": "https://images.pexels.com/photos/8867400/pexels-photo-8867400.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1069,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/makeup/makeup": {
+    "public_id": "odforce/subcategories/womens-salon-spa/makeup/makeup",
+    "source": "https://images.pexels.com/photos/22481931/pexels-photo-22481931.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1137,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/manicure-pedicure/manicure-pedicure": {
+    "public_id": "odforce/subcategories/womens-salon-spa/manicure-pedicure/manicure-pedicure",
+    "source": "https://images.pexels.com/photos/22668317/pexels-photo-22668317.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 900,
+    "height": 1600
+  },
+  "odforce/subcategories/womens-salon-spa/spa-massage/spa-massage": {
+    "public_id": "odforce/subcategories/womens-salon-spa/spa-massage/spa-massage",
+    "source": "https://images.pexels.com/photos/9146381/pexels-photo-9146381.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "width": 1600,
+    "height": 1067
+  },
+  "odforce/ui/default": {
+    "public_id": "odforce/ui/default",
+    "source": "https://images.unsplash.com/photo-1607400201515-c2c41c07d307?auto=format&fit=crop&w=1600&q=80",
+    "width": 1600,
+    "height": 1067
+  },
   "odfTeam": "odforce/catalog/odfTeam",
-  "odfWorker": "odforce/catalog/odfWorker"
+  "odfWorker": "odforce/catalog/odfWorker",
+  "pestControl": "odforce/catalog/pestControl",
+  "pipesLeakage": "odforce/catalog/pipesLeakage",
+  "plumberRadiator": "odforce/catalog/plumberRadiator",
+  "refrigerator": "odforce/catalog/refrigerator",
+  "sinkPlumbing": "odforce/catalog/sinkPlumbing",
+  "sofaRoom": "odforce/catalog/sofaRoom",
+  "spaMassage": "odforce/catalog/spaMassage",
+  "sprayBottle": "odforce/catalog/sprayBottle",
+  "switchesSockets": "odforce/catalog/switchesSockets",
+  "toilet": "odforce/catalog/toilet",
+  "vacuumCarpet": "odforce/catalog/vacuumCarpet",
+  "washerDrum": "odforce/catalog/washerDrum",
+  "washingMachineRoom": "odforce/catalog/washingMachineRoom",
+  "waterGlass": "odforce/catalog/waterGlass",
+  "waterSupply": "odforce/catalog/waterSupply",
+  "windowCleanerSilhouette": "odforce/catalog/windowCleanerSilhouette",
+  "windowCleaning": "odforce/catalog/windowCleaning",
+  "wiringRepair": "odforce/catalog/wiringRepair"
 }

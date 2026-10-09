@@ -1,14 +1,16 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getMainCategoryImage } from '../../data/serviceImages';
+import { getCategoryImage, getMainCategoryImage } from '../../data/serviceImages';
 
-const CategoryTile = ({ name, to, description }) => (
+// name = a main category name (Landing/CustomerDashboard) or, when
+// mainCategory is passed, a service category inside that main (MainCategoryPage).
+const CategoryTile = ({ name, to, description, mainCategory }) => (
   <Link
     to={to}
     className="group relative block h-40 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-lg"
   >
     <img
-      src={getMainCategoryImage(name)}
+      src={mainCategory ? getCategoryImage(name, mainCategory) : getMainCategoryImage(name)}
       alt={name}
       loading="lazy"
       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

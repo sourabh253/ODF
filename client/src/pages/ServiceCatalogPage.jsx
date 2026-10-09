@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import catalogService from '../services/catalogService';
 import { openAuthModal } from '../services/authModal';
-import { getCategoryImage } from '../data/serviceImages';
+import { getCategoryImage, getSubCategoryImage } from '../data/serviceImages';
 import ServiceCard from '../components/catalog/ServiceCard';
 import { ServiceCardSkeleton } from '../components/catalog/Skeletons';
 import { ArrowLeft, ChevronRight, RefreshCw, ShoppingCart, Trash2 } from 'lucide-react';
@@ -105,10 +105,23 @@ const ServiceCatalogPage = () => {
   const subCategories = getSubCategories();
   const services = getServices();
 
+  // Main category this page is actually showing (from the URL, or resolved
+  // from the tree when the URL has none) — needed for exact image lookups.
+  const resolvedMain = (() => {
+    if (mainCategory) return mainCategory;
+    for (const mc of Object.keys(catalogTree)) {
+      if (catalogTree[mc][category]) return mc;
+    }
+    return undefined;
+  })();
+
   const getQuantity = (serviceId) => cartItems.find((item) => item._id === serviceId)?.quantity || 0;
 
   const handleAddToCart = (service) => {
-    addToCart({ ...service, category }, category);
+    addToCart(
+      { ...service, category, subCategory: selectedSubCategory, mainCategory: resolvedMain },
+      category
+    );
   };
 
   const handleChooseWorker = () => {
@@ -137,7 +150,7 @@ const ServiceCatalogPage = () => {
         {/* Header */}
         <div className="relative mb-6 overflow-hidden rounded-2xl border border-slate-200">
           <img
-            src={getCategoryImage(category)}
+            src={getCategoryImage(category, resolvedMain)}
             alt={category}
             className="h-40 w-full object-cover"
           />
@@ -193,13 +206,19 @@ const ServiceCatalogPage = () => {
                   key={sub}
                   type="button"
                   onClick={() => setSelectedSubCategory(sub)}
-                  className={`w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium transition-colors ${
+                  className={`flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-sm font-medium transition-colors ${
                     selectedSubCategory === sub
                       ? 'bg-primary/10 text-primary'
                       : 'text-slate-600 hover:bg-slate-50'
                   }`}
                 >
-                  {sub}
+                  <img
+                    src={getSubCategoryImage(sub, category, resolvedMain)}
+                    alt=""
+                    loading="lazy"
+                    className="h-8 w-8 shrink-0 rounded-md object-cover bg-slate-100"
+                  />
+                  <span className="min-w-0 truncate">{sub}</span>
                 </button>
               ))}
             </div>
@@ -239,8 +258,13 @@ const ServiceCatalogPage = () => {
                   return (
                     <ServiceCard
                       key={service._id}
-                      service={{ ...service, category }}
-                      mainCategory={mainCategory || undefined}
+                      service={{
+                        ...service,
+                        category,
+                        subCategory: selectedSubCategory,
+                        mainCategory: resolvedMain,
+                      }}
+                      mainCategory={resolvedMain}
                       inCart={quantity > 0}
                       quantity={quantity}
                       onAdd={() => handleAddToCart(service)}

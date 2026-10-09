@@ -48,10 +48,10 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* ODF for Job — kept immediately next to the logo */}
+          {/* ODF for Job — the single header button, next to the logo */}
           <Link
             to="/odf-for-job"
-            className="hidden shrink-0 items-center gap-1.5 rounded-lg border border-primary/25 bg-primary/5 px-3 py-2 text-xs font-bold text-primary transition-colors hover:border-primary hover:bg-primary/10 sm:inline-flex"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-primary/25 bg-primary/5 px-3 py-2 text-xs font-bold text-primary transition-colors hover:border-primary hover:bg-primary/10"
           >
             ODF for Job
           </Link>
@@ -177,11 +177,6 @@ const Navbar = () => {
             <Link to="/help" className="transition-colors hover:text-primary">
               Help
             </Link>
-            <div className="ml-auto flex items-center gap-5">
-              <Link to="/odf-for-job" className="font-semibold text-primary hover:text-primary-hover">
-                ODF for Job
-              </Link>
-            </div>
           </div>
         </div>
 
@@ -203,13 +198,6 @@ const Navbar = () => {
               </Link>
               <Link to="/help" onClick={closeMenu} className="rounded-lg py-2 hover:text-primary">
                 Help
-              </Link>
-              <Link
-                to="/odf-for-job"
-                onClick={closeMenu}
-                className="rounded-lg py-2 font-semibold text-primary"
-              >
-                ODF for Job
               </Link>
 
               <div className="my-2 h-px bg-slate-100" />
