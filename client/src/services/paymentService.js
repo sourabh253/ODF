@@ -1,7 +1,8 @@
 import axios from 'axios';
+import BASE_URL from '../config';
 
-const API_URL = import.meta.env.VITE_API_URL + '/api/payments/';
-const BOOKING_API_URL = import.meta.env.VITE_API_URL + '/api/bookings/';
+const API_URL = BASE_URL + '/api/payments/';
+const BOOKING_API_URL = BASE_URL + '/api/bookings/';
 
 const getAuthHeader = (token) => ({ headers: { Authorization: `Bearer ${token}` } });
 

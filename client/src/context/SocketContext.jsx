@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
+import API_URL from '../config';
 import { useAuth } from './AuthContext';
 
 const SocketContext = createContext(null);
@@ -14,7 +15,7 @@ export const SocketProvider = ({ children }) => {
       return undefined;
     }
 
-    const connection = io(import.meta.env.VITE_API_URL, {
+    const connection = io(API_URL, {
       auth: { token: user.token },
       autoConnect: true,
     });

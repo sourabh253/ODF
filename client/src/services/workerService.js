@@ -1,6 +1,7 @@
 import axios from 'axios';
+import BASE_URL from '../config';
 
-const API_URL = import.meta.env.VITE_API_URL + '/api/worker/';
+const API_URL = BASE_URL + '/api/worker/';
 
 const getAuthHeader = (token) => ({
   headers: { Authorization: `Bearer ${token}` },
@@ -30,7 +31,7 @@ const uploadFile = async (file, token) => {
   const formData = new FormData();
   formData.append('file', file);
   const response = await axios.post(
-    import.meta.env.VITE_API_URL + '/api/upload',
+    BASE_URL + '/api/upload',
     formData,
     {
       headers: {

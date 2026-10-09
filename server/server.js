@@ -1,5 +1,9 @@
+// Load env FIRST — this import is evaluated before every other module, so
+// config/db.js, config/razorpay.js and config/cloudinary.js never see
+// undefined process.env values (plain `dotenv.config()` after the imports
+// would run too late for them).
+import 'dotenv/config';
 import express from 'express';
-import dotenv from 'dotenv';
 import cors from 'cors';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
@@ -21,26 +25,55 @@ import User from './models/User.js';
 import rateLimit from 'express-rate-limit';
 import mongoSanitize from 'express-mongo-sanitize';
 
-dotenv.config();
-
 const port = process.env.PORT || 5000;
 const app = express();
-const allowedOrigins = [
-  process.env.CLIENT_ORIGIN || 'http://localhost:5173',
+
+// Render runs the app behind its own reverse proxy — without this,
+// req.ip / req.protocol (used by express-rate-limit and secure cookies)
+// would see the proxy's IP and always report http.
+app.set('trust proxy', 1);
+
+// Comma-separated env values are supported for both vars.
+const parseOrigins = (value) =>
+  String(value || '')
+    .split(',')
+    .map((origin) => origin.trim().replace(/\/+$/, ''))
+    .filter(Boolean);
+
+const allowedOrigins = new Set([
+  // Local development
   'http://localhost:5173',
   'http://127.0.0.1:5173',
-  // Vite falls back to 5174 when 5173 is already taken (a second `npm run dev`)
   'http://localhost:5174',
   'http://127.0.0.1:5174',
-];
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  // Vercel production (framework deployments also get *.vercel.app previews)
+  'https://odf-mvg7ibf5l-sourabhjangid253-3182s-projects.vercel.app',
+  // Optional extra origin(s) supplied at runtime — comma-separated
+  ...parseOrigins(process.env.FRONTEND_URL),
+  ...parseOrigins(process.env.CLIENT_ORIGIN),
+]);
+
+const corsOptions = {
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  origin(origin, callback) {
+    // No Origin header = same-origin, curl, Postman, server-to-server calls
+    if (!origin || allowedOrigins.has(origin.replace(/\/+$/, ''))) {
+      return callback(null, true);
+    }
+    console.warn(`CORS blocked origin: ${origin}`);
+    // callback(null, false) = no CORS headers set, the browser blocks it.
+    // Returning an error here would surface as a 500 instead of a CORS failure.
+    return callback(null, false);
+  },
+};
 
 // Middleware
 app.use(express.json());
-app.use(
-  cors({
-    origin: allowedOrigins,
-  })
-);
+app.use(cors(corsOptions));
 
 // Security: sanitize NoSQL injection attempts
 app.use(mongoSanitize());
@@ -49,6 +82,8 @@ app.use(mongoSanitize());
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 20,
+  // CORS preflights are not login attempts — don't burn the budget on them
+  skip: (req) => req.method === 'OPTIONS',
   message: { message: 'Too many attempts, please try again after 15 minutes' },
   standardHeaders: true,
   legacyHeaders: false,
@@ -77,10 +112,9 @@ app.use(errorHandler);
 const httpServer = createServer(app);
 
 // Socket.io
+// Socket.io uses the exact same origin rules as the REST API
 const io = new Server(httpServer, {
-  cors: {
-    origin: allowedOrigins,
-  },
+  cors: corsOptions,
 });
 
 app.set('io', io);

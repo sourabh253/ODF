@@ -1,6 +1,7 @@
 import axios from 'axios';
+import BASE_URL from '../config';
 
-const API_URL = import.meta.env.VITE_API_URL + '/api/customers/';
+const API_URL = BASE_URL + '/api/customers/';
 const authConfig = (token) => ({ headers: { Authorization: `Bearer ${token}` } });
 
 const searchWorkers = async ({ skill, city }, token) => {
