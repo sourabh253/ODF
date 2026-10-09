@@ -56,9 +56,22 @@ const allowedOrigins = new Set([
   ...parseOrigins(process.env.CLIENT_ORIGIN),
 ]);
 
-// NOTE: `origin: true` style wildcards ("*") cannot be used together with
-// credentials: true — the browser rejects that combination, so every allowed
-// origin is listed explicitly (add new domains via the FRONTEND_URL env var).
+// Vercel mints a NEW preview URL for every commit/deployment
+// (e.g. https://odf-dtpo28o4z-sourabhjangid253-3182s-projects.vercel.app),
+// so a fixed allow-list can never keep up. Any http(s) origin whose host
+// ends in ".vercel.app" is therefore allowed dynamically. Anchored with
+// ^https?:// and [^\s/]+ so "https://evil.com/.vercel.app" style paths and
+// "https://attacker.vercel.app.evil.com" cannot match.
+const VERCEL_ORIGIN = /^https?:\/\/[^\s/]+\.vercel\.app$/i;
+
+const isAllowedOrigin = (origin) => {
+  const value = origin.replace(/\/+$/, '');
+  // Exact match: localhost/127.0.0.1 dev servers, odf-cyan.vercel.app,
+  // plus anything supplied via FRONTEND_URL / CLIENT_ORIGIN
+  if (allowedOrigins.has(value)) return true;
+  // Dynamic match: any Vercel deployment or preview URL
+  return VERCEL_ORIGIN.test(value);
+};
 
 const corsOptions = {
   credentials: true,
@@ -66,12 +79,11 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   origin(origin, callback) {
     // No Origin header = same-origin, curl, Postman, server-to-server calls
-    if (!origin || allowedOrigins.has(origin.replace(/\/+$/, ''))) {
-      return callback(null, true);
-    }
+    if (!origin) return callback(null, true);
+    if (isAllowedOrigin(origin)) return callback(null, true);
     console.warn(`CORS blocked origin: ${origin}`);
     // callback(null, false) = no CORS headers set, the browser blocks it.
-    // Returning an error here would surface as a 500 instead of a CORS failure.
+    // Returning an Error here would surface as a 500 instead of a CORS failure.
     return callback(null, false);
   },
 };
