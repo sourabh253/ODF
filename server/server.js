@@ -48,10 +48,8 @@ const allowedOrigins = new Set([
   'http://127.0.0.1:5174',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
-  // Vercel deployments (production + the alias domains for this project)
-  'https://odf-cyan.vercel.app',
-  'https://odf-mvg7ibf5l-sourabhjangid253-3182s-projects.vercel.app',
-  // Optional extra origin(s) supplied at runtime — comma-separated
+  // Production origins (e.g. the main Vercel domain) are supplied at runtime
+  // via FRONTEND_URL / CLIENT_ORIGIN (comma-separated) — never hardcoded here.
   ...parseOrigins(process.env.FRONTEND_URL),
   ...parseOrigins(process.env.CLIENT_ORIGIN),
 ]);
@@ -66,8 +64,8 @@ const VERCEL_ORIGIN = /^https?:\/\/[^\s/]+\.vercel\.app$/i;
 
 const isAllowedOrigin = (origin) => {
   const value = origin.replace(/\/+$/, '');
-  // Exact match: localhost/127.0.0.1 dev servers, odf-cyan.vercel.app,
-  // plus anything supplied via FRONTEND_URL / CLIENT_ORIGIN
+  // Exact match: localhost/127.0.0.1 dev servers plus anything supplied
+  // via FRONTEND_URL / CLIENT_ORIGIN (e.g. https://odf-cyan.vercel.app)
   if (allowedOrigins.has(value)) return true;
   // Dynamic match: any Vercel deployment or preview URL
   return VERCEL_ORIGIN.test(value);
